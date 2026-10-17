@@ -1,0 +1,96 @@
+name: Tiger I UV WebGL real-browser acceptance
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - "docs/**"
+      - "models/vehicles/land/tiger-i/**"
+      - "tests/test_tiger_uv.py"
+      - ".github/workflows/uv-browser.yml"
+  push:
+    branches: [dev]
+    paths:
+      - "docs/assets/tiger-i-uv.glb"
+      - "docs/models.json"
+concurrency:
+  group: uv-browser-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  uv-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --no-save --no-package-lock puppeteer-core@24.25.0
+      - name: Actual textured UV inspection desktop + mobile / live site on dev
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p acceptance
+          python -m http.server 8765 --bind 127.0.0.1 --directory docs >/tmp/openmodels-http.log 2>&1 &
+          node --input-type=module <<'JS'
+          import puppeteer from 'puppeteer-core';
+          import {createHash, readFileSync} from 'node:fs';
+          const live=process.env.GITHUB_EVENT_NAME==='push';
+          const target=live?'https://siliconyc.github.io/OpenModels/?model=tiger-i-uv':'http://127.0.0.1:8765/?model=tiger-i-uv';
+          const browser=await puppeteer.launch({headless:true,executablePath:'/usr/bin/google-chrome',
+            args:['--no-sandbox','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-gpu-sandbox']});
+          const page=await browser.newPage();
+          const errors=[];const glb=[];
+          page.on('pageerror',e=>errors.push(String(e)));
+          page.on('response',r=>{if(r.url().includes('tiger-i-uv.glb'))glb.push({url:r.url(),status:r.status()})});
+          const hash=(p)=>createHash('sha256').update(readFileSync(p)).digest('hex');
+          try {
+            await page.setViewport({width:1280,height:800,deviceScaleFactor:1});
+            let loaded=false;
+            for(let attempt=0;attempt<(live?10:1);attempt++) {
+              await page.goto(target,{waitUntil:'domcontentloaded',timeout:45000});
+              try {await page.waitForFunction(()=>document.querySelector('#load-state')?.textContent==='已加载真实 GLB',{timeout:live?14000:45000});loaded=true;break}
+              catch(e) {if(!live)throw e;await new Promise(r=>setTimeout(r,8000))}
+            }
+            if(!loaded)throw Error('Pages did not deploy UV viewer in time: '+await page.$eval('body',e=>e.innerText.slice(0,500)));
+            const initial=await page.evaluate(()=>({
+              title:document.getElementById('model-title').textContent,
+              metrics:document.getElementById('model-metrics').textContent,
+              source:document.querySelector('canvas')?.dataset.cameraProjection,
+              errorHidden:document.getElementById('failure').hidden
+            }));
+            console.log('UV TRUE THREE.JS:',JSON.stringify(initial),JSON.stringify(glb));
+            if(!initial.metrics.includes('1,396 三角面')||!initial.errorHidden)throw Error('missing textured GLB');
+            const texture=initial.metrics.match(/(\d+) 贴图/);
+            if(!texture||Number(texture[1])<1)throw Error('No actual texture material in loaded GLB');
+            for(const view of ['front','back','left','right','top','iso']) {
+              await page.click('[data-view="'+view+'"]');
+              await new Promise(r=>setTimeout(r,150));
+              await page.$('canvas').then(c=>c.screenshot({path:'acceptance/uv-'+view+'.png'}));
+            }
+            if(hash('acceptance/uv-front.png')===hash('acceptance/uv-back.png'))throw Error('front/back produced same WebGL image');
+            await page.click('[data-projection="perspective"]');
+            if((await page.evaluate(()=>window.__openmodelsCameraStatus?.().type))!=='PerspectiveCamera')throw Error('perspective regression');
+            await page.screenshot({path:'acceptance/uv-perspective-desktop.png'});
+            await page.click('[data-projection="orthographic"]');
+            await page.click('[data-shading="clay"]');await page.click('#wire');
+            await page.click('#wire');await page.click('[data-shading="textured"]');
+            await page.setViewport({width:390,height:820,deviceScaleFactor:1,isMobile:true,hasTouch:true});
+            await page.click('[data-view="left"]');
+            await page.screenshot({path:'acceptance/uv-mobile.png'});
+            if(errors.length)throw Error('JS errors: '+errors.join(' | '));
+            if(!glb.some(r=>r.status===200))throw Error('GLB was not served through HTTP 200');
+            console.log('PASS UV WebGL desktop/mobile, six views, embedded texture, perspective, gray/wire, live='+live);
+          }catch(e) {
+            console.error('UV_BROWSER_FAILURE',String(e),'GLB',JSON.stringify(glb),'ERRORS',JSON.stringify(errors));
+            await page.screenshot({path:'acceptance/uv-error.png'}).catch(()=>{});
+            process.exitCode=1;
+          }finally{await browser.close()}
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: uv-real-webgl-views
+          path: acceptance/
+          retention-days: 14
