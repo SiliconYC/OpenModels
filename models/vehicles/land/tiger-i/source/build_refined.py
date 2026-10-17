@@ -215,7 +215,7 @@ def oriented_shoe(center, tangent, zcenter, width=.72):
     """Actual cast tread pad. Local horizontal extends tangent to track."""
     tx,ty=tangent
     # 0.077m long side profile; thick enough to read in the RTS view.
-    m=box([.077,.035,width], [0,0,0], TRACK)
+    m=box([.123,.035,width], [0,0,0], TRACK)
     angle=math.atan2(ty,tx)
     m.apply_transform(trimesh.transformations.rotation_matrix(angle,[0,0,1]))
     m.apply_translation([center[0],center[1],zcenter])
