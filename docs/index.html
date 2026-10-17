@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <meta name="color-scheme" content="dark"/>
+  <title>OpenModels — 模型展厅</title>
+  <link rel="stylesheet" href="./style.css"/>
+  <script type="importmap">
+    {"imports":{
+      "three":"https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js",
+      "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/"
+    }}
+  </script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <div id="shell">
+    <header class="masthead">
+      <div class="brand"><span class="brandmark" aria-hidden="true">◈</span> OPENMODELS <span class="subbrand">模型展厅</span></div>
+      <label class="select-wrap"><span class="sr-only">模型</span><select id="model-select" aria-label="选择模型"><option value="">加载模型列表…</option></select></label>
+    </header>
+    <main class="stage" id="stage" aria-label="真实三维模型交互区域">
+      <div class="stage-wash"></div>
+      <div class="topline">
+        <div class="eyebrow">MODEL VIEWER <span id="model-kind">—</span></div>
+        <span id="load-state" role="status" aria-live="polite">正在初始化…</span>
+      </div>
+      <section class="bottomsheet" aria-label="模型查看控制">
+        <div class="model-description">
+          <h1 id="model-title">模型加载中</h1>
+          <div id="model-metrics" class="metrics">—</div>
+        </div>
+        <div class="controls">
+          <div class="controlgroup" aria-label="观察角度">
+            <button data-view="iso" class="active" aria-pressed="true" type="button">斜视</button>
+            <button data-view="front" aria-pressed="false" type="button">正面</button>
+            <button data-view="left" aria-pressed="false" type="button">左侧</button>
+            <button data-view="top" aria-pressed="false" type="button">俯视</button>
+          </div>
+          <div class="controlgroup" aria-label="渲染模式">
+            <button data-shading="textured" class="active" aria-pressed="true" type="button">材质</button>
+            <button data-shading="clay" aria-pressed="false" type="button">灰模</button>
+            <button id="wire" aria-pressed="false" type="button">线框</button>
+          </div>
+          <button class="reset" id="reset" type="button" aria-label="恢复默认视角">复位 ↺</button>
+        </div>
+      </section>
+      <div id="failure" class="failure" role="alert" hidden></div>
+    </main>
+    <footer><span>真实 glTF / WebGL</span><span>拖动旋转 · 右键或双指平移 · 滚轮或双指缩放</span></footer>
+  </div>
+</body>
+</html>

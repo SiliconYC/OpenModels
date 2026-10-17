@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "id": "test-cube",
+      "title": "立方体 · UV 检验",
+      "category": "geometry",
+      "stage": "pipeline-test",
+      "file": "./assets/test-cube.glb",
+      "notes": "24 vertices / 12 tris; real GLB with 8x8 checker texture"
+    }
+  ]
+}
