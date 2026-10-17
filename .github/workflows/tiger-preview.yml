@@ -1,4 +1,5 @@
 name: Tiger I real WebGL preview acceptance
+# Includes regenerated outward-facing turret and hull normals.
 on:
   pull_request:
     branches: [dev]
