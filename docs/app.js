@@ -74,7 +74,9 @@ function setView(view) {
   const dirs = {
     iso: [1.0, .85, -1.25],
     front: [1, 0, 0],
+    back: [-1, 0, 0],
     left: [0, 0, -1],
+    right: [0, 0, 1],
     top: [0, 1, 0]
   };
   const dir = new THREE.Vector3(...dirs[view]).normalize();
