@@ -11,3 +11,16 @@ Builder: `python models/vehicles/land/tiger-i/source/build.py`.
 - Validation: `python -m unittest discover -s tests -p 'test_*.py'`; the build itself reimports exported GLB as a true trimesh scene, validates named rigid nodes, dimensions and the target triangle budget.
 - The generated mesh-report stores **measured** triangle and vertex counts, bounds, node names and per-mesh data. Never hand-invent these numbers.
 - Online release URL (only after Pages deploy succeeds): `https://siliconyc.github.io/OpenModels/docs/?model=tiger-i-grey`, test both actual rendering and independent turret/recoil controls.
+
+## Issue #6: genuine paintable UV and test texture
+
+Run from repository root: `python models/vehicles/land/tiger-i/source/build_uv.py` (Python 3.12, numpy, trimesh, Pillow). This rebuilds the **same 1,396 actual triangles** and node hierarchy, but splits their UV seam corners to 4,188 vertices and embeds the image into a second GLB.
+
+- Input mesh geometry/hierarchy: `source/build.py` (retained and not replaced).
+- Paintable RGBA contour template: `../textures/tiger-i-uv-template.png`.
+- Rendered checker/part/face-orientation atlas: `../textures/tiger-i-uv-checker.png`.
+- Coordinate reference: `../textures/uv-layout.json`; 16 separate paintable part families with six charts each (+X/-X/+Y/-Y/+Z/-Z). Side panels use opposite U directions on left/right to avoid mirrored markings.
+- Real textured model and web copy: `../export/tiger-i-uv.glb`, `../../../../../docs/assets/tiger-i-uv.glb`; actual report `../export/uv-report.json`.
+- GLB atlas is embedded, not an external URL. Road-wheel instances reuse chart areas; modifying one paints them all by design. Seam vertex duplication is expected; triangle count is unchanged.
+- This is a UV **test asset**, not final production livery; artistic texture quality belongs to Issue #7. For continuous production UV islands, improve the generator and regenerate the GLB and template together.
+- Pages URL: `https://siliconyc.github.io/OpenModels/?model=tiger-i-uv` after `dev` deployment.
