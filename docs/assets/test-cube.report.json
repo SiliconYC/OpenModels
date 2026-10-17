@@ -1,0 +1,37 @@
+{
+  "model": "test-cube.glb",
+  "vertices": 24,
+  "triangles": 12,
+  "parts": [
+    {
+      "mesh": "TEST CUBE / UV",
+      "vertices": 24,
+      "triangles": 12,
+      "has_uv": true,
+      "material": 0
+    }
+  ],
+  "bounds_min": [
+    -0.5,
+    -0.5,
+    -0.5
+  ],
+  "bounds_max": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "size_m": [
+    1,
+    1,
+    1
+  ],
+  "uv_present": true,
+  "texture_count": 1,
+  "image_count": 1,
+  "extensions": [
+    "KHR_materials_unlit"
+  ],
+  "rebuild_command": "python tools/mesh_pipeline.py generate",
+  "inspection": "python tools/mesh_pipeline.py inspect docs/assets/test-cube.glb"
+}
