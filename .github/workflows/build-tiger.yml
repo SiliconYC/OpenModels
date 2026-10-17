@@ -1,0 +1,54 @@
+name: One-time Tiger I GLB build
+on:
+  push:
+    branches: [feat-5-tiger-i-lowpoly-20261017]
+    paths:
+      - ".github/workflows/build-tiger.yml"
+      - "models/vehicles/land/tiger-i/source/build.py"
+  workflow_dispatch:
+concurrency:
+  group: tiger-i-issue5-build
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pure-code mesh dependencies (no GUI)
+        run: python -m pip install --disable-pip-version-check "numpy==2.3.5" "trimesh==4.11.1"
+      - name: Generate physical indexed glTF and measured report
+        run: |
+          python models/vehicles/land/tiger-i/source/build.py
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          python tools/mesh_pipeline.py inspect docs/assets/tiger-i-grey.glb
+      - name: Record verified manifest metrics, commit and push reproducible assets
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("models/vehicles/land/tiger-i/asset.yaml")
+          report=json.loads(Path("models/vehicles/land/tiger-i/export/mesh-report.json").read_text())
+          s=p.read_text()
+          s=s.replace("stage: lowpoly_grey_pending_validation","stage: lowpoly_grey")
+          s=s.replace("geometry_generated: false","geometry_generated: true")
+          s=s.replace("gltf_generated: false","gltf_generated: true")
+          s=s.replace("triangle_count: null","triangle_count: "+str(report["triangles"]))
+          p.write_text(s)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add models/vehicles/land/tiger-i/asset.yaml \
+            models/vehicles/land/tiger-i/export/tiger-i-grey.glb \
+            models/vehicles/land/tiger-i/export/mesh-report.json \
+            docs/assets/tiger-i-grey.glb
+          git commit -m "build(#5): checked-in true Tiger GLB and audited dimensions/mesh counts"
+          git push origin HEAD:feat-5-tiger-i-lowpoly-20261017
