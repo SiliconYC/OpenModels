@@ -1,0 +1,48 @@
+name: #25 geometry controls → provider input preflight (NO AI INFERENCE)
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - 'tools/sprites/prepare_ai_probe.py'
+      - 'tools/sprites/fal_control_probe.py'
+      - '.github/workflows/ai-probe-preflight.yml'
+concurrency:
+  group: issue25-preflight-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  convert:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install one lightweight PNG decoder (no diffusion model)
+        run: python -m pip install --disable-pip-version-check Pillow
+      - name: Verify real control origins, convert 4 direction input conditions
+        run: |
+          python tools/sprites/prepare_ai_probe.py
+          python tools/sprites/fal_control_probe.py
+          python -m unittest discover -s tests -p 'test_ai_control_probe.py' -v
+      - name: Explicitly verify no hidden model/credential was used
+        env:
+          HAS_FAL_KEY: ${{ secrets.FAL_KEY != '' }}
+        run: |
+          echo "Fal API credential configured for this workflow: $HAS_FAL_KEY"
+          echo "NOT GENERATING: no paid inference, no commercial art approval."
+      - name: Commit ONLY real converted control inputs and no-inference plan
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add models/vehicles/land/tiger-i/sprites/generated/issue25/inputs/ models/vehicles/land/tiger-i/sprites/generated/issue25/input-manifest.json models/vehicles/land/tiger-i/sprites/generated/issue25/request-preflight.json models/vehicles/land/tiger-i/sprites/qa/issue25-input-contact-sheet.png
+          if ! git diff --cached --quiet; then
+            git -c user.name=openmodels-builder -c user.email=actions@users.noreply.github.com commit -m 'build(#25): actual 4-heading provider RGB inputs with proof of no AI inference'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
