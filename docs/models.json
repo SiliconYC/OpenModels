@@ -2,6 +2,22 @@
   "schema_version": 1,
   "models": [
     {
+      "id": "tiger-i-refined",
+      "title": "虎式坦克 · 精细模型（UV 测试）",
+      "category": "vehicles/land",
+      "stage": "detailed-uv-test",
+      "file": "./assets/tiger-i-refined-uv.glb",
+      "notes": "Issue #19: 1943 Tiger I; 48 staggered road wheels, 200 cast tread shoes, proper turret outline, custom gun mantlet, 4096 UV checker atlas"
+    },
+    {
+      "id": "tiger-i-refined-grey",
+      "title": "虎式坦克 · 精细灰模",
+      "category": "vehicles/land",
+      "stage": "detailed-grey",
+      "file": "./assets/tiger-i-refined-grey.glb",
+      "notes": "Issue #19: detailed real geometry, unpainted"
+    },
+    {
       "id": "tiger-i-uv",
       "title": "虎式坦克 · UV 测试贴图",
       "category": "vehicles/land",
