@@ -15,57 +15,57 @@ permissions:
 jobs:
   check-public-website:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 12
     steps:
-      - name: Verify deployed root or compatibility redirect and real GLB
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Confirm LIVE dual entry, legacy GLBs and exact published PNG
         shell: bash
         run: |
           set -euo pipefail
           base="https://siliconyc.github.io/OpenModels"
-          for attempt in $(seq 1 12); do
-            curl -fLSs --max-time 18 "${base}/" -o /tmp/public-home || true
-            if grep -q 'id="stage"' /tmp/public-home; then
-              prefix="${base}"
-              mode="canonical /docs Pages source"
-            elif grep -q "location.replace('./docs/'" /tmp/public-home; then
-              prefix="${base}/docs"
-              mode="root fallback redirect to /docs"
-            else
-              prefix=""
-              mode="wrong Pages source or deployment not propagated"
+          mkdir -p /tmp/openmodels-public
+          ready=false
+          for attempt in $(seq 1 18); do
+            ok=true
+            for file in index.html sprites.html 3d.html sprites-catalog.json assets/sprites/fixture-compass/integrated/manifest.json assets/sprites/fixture-compass/integrated/frames/000.png assets/test-cube.glb assets/tiger-i-uv.glb; do
+              curl -fLsS --max-time 20 "$base/$file" -o "/tmp/openmodels-public/${file//\//_}" || { ok=false; break; }
+            done
+            if [ "$ok" = true ] && cmp -s docs/index.html /tmp/openmodels-public/index.html &&
+                 cmp -s docs/assets/sprites/fixture-compass/integrated/frames/000.png /tmp/openmodels-public/assets_sprites_fixture-compass_integrated_frames_000.png &&
+                 grep -q 'id="stage"' /tmp/openmodels-public/3d.html &&
+                 grep -q 'id="sprite-canvas"' /tmp/openmodels-public/sprites.html; then
+              ready=true
+              break
             fi
-            if [ -n "$prefix" ]; then
-              http="true"
-              for path in "index.html" "app.js" "models.json" "assets/test-cube.glb" "assets/tiger-i-grey.glb" "assets/tiger-i-uv.glb" "assets/tiger-i-refined-grey.glb" "assets/tiger-i-refined-uv.glb"; do
-                if ! curl -fLSs --max-time 18 "${prefix}/${path}" -o "/tmp/page-${path//\//_}"; then
-                  http="false"
-                  break
-                fi
-              done
-              if [ "$http" = "true" ] && grep -q 'id="stage"' /tmp/page-index.html && grep -q GLTFLoader /tmp/page-app.js; then
-                if ! grep -q '"id": "tiger-i-refined-grey"' /tmp/page-models.json; then
-                echo "UV catalog deployment pending, retry..."
-                sleep 10
-                continue
-              fi
-              echo "Source mode: $mode"
-                export TEST_PREFIX="$prefix"
-                python - <<'PY'
-          import json,struct,os
-          for file in ('test-cube', 'tiger-i-grey', 'tiger-i-uv', 'tiger-i-refined-grey', 'tiger-i-refined-uv'):
-              p=open('/tmp/page-assets_'+file+'.glb','rb').read()
-              assert p[:4]==b'glTF' and struct.unpack_from('<II',p,4)==(2,len(p)),file
-          m=json.load(open('/tmp/page-models.json'))
-          assert {'test-cube','tiger-i-grey','tiger-i-uv','tiger-i-refined-grey','tiger-i-refined'}.issubset({v['id'] for v in m['models']})
-          print('PASS: live Pages viewer, model catalog and all real GLBs including refined geometry and UV')
-          print('Public asset base:',os.environ['TEST_PREFIX'])
-          PY
-                exit 0
-              fi
-            fi
-            echo "Attempt $attempt: $mode; retrying to allow Pages deployment" 
+            echo "Attempt $attempt: waiting for dev:/docs deployment of CURRENT revision"
             sleep 10
           done
-          echo "FAIL: public Pages does not serve viewer. ROOT first 350 bytes:"
-          head -c 350 /tmp/public-home
-          exit 1
+          if [ "$ready" != true ]; then echo 'Public Pages did not deploy current sprite revision';exit 1;fi
+          python - <<'PY'
+          import json,struct
+          from pathlib import Path
+          p=Path('/tmp/openmodels-public')
+          m=json.loads((p/'assets_sprites_fixture-compass_integrated_manifest.json').read_text())
+          c=json.loads((p/'sprites-catalog.json').read_text())
+          assert m['heading_slots']==64 and m['available_levels']==[16,32,64]
+          assert c['assets'][0]['release_status']=='fixture' and c['assets'][1]['release_status']=='planned'
+          png=(p/'assets_sprites_fixture-compass_integrated_frames_000.png').read_bytes()
+          assert png[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack_from('>II',png,16)==(96,96) and png[25]==6
+          glb=(p/'assets_test-cube.glb').read_bytes()
+          assert glb[:4]==b'glTF' and struct.unpack_from('<II',glb,4)==(2,len(glb))
+          print('PASS: actual public dual portal, sprite, manifest, PNG and GLB, all HTTP 200')
+          PY
+      - run: npm install --no-save --no-package-lock puppeteer-core@24.25.0
+      - name: Run real Chrome against deployed public Pages
+        run: node tests/acceptance-sprites.mjs
+        env:
+          OPENMODELS_BASE: https://siliconyc.github.io/OpenModels/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: issue32-public-pages-chrome
+          path: acceptance/
+          retention-days: 21

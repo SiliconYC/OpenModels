@@ -1,29 +1,33 @@
-# GitHub Pages — OpenModels 双入口静态展厅
+# GitHub Pages — 双入口与 PNG 播放器（Issue #32）
 
-静态发布源 **`dev:/docs`**，正式 URL：`https://siliconyc.github.io/OpenModels/`。无后台服务、桌面建模或本地编译依赖。
+发布源：**`dev:/docs`**；公开网站：<https://siliconyc.github.io/OpenModels/>。
 
-> **当前是原有 3D 展厅**，新的双入口首页和 2D 播放器由独立 Pages 基础设施 Issue 实施。在真正合并部署并实测前，以下的新路径仅为目标，不得虚报可用。
+- **`/`**：双入口首页。主入口为多方向图／伪 3D，次入口为保留的传统 3D。
+- **`/sprites.html`**：统一 Canvas 2D RGBA 方向播放器，纯 2D，无 Three.js。支持 16／32／64 已完整档位、固定锚点、透明棋盘、64／128／256 像素与鼠标／触控。
+- **`/3d.html`**：保留 GLTFLoader、OrbitControls、真正正交／透视、六视向、材质／灰模／线框、炮塔与炮管控制。
+- **`/?model=tiger-i-uv`**：旧深链自动进入 `3d.html?model=tiger-i-uv`；其他旧模型 ID 保留；`/docs/?model=...` 提供兼容重定向。
+- **`/sprites.html?asset=fixture-compass&variant=integrated&level=64&heading=0`**：fixture 深链。参数通过目录/manifest 白名单解析，不拼用户路径。
 
-## 路由与产品定位
+## 数据源、发布与校验
 
-- `/OpenModels/`：双入口门户；**多方向图／伪 3D（首要生产路线）**与**历史传统 3D（保留）**。
-- `/OpenModels/sprites.html`：通用 N 方向 PNG 浏览器，不依赖精细 3D 网格或 Three.js。
-- `/OpenModels/3d.html`：保留当前 Three.js 0.168.0 GLTFLoader + OrbitControls 的真实 GLB 互动功能，原模型/材质/线框、正交与透视、炮塔和炮管动作不可回归。
-- 老的 `/OpenModels/?model=tiger-i-uv` 直达链接应兼容跳转到 3D，不能默认为伪 3D。
-- 新 PNG 深链形如 `/OpenModels/sprites.html?asset=tiger-i&variant=integrated&level=16&heading=0`；参数只能从可发布目录白名单中选取，不能输入任意 URL。
+`tools/sprites/assets.json` 是**发布目录配置**。每项需有唯一 ID、variant、发布状态、展示名；真实发布项提供源 `export` 目录。正式资产将使用 `models/.../sprites/export/`；测试夹具仅位于 `tests/fixtures/sprites/`。
 
-## N 方向素材通用契约
+`tools/sprites/publish.mjs` 会校验 manifest、完整档位、000–063 全局槽号、RGBA 解码、alpha、CRC、路径与源文件，然后**按字节**复制到 `docs/assets/sprites/<asset-id>/<variant>/`，生成 `docs/sprites-catalog.json`。镜像检查对所有 PNG 校验 SHA-256，不允许手改发布副本。
 
-**权威设计**：[../standards/sprite-viewer-architecture.md](../standards/sprite-viewer-architecture.md)；生产规范：[../standards/n-direction-sprites.md](../standards/n-direction-sprites.md)。
+从仓库根目录运行：
 
-- 一个 `docs/sprites-catalog.json` 资产目录 + 每个资产一个 `manifest.json` + 通用播放器，**不写车型专属页面**。
-- 生产源位于 `models/.../sprites/`，但 **Pages 仅发布 `docs/`**：脚本需镜像真实批准的 `export/manifest.json` 和 PNG 到 `docs/assets/sprites/<asset-id>/<variant>/`。
-- 同一 64 槽 `000.png…063.png`，16 方向取每4帧、32取每2帧、64取全部；只启用已经完整发布的档位。
-- 固定相机、画布、地面 pivot；直接替换 RGBA PNG，支持旋转、触控、透明底检查与 64／128／256 像素 RTS 观看。
-- **基础设施先于正式 AI 内容**，应以明确标识的程序化测试 PNG 验证；不要把测试夹具、3D 模型渲染或拼图冒充正式的虎式坦克 N 方向成品。
+```sh
+node tools/sprites/generate_fixture.mjs --check
+node tools/sprites/publish.mjs --check
+node --test tests/test_sprites.mjs
+```
 
-## 发布验收
+重新生成 fixture 用 `node tools/sprites/generate_fixture.mjs`，然后运行 `node tools/sprites/publish.mjs` 发布。发布源 manifest 和 docs manifest 相同；不要手动修改 docs 镜像。
 
-检查真正的 Pages 公网地址、HTTP 200、双入口跳转、旧 `?model=` 兼容、3D 正交／透视与 WebGL 互动、2D fixture PNG 真实透明与方向播放/帧索引、手机触控与关键可用性。CI 应精简、按最新提交验收，记录对应 SHA、实际截图和失败项。
+**fixture-compass** 是纯程序生成、64 槽方向不对称图案的真实 RGBA PNG，画布 96×96、统一 pivot [48,56]。完整 16/32/64 档位均可测试。**它不是 Tiger I、也不是正式美术**。正式虎式资产在目录标记为 planned，尚不可播放。
 
-原 3D 立方体检查模型为真实 12 三角面带纹理 GLB，不是虎式坦克，也不是伪 3D 方向图；应当在保留区继续可用。
+## 验收
+
+`tests/test_sprites.mjs` 验证目录、64 全局槽、真实文件和可重建性；`tests/acceptance-sprites.mjs` 在 Chromium 验证桌面／移动首页、真实 PNG 播放、切档、透明背景、方向拖动与触控、坏帧反馈、旧 3D GLB、正交／透视及深链。PR 浏览器测试使用相同的 `/OpenModels/` 路径本地部署；合并 `dev` 后 `pages-smoke.yml` 等待 Pages 真正更新并对公网进行相同浏览器验收，保存截图。
+
+架构规范：[../standards/sprite-viewer-architecture.md](../standards/sprite-viewer-architecture.md)。**基础设施可验收不等于正式 AI 美术可验收**。
