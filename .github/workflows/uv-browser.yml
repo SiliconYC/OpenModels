@@ -75,7 +75,11 @@ jobs:
             if((await page.evaluate(()=>window.__openmodelsCameraStatus?.().type))!=='PerspectiveCamera')throw Error('perspective regression');
             await page.screenshot({path:'acceptance/uv-perspective-desktop.png'});
             await page.click('[data-projection="orthographic"]');
-            await page.click('[data-shading="clay"]');await page.click('#wire');
+            await page.click('[data-shading="clay"]');
+            await new Promise(r=>setTimeout(r,150));
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/uv-clay.png'}));
+            if(hash('acceptance/uv-iso.png')===hash('acceptance/uv-clay.png'))throw Error('texture/gray modes render identical pixels');
+            await page.click('#wire');
             await page.click('#wire');await page.click('[data-shading="textured"]');
             await page.setViewport({width:390,height:820,deviceScaleFactor:1,isMobile:true,hasTouch:true});
             await page.click('[data-view="left"]');
