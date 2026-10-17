@@ -28,6 +28,7 @@ jobs:
       - name: Generate physical indexed glTF and measured report
         run: |
           python models/vehicles/land/tiger-i/source/build.py
+          python tests/test_tiger_references.py
           python -m unittest discover -s tests -p 'test_*.py' -v
           python tools/mesh_pipeline.py inspect docs/assets/tiger-i-grey.glb
       - name: Record verified manifest metrics, commit and push reproducible assets
@@ -50,6 +51,8 @@ jobs:
           git add models/vehicles/land/tiger-i/asset.yaml \
             models/vehicles/land/tiger-i/export/tiger-i-grey.glb \
             models/vehicles/land/tiger-i/export/mesh-report.json \
-            docs/assets/tiger-i-grey.glb
+            docs/assets/tiger-i-grey.glb \
+            models/vehicles/land/tiger-i/references/front.svg \
+            models/vehicles/land/tiger-i/references/left.svg
           git commit -m "build(#5): checked-in true Tiger GLB and audited dimensions/mesh counts"
           git push origin HEAD:feat-5-tiger-i-lowpoly-20261017
