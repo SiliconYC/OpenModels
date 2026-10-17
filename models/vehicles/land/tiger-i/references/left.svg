@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1190 510" data-scale-px-per-m="90" data-projection="left" role="img" aria-label="Tiger I left engineering reference">
+<style>svg{background:#f5f3ec}text{font-family:monospace;fill:#353d3b}.title{font-size:22px;font-weight:bold}.note{font-size:13px}.part{fill:#d5d7ce;stroke:#273b3b;stroke-width:2;stroke-linejoin:round}.steel{fill:#adb9b2;stroke:#273b3b;stroke-width:2}.track{fill:#59665f;stroke:#273b3b;stroke-width:3}.wheel{fill:#d6d5bd;stroke:#293e3b;stroke-width:2}.axis{fill:none;stroke:#b05c38;stroke-dasharray:7 6;stroke-width:1.5}.dim{fill:none;stroke:#687977;stroke-width:1;stroke-dasharray:2 4}</style>
+<text class="title" x="42" y="48">TIGER I · EARLY 1943 / LEFT / PORT</text>
+<text class="note" x="42" y="73">SCHEMATIC · 90 px/m · 1:1 COMMON SCALE · METRES</text>
+<rect data-part="left_track" x="95.400" y="262.700" width="529.200" height="93.600" rx="46.8" class="track"/>
+<rect data-part="hull" x="75.780" y="189.800" width="568.440" height="133.200" class="part"/>
+<rect data-part="left_skirt" x="103.500" y="252.800" width="513.900" height="13.500" class="steel"/>
+<circle data-part="wheel-station-1" cx="162.900" cy="308.600" r="35.100" class="wheel"/>
+<circle data-part="wheel-hub" cx="162.900" cy="308.600" r="9.000" class="steel"/>
+<circle data-part="wheel-station-2" cx="213.300" cy="308.600" r="35.100" class="wheel"/>
+<circle data-part="wheel-hub" cx="213.300" cy="308.600" r="9.000" class="steel"/>
+<circle data-part="wheel-station-3" cx="263.700" cy="308.600" r="35.100" class="wheel"/>
+<circle data-part="wheel-hub" cx="263.700" cy="308.600" r="9.000" class="steel"/>
+<circle data-part="wheel-station-4" cx="314.100" cy="308.600" r="35.100" class="wheel"/>
+<circle data-part="wheel-hub" cx="314.100" cy="308.600" r="9.000" class="steel"/>
+<circle data-part="wheel-station-5" cx="364.500" cy="308.600" r="35.100" class="wheel"/>
+<circle data-part="wheel-hub" cx="364.500" cy="308.600" r="9.000" class="steel"/>
+<circle data-part="wheel-station-6" cx="414.900" cy="308.600" r="35.100" class="wheel"/>
+<circle data-part="wheel-hub" cx="414.900" cy="308.600" r="9.000" class="steel"/>
+<circle data-part="wheel-station-7" cx="465.300" cy="308.600" r="35.100" class="wheel"/>
+<circle data-part="wheel-hub" cx="465.300" cy="308.600" r="9.000" class="steel"/>
+<circle data-part="wheel-station-8" cx="515.700" cy="308.600" r="35.100" class="wheel"/>
+<circle data-part="wheel-hub" cx="515.700" cy="308.600" r="9.000" class="steel"/>
+<circle data-part="idler_x" cx="128.700" cy="308.600" r="43.200" class="steel"/>
+<circle data-part="drive_sprocket_x" cx="590.400" cy="308.600" r="43.200" class="steel"/>
+<rect data-part="turret" x="268.200" y="131.300" width="240.300" height="57.600" rx="25" class="part"/>
+<rect data-part="gun" x="508.500" y="157.850" width="327.780" height="18.900" class="steel"/>
+<circle data-part="cupola" cx="318.600" cy="125.900" r="19.800" class="steel"/>
+<path class="axis" d="M360.00,386.00 L360.00,98.00"/>
+<text class="note" x="42" y="470">X forward · Y up · Z right / centre (0,0,0) = hull midpoint on ground</text>
+<text class="note" x="42" y="491">Illustrative envelopes are not manufacturing-grade contours; see geometry.json &amp; NOTES.md</text>
+</svg>

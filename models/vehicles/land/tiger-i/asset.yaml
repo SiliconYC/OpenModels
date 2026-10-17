@@ -1,0 +1,63 @@
+schema_version: 1
+id: tiger-i-early-1943
+name: Tiger I Ausf. E - 1943 early production
+category: vehicles/land
+variant: "Tiger I early production, approx. February-April 1943; Tiger 131 reference"
+stage: orthographic_references
+unit: metre
+axes:
+  forward: "+X"
+  up: "+Y"
+  right: "+Z"
+  origin: hull midlength at ground y=0
+  turret_yaw: "+Y"
+  gun_axis: "+X"
+  gun_recoil: "-X"
+nominal_dimensions_m:
+  hull_length: 6.316
+  overall_length_gun_forward: 8.45
+  combat_track_width_overall: 3.547
+  width_with_skirts: 3.705
+  max_height: 3.0
+references:
+  geometry: references/geometry.json
+  front: references/front.svg
+  left: references/left.svg
+  top: references/top.svg
+  generator: references/render_views.py
+  documentation: references/NOTES.md
+  sources:
+    - url: https://tankmuseum.org/article/two-widths-track/
+      kind: engineering_reference_only
+    - url: https://tiger1.info/EN/Hull-dimensions.html
+      kind: engineering_reference_only
+    - url: https://tiger1.info/EN/Turret-dimensions.html
+      kind: engineering_reference_only
+    - url: https://tiger1.info/EN/Side-skirts.html
+      kind: engineering_reference_only
+authorship: original_code_generated_geometry
+source_image_copied: false
+geometry_generated: false
+gltf_generated: false
+triangle_count: null
+textures: []
+parts_planned:
+  - hull
+  - left_track
+  - right_track
+  - turret
+  - gun
+  - cupola
+mechanical_pivots:
+  turret_yaw_approx_m: [0.315, 2.18, 0.0]
+  bore_origin_approx_m: [1.65, 2.43, 0.0]
+  recoil_direction: "-X"
+unverified:
+  - turret contour and yaw centre
+  - interleaved road wheel stagger
+  - armour profile, mantlet and hatch details
+  - final GLB bbox, tris, UVs and textures
+licensing:
+  reference_source_rights: retained_by_original_publishers
+  third_party_assets_included: false
+  repository_asset_license: not_specified
