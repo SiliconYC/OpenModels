@@ -36,5 +36,9 @@ jobs:
           git add models/vehicles/land/tiger-i/textures/ models/vehicles/land/tiger-i/export/tiger-i-uv.glb models/vehicles/land/tiger-i/export/uv-report.json docs/assets/tiger-i-uv.glb
           if ! git diff --staged --quiet; then
             git commit -m "build(#6): checked-in generated real UV atlas PNG and textured GLB"
+            # Other review commits may land during asset generation. Replay the
+            # asset commit onto remote HEAD without rewriting collaborator work.
+            git fetch origin feat-6-tiger-i-uv-atlas-20261017
+            git rebase origin/feat-6-tiger-i-uv-atlas-20261017
             git push origin "HEAD:feat-6-tiger-i-uv-atlas-20261017"
           fi
