@@ -1,44 +1,65 @@
 name: Public Pages verification
 on:
-  pull_request:
+  push:
     branches: [dev]
     paths:
-      - ".github/workflows/pages-smoke.yml"
+      - "index.html"
       - "docs/**"
+      - ".github/workflows/pages-smoke.yml"
   workflow_dispatch:
 concurrency:
-  group: pages-public-${{ github.event.pull_request.number || github.ref }}
+  group: pages-public-${{ github.ref }}
   cancel-in-progress: true
 permissions:
   contents: read
 jobs:
   check-public-website:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 5
     steps:
-      - name: Confirm the public site is the viewer, not README
+      - name: Verify deployed root or compatibility redirect and real GLB
         shell: bash
         run: |
           set -euo pipefail
           base="https://siliconyc.github.io/OpenModels"
-          for path in "/" "/index.html" "/app.js" "/models.json" "/assets/test-cube.glb"; do
-            echo "Checking ${base}${path}"
-            curl --fail --location --silent --show-error --retry 3 --retry-delay 3 --output "/tmp/check-${path//\//_}" "${base}${path}"
-          done
-          if ! grep -q 'id="stage"' /tmp/check-_ ; then
-            echo "ERROR: root is not the interactive model viewer."
-            head -c 650 /tmp/check-_
-            exit 1
-          fi
-          grep -q 'id="stage"' /tmp/check-_index.html
-          grep -q 'GLTFLoader' /tmp/check-_app.js
-          grep -q 'test-cube.glb' /tmp/check-_models.json
-          python - <<'PY'
-          import json, struct
-          with open('/tmp/check-_assets_test-cube.glb','rb') as f:
-              raw=f.read()
-          assert raw[:4]==b'glTF'
-          assert struct.unpack_from('<II',raw,4)==(2,len(raw))
-          assert json.load(open('/tmp/check-_models.json'))['models'][0]['id']=='test-cube'
-          print('PASS: publicly deployed viewer, JavaScript, JSON catalog and real GLB.')
+          for attempt in $(seq 1 12); do
+            curl -fLSs --max-time 18 "${base}/" -o /tmp/public-home || true
+            if grep -q 'id="stage"' /tmp/public-home; then
+              prefix="${base}"
+              mode="canonical /docs Pages source"
+            elif grep -q "location.replace('./docs/'" /tmp/public-home; then
+              prefix="${base}/docs"
+              mode="root fallback redirect to /docs"
+            else
+              prefix=""
+              mode="wrong Pages source or deployment not propagated"
+            fi
+            if [ -n "$prefix" ]; then
+              http="true"
+              for path in "index.html" "app.js" "models.json" "assets/test-cube.glb"; do
+                if ! curl -fLSs --max-time 18 "${prefix}/${path}" -o "/tmp/page-${path//\//_}"; then
+                  http="false"
+                  break
+                fi
+              done
+              if [ "$http" = "true" ] && grep -q 'id="stage"' /tmp/page-index.html && grep -q GLTFLoader /tmp/page-app.js; then
+                echo "Source mode: $mode"
+                export TEST_PREFIX="$prefix"
+                python - <<'PY'
+          import json,struct,os
+          p=open('/tmp/page-assets_test-cube.glb','rb').read()
+          assert p[:4]==b'glTF' and struct.unpack_from('<II',p,4)==(2,len(p))
+          m=json.load(open('/tmp/page-models.json'))
+          assert m['models'][0]['id']=='test-cube'
+          print('PASS: publicly deployed interactive viewer static files, catalog and genuine GLB')
+          print('Public asset base:',os.environ['TEST_PREFIX'])
           PY
+                exit 0
+              fi
+            fi
+            echo "Attempt $attempt: $mode; retrying to allow Pages deployment" 
+            sleep 10
+          done
+          echo "FAIL: public Pages does not serve viewer. ROOT first 350 bytes:"
+          head -c 350 /tmp/public-home
+          exit 1
