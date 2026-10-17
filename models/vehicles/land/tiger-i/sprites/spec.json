@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "asset_id": "tiger-i",
+  "variant": "integrated",
+  "purpose": "geometry-control-not-art",
+  "model": "control/tiger-i-control.npz",
+  "model_glb": "control/tiger-i-control.glb",
+  "heading_slots": 64,
+  "degrees_per_slot": 5.625,
+  "zero_heading": "+X vehicle nose at theta zero; camera fixed at azimuth 45 and 35deg elevation",
+  "rotation_axis": "+Y",
+  "camera": {
+    "type": "orthographic",
+    "azimuth_deg": 45,
+    "elevation_deg": 35,
+    "world_up": "+Y",
+    "fixed": true,
+    "canvas_px": [
+      512,
+      512
+    ],
+    "pixels_per_m": 47,
+    "pivot_px": [
+      256,
+      354
+    ],
+    "near_cam_z_m": -12,
+    "far_cam_z_m": 12
+  },
+  "part_ids": {
+    "background": 0,
+    "hull": 1,
+    "turret": 2,
+    "gun": 3,
+    "track": 4,
+    "wheel": 5,
+    "fittings": 6
+  },
+  "channels": [
+    "silhouette",
+    "depth",
+    "parts"
+  ],
+  "depth_encoding": "16-bit PNG; 0 background, 1-65535 visible; camera dot(vertex,toward-camera), near=-12 far=12, nearer is brighter"
+}
