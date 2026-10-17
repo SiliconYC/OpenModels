@@ -1,0 +1,240 @@
+{
+  "asset": "tiger-i-early-1943",
+  "phase": "P1 grey-box; deliberately simplified wheels; not a production art asset",
+  "export": "models/vehicles/land/tiger-i/export/tiger-i-grey.glb",
+  "web": "docs/assets/tiger-i-grey.glb",
+  "triangles": 1396,
+  "vertices": 766,
+  "mesh_count": 36,
+  "bounds_xyz_m": [
+    [
+      -3.158,
+      0.33,
+      -1.7735
+    ],
+    [
+      5.292,
+      3.0,
+      1.7735
+    ]
+  ],
+  "size_xyz_m": [
+    8.45,
+    2.67,
+    3.547
+  ],
+  "nodes": [
+    "Barrel",
+    "BarrelTube",
+    "Cupola",
+    "EngineDeck",
+    "Foredeck",
+    "Hull",
+    "HullArmour",
+    "HullDeck",
+    "Idler_-1",
+    "Idler_1",
+    "Mantlet",
+    "MuzzleBrake",
+    "RoadWheel_-1_1",
+    "RoadWheel_-1_2",
+    "RoadWheel_-1_3",
+    "RoadWheel_-1_4",
+    "RoadWheel_-1_5",
+    "RoadWheel_-1_6",
+    "RoadWheel_-1_7",
+    "RoadWheel_-1_8",
+    "RoadWheel_1_1",
+    "RoadWheel_1_2",
+    "RoadWheel_1_3",
+    "RoadWheel_1_4",
+    "RoadWheel_1_5",
+    "RoadWheel_1_6",
+    "RoadWheel_1_7",
+    "RoadWheel_1_8",
+    "SideSkirt_-1",
+    "SideSkirt_1",
+    "Sprocket_-1",
+    "Sprocket_1",
+    "TowLug_-1",
+    "TowLug_1",
+    "Track_-1",
+    "Track_1",
+    "Turret",
+    "TurretShell",
+    "TurretStowage",
+    "World",
+    "world"
+  ],
+  "parts": {
+    "HullArmour": {
+      "triangles": 24,
+      "vertices": 14
+    },
+    "HullDeck": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "Foredeck": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "EngineDeck": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "Track_-1": {
+      "triangles": 112,
+      "vertices": 56
+    },
+    "RoadWheel_-1_1": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_-1_2": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_-1_3": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_-1_4": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_-1_5": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_-1_6": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_-1_7": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_-1_8": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "Idler_-1": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "Sprocket_-1": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "TowLug_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "Track_1": {
+      "triangles": 112,
+      "vertices": 56
+    },
+    "RoadWheel_1_1": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_1_2": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_1_3": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_1_4": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_1_5": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_1_6": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_1_7": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "RoadWheel_1_8": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "Idler_1": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "Sprocket_1": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "TowLug_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretShell": {
+      "triangles": 48,
+      "vertices": 26
+    },
+    "TurretStowage": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "Cupola": {
+      "triangles": 40,
+      "vertices": 22
+    },
+    "BarrelTube": {
+      "triangles": 140,
+      "vertices": 72
+    },
+    "MuzzleBrake": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "Mantlet": {
+      "triangles": 12,
+      "vertices": 8
+    }
+  },
+  "articulations": {
+    "Turret": {
+      "parent": "Hull",
+      "axis": "+Y",
+      "pivot_hull_xyz": [
+        0.315,
+        2.18,
+        0
+      ]
+    },
+    "Barrel": {
+      "parent": "Turret",
+      "axis": "-X recoil",
+      "pivot_turret_xyz": [
+        1.335,
+        0.25,
+        0
+      ]
+    }
+  },
+  "nominal_reference": "references/geometry.json",
+  "road_wheels_modelled_per_side": 8,
+  "historical_road_wheels_per_side": 24,
+  "notes": "Only main visible 8 road wheels/side modelled; interleaved hidden rows omitted pending next LOD; this is not final tracks or measured armour contours.",
+  "rebuild_command": "python models/vehicles/land/tiger-i/source/build.py"
+}

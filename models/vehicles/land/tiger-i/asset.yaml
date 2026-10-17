@@ -3,7 +3,7 @@ id: tiger-i-early-1943
 name: Tiger I Ausf. E - 1943 early production
 category: vehicles/land
 variant: "Tiger I early production, approx. February-April 1943; Tiger 131 reference"
-stage: lowpoly_grey_pending_validation
+stage: lowpoly_grey
 unit: metre
 axes:
   forward: "+X"
@@ -37,9 +37,9 @@ references:
       kind: engineering_reference_only
 authorship: original_code_generated_geometry
 source_image_copied: false
-geometry_generated: false
-gltf_generated: false
-triangle_count: null
+geometry_generated: true
+gltf_generated: true
+triangle_count: 1396
 model_build_script: source/build.py
 model_export: export/tiger-i-grey.glb
 viewer_asset: docs/assets/tiger-i-grey.glb
