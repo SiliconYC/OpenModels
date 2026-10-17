@@ -50,7 +50,7 @@ jobs:
             await page.mouse.move(rect.x+rect.width*.48,rect.y+rect.height*.42);
             await page.mouse.down({button:'right'});await page.mouse.move(rect.x+rect.width*.50,rect.y+rect.height*.44,{steps:8});await page.mouse.up({button:'right'});
             await page.mouse.wheel({deltaY:180});
-            await new Promise(r=>setTimeout(r,750));
+            await new Promise(r=>setTimeout(r,1700));
             const before=await state();
             await page.screenshot({path:'acceptance/projection-ortho-desktop.png'});
             await page.click('[data-projection="perspective"]');
@@ -58,6 +58,7 @@ jobs:
             const after=await state();
             if(after.type!=='PerspectiveCamera' || after.fov!==42) throw Error('real PerspectiveCamera missing');
             if(!close(after.verticalSpan,before.verticalSpan,.02)) throw Error('switch altered visual scale');
+            console.log('Projection transfer:',JSON.stringify({before,after}));
             if(!sameVec(after.target,before.target)||!sameVec(after.direction,before.direction)) throw Error('switch jumped target/direction');
             await page.screenshot({path:'acceptance/projection-perspective-desktop.png'});
             for(const view of ['front','back','left','right','top','iso']) {
