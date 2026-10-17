@@ -74,6 +74,37 @@ jobs:
             process.exitCode=1;
           }finally{await browser.close()}
           JS
+
+      - name: Capture actual browser-rendered RTS thumbnail sizes
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check pillow
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          im=Image.open('acceptance/tiger-before.png').convert('RGB')
+          w,h=im.size
+          # Detect actual bright model pixels on the unadorned WebGL canvas,
+          # not a concept rendering or a fake composited screenshot.
+          points=[]
+          pix=im.load()
+          for y in range(int(h*.10),int(h*.90),2):
+              for x in range(int(w*.12),int(w*.88),2):
+                  r,g,b=pix[x,y]
+                  if min(r,g,b)>95 and max(r,g,b)<230:
+                      points.append((x,y))
+          if len(points)<75:
+              raise RuntimeError('Cannot identify real rendered model pixels for crop')
+          left=min(x for x,y in points);right=max(x for x,y in points)
+          top=min(y for x,y in points);bottom=max(y for x,y in points)
+          size=int(max(right-left,bottom-top)*1.22)
+          cx=(left+right)//2;cy=(top+bottom)//2
+          region=im.crop((cx-size//2,cy-size//2,cx-size//2+size,cy-size//2+size))
+          for pixels in (64,128,256):
+              out=Path('acceptance')/f'tiger-rts-{pixels}.png'
+              region.resize((pixels,pixels),Image.Resampling.LANCZOS).save(out)
+              print('Real WebGL thumbnail:',out)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
