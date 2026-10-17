@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "asset_id": "tiger-i-early-1943",
+  "model": "Panzerkampfwagen VI Tiger Ausf. E, early production (circa February–April 1943; Tiger 131 as reference)",
+  "unit": "metre",
+  "axes": {
+    "forward": "+X",
+    "up": "+Y",
+    "right": "+Z",
+    "left": "-Z",
+    "turret_yaw_axis": "+Y",
+    "gun_bore_axis": "+X",
+    "recoil_direction": "-X",
+    "origin": "centre of hull-length at ground plane; x=0,y=0,z=0"
+  },
+  "dimensions": {
+    "hull_length": 6.316,
+    "overall_length_gun_forward": 8.45,
+    "operational_track_overall_width": 3.547,
+    "overall_width_with_skirts": 3.705,
+    "height_to_cupola": 3,
+    "operational_track_width": 0.725,
+    "turret_ring_diameter": 1.83,
+    "road_wheels_per_side": 24,
+    "road_wheel_stations": 8
+  },
+  "parts": {
+    "hull": {
+      "x": [
+        -3.158,
+        3.158
+      ],
+      "y": [
+        0.7,
+        2.18
+      ],
+      "z": [
+        -1.32,
+        1.32
+      ],
+      "confidence": "schematic hull roof and belly heights"
+    },
+    "left_track": {
+      "x": [
+        -2.94,
+        2.94
+      ],
+      "y": [
+        0.33,
+        1.37
+      ],
+      "z": [
+        -1.7735,
+        -1.0485
+      ],
+      "confidence": "belt envelope; track link profile not resolved"
+    },
+    "right_track": {
+      "x": [
+        -2.94,
+        2.94
+      ],
+      "y": [
+        0.33,
+        1.37
+      ],
+      "z": [
+        1.0485,
+        1.7735
+      ],
+      "confidence": "belt envelope; track link profile not resolved"
+    },
+    "left_skirt": {
+      "x": [
+        -2.85,
+        2.86
+      ],
+      "y": [
+        1.33,
+        1.48
+      ],
+      "z": [
+        -1.8525,
+        -1.32
+      ],
+      "confidence": "envelope"
+    },
+    "right_skirt": {
+      "x": [
+        -2.85,
+        2.86
+      ],
+      "y": [
+        1.33,
+        1.48
+      ],
+      "z": [
+        1.32,
+        1.8525
+      ],
+      "confidence": "envelope"
+    },
+    "turret": {
+      "x": [
+        -1.02,
+        1.65
+      ],
+      "y": [
+        2.19,
+        2.83
+      ],
+      "z": [
+        -1.06,
+        1.06
+      ],
+      "confidence": "schematic; not fabrication profile"
+    },
+    "cupola": {
+      "centre": [
+        -0.46,
+        2.89,
+        -0.54
+      ],
+      "radius": 0.27,
+      "top_y": 3,
+      "confidence": "schematic"
+    },
+    "gun": {
+      "breech_x": 1.65,
+      "muzzle_x": 5.292,
+      "axis_y": 2.43,
+      "axis_z": 0,
+      "outer_radius": 0.105,
+      "confidence": "silhouette; actual L/56 tube taper omitted"
+    }
+  },
+  "suspension": {
+    "road_wheel_x": [
+      -2.19,
+      -1.63,
+      -1.07,
+      -0.51,
+      0.05,
+      0.61,
+      1.17,
+      1.73
+    ],
+    "wheel_axis_y": 0.86,
+    "wheel_radius": 0.39,
+    "layers_per_station": 3,
+    "visible_outer_row_only": true,
+    "idler_x": -2.57,
+    "drive_sprocket_x": 2.56,
+    "end_radius": 0.48
+  },
+  "projections": {
+    "front": {
+      "camera": "+X",
+      "screen_right": "-Z",
+      "screen_up": "+Y"
+    },
+    "left": {
+      "camera": "-Z",
+      "screen_right": "+X",
+      "screen_up": "+Y"
+    },
+    "top": {
+      "camera": "+Y",
+      "screen_right": "+Z",
+      "screen_up": "+X"
+    }
+  },
+  "data_quality": {
+    "verified_source_dimensions": [
+      "hull_length",
+      "overall_length_gun_forward",
+      "operational_track_overall_width",
+      "operational_track_width",
+      "overall_width_with_skirts",
+      "height_to_cupola",
+      "turret_ring_diameter",
+      "road_wheels_per_side"
+    ],
+    "approximate_parts": true,
+    "not_a_manufacturing_blueprint": true
+  }
+}
