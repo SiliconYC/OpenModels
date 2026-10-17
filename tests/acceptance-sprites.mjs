@@ -1,7 +1,7 @@
 // Puppeteer real-browser acceptance (desktop + phone + true WebGL + failure case).
 import puppeteer from 'puppeteer-core';
 import fs from 'node:fs';
-const origin='http://127.0.0.1:8765/OpenModels/';
+const origin=process.env.OPENMODELS_BASE || 'http://127.0.0.1:8765/OpenModels/';
 const browser=await puppeteer.launch({headless:true,executablePath:'/usr/bin/google-chrome',
  args:['--no-sandbox','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-gpu-sandbox']});
 const page=await browser.newPage();
