@@ -1,0 +1,58 @@
+name: Pages sprite and legacy 3D acceptance
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - "docs/index.html"
+      - "docs/3d.html"
+      - "docs/sprites*"
+      - "docs/home.css"
+      - "docs/assets/sprites/**"
+      - "tools/sprites/**"
+      - "tests/fixtures/sprites/**"
+      - "tests/test_sprites.mjs"
+      - "tests/acceptance-sprites.mjs"
+      - ".github/workflows/sprite-pages.yml"
+concurrency:
+  group: sprite-pages-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  sprite-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify source, exact docs mirrors, RGBA decodes and reproducible generation
+        run: |
+          node --check docs/sprites-viewer.js
+          node --check tools/sprites/publish.mjs
+          node --check tools/sprites/generate_fixture.mjs
+          node --test tests/test_sprites.mjs
+  actual-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --no-save --no-package-lock puppeteer-core@24.25.0
+      - name: Run real Chrome viewport and WebGL tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/openmodels-issue32/OpenModels acceptance
+          cp -a docs/. /tmp/openmodels-issue32/OpenModels/
+          python -m http.server 8765 --bind 127.0.0.1 --directory /tmp/openmodels-issue32 >/tmp/openmodels-issue32-http.log 2>&1 &
+          node tests/acceptance-sprites.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: issue32-browser-desktop-mobile
+          path: acceptance/
+          retention-days: 21

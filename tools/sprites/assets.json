@@ -1,0 +1,17 @@
+{
+  "assets": [
+    {
+      "asset_id": "fixture-compass",
+      "variant": "integrated",
+      "release_status": "fixture",
+      "title": "非对称方向箭头",
+      "source": "tests/fixtures/sprites/fixture-compass/integrated/export"
+    },
+    {
+      "asset_id": "tiger-i",
+      "variant": "integrated",
+      "release_status": "planned",
+      "title": "虎式坦克 · 正式方向图（未发布）"
+    }
+  ]
+}

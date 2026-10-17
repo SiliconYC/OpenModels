@@ -1,0 +1,13 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="color-scheme" content="dark"/><title>OpenModels — 多方向图</title><link rel="stylesheet" href="./sprites.css"/><script type="module" src="./sprites-viewer.js"></script></head><body>
+<div class="shell"><header class="header"><a class="logo" href="./">◈ OPENMODELS</a><nav aria-label="展厅导航"><a href="./" aria-label="返回首页">首页</a><a href="./3d.html">传统 3D ↗</a></nav></header>
+<main><section class="intro"><p class="overline">N-DIRECTION SPRITES / 2D PLAYER</p><h1>多方向图 <span>／伪 3D</span></h1><p class="note">正式 AI 美术尚未发布。下方仅展示<strong>程序化方向测试夹具，非正式美术资产</strong>。</p></section>
+<section class="viewer" aria-label="PNG 方向播放器"><div class="image-side"><div class="canvas-holder" id="canvas-holder"><canvas id="sprite-canvas" width="520" height="400" aria-label="透明 RGBA PNG 逐帧预览"></canvas></div><div class="readout"><span id="frame-readout">槽 — / 角度 —</span><span id="load-state" role="status" aria-live="polite">读取资产目录…</span></div></div>
+<div class="panel"><label class="field">资产<select id="asset-select" aria-label="选择方向图资产"><option>读取中…</option></select></label>
+<div class="caption" id="asset-status">—</div>
+<div class="section"><span class="field-title">方向</span><div class="buttons"><button type="button" id="previous" aria-label="上一方向">← 上一帧</button><button type="button" id="next" aria-label="下一方向">下一帧 →</button><button type="button" id="play" aria-pressed="false">自动旋转</button></div></div>
+<div class="section"><label class="field-title" for="level-select">方向档位</label><div class="segmented" id="level-buttons" role="group" aria-label="可用方向档位"><button type="button" data-level="16">16 向</button><button type="button" data-level="32">32 向</button><button type="button" data-level="64">64 向</button></div></div>
+<div class="section"><span class="field-title">RTS 预览尺寸</span><div class="segmented" role="group" aria-label="像素预览尺寸"><button type="button" data-size="64">64 px</button><button type="button" data-size="128">128 px</button><button type="button" data-size="256">256 px</button></div></div>
+<div class="section"><label class="checker"><input id="checker" type="checkbox"/> <span>透明棋盘背景检查</span></label></div>
+<p class="hint">拖动图像或水平滑动以转向。图片保持统一画布与固定锚点，不按透明区域自动居中。</p>
+<div id="failure" class="failure" role="alert" hidden></div></div></section>
+</main><footer>OpenModels · 真实 RGBA 帧切换 · 测试夹具不代表正式成果</footer></div></body></html>

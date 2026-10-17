@@ -1,65 +1,10 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-  <meta name="color-scheme" content="dark"/>
-  <title>OpenModels — 模型展厅</title>
-  <link rel="stylesheet" href="./style.css"/>
-  <script type="importmap">
-    {"imports":{
-      "three":"https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js",
-      "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/"
-    }}
-  </script>
-  <script type="module" src="./app.js"></script>
-</head>
-<body>
-  <div id="shell">
-    <header class="masthead">
-      <div class="brand"><span class="brandmark" aria-hidden="true">◈</span> OPENMODELS <span class="subbrand">模型展厅</span></div>
-      <label class="select-wrap"><span class="sr-only">模型</span><select id="model-select" aria-label="选择模型"><option value="">加载模型列表…</option></select></label>
-    </header>
-    <main class="stage" id="stage" aria-label="真实三维模型交互区域">
-      <div class="stage-wash"></div>
-      <div class="topline">
-        <div class="eyebrow">MODEL VIEWER <span id="model-kind">—</span></div>
-        <span id="load-state" role="status" aria-live="polite">正在初始化…</span>
-      </div>
-      <section class="bottomsheet" aria-label="模型查看控制">
-        <div class="model-description">
-          <h1 id="model-title">模型加载中</h1>
-          <div id="model-metrics" class="metrics">—</div>
-        </div>
-        <div class="controls">
-          <div class="controlgroup" aria-label="投影模式">
-            <button data-projection="orthographic" class="active" aria-pressed="true" type="button">正交</button>
-            <button data-projection="perspective" aria-pressed="false" type="button">透视</button>
-          </div>
-          <div class="controlgroup" aria-label="观察角度">
-            <button data-view="iso" class="active" aria-pressed="true" type="button">斜视</button>
-            <button data-view="front" aria-pressed="false" type="button">正面</button>
-            <button data-view="back" aria-pressed="false" type="button">背面</button>
-            <button data-view="left" aria-pressed="false" type="button">左侧</button>
-            <button data-view="right" aria-pressed="false" type="button">右侧</button>
-            <button data-view="top" aria-pressed="false" type="button">俯视</button>
-          </div>
-          <div class="controlgroup" aria-label="渲染模式">
-            <button data-shading="textured" class="active" aria-pressed="true" type="button">材质</button>
-            <button data-shading="clay" aria-pressed="false" type="button">灰模</button>
-            <button id="wire" aria-pressed="false" type="button">线框</button>
-          </div>
-          <div class="controlgroup" id="rig-controls" hidden aria-label="刚性部件动作">
-            <button id="turret-left" type="button" aria-label="炮塔向左转动">炮塔 ◀</button>
-            <button id="turret-right" type="button" aria-label="炮塔向右转动">▶</button>
-            <button id="gun-recoil" type="button" aria-label="炮管后坐">后坐</button>
-          </div>
-          <button class="reset" id="reset" type="button" aria-label="恢复默认视角">复位 ↺</button>
-        </div>
-      </section>
-      <div id="failure" class="failure" role="alert" hidden></div>
-    </main>
-    <footer><span>真实 glTF / WebGL</span><span>拖动旋转 · 右键或双指平移 · 滚轮或双指缩放</span></footer>
-  </div>
-</body>
-</html>
+<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="color-scheme" content="dark"/><title>OpenModels — 开放模型</title><link rel="stylesheet" href="./home.css"/>
+<script>if(new URLSearchParams(location.search).has('model')) location.replace('./3d.html'+location.search+location.hash);</script></head>
+<body><main class="home">
+<header><span class="brand">◈ OPENMODELS</span><span class="byline">开放模型资产库</span></header>
+<section class="intro"><span class="overline">OPEN MODELS / ASSET LAB</span><h1>以图像构建空间。</h1><p>两种资产，两种观看方式。多方向透明图像是当前重点生产路线，传统三维资料完整保留供参考。</p></section>
+<nav class="choices" aria-label="展厅入口">
+<a class="choice primary" href="./sprites.html"><span class="eyebrow">01 / 主线</span><span class="symbol" aria-hidden="true">↻</span><h2>多方向图 <small>／伪 3D</small></h2><p>固定正交视角 · 透明 PNG · 16 / 32 / 64 向</p><span class="cta">进入方向图播放器 <span aria-hidden="true">↗</span></span></a>
+<a class="choice secondary" href="./3d.html"><span class="eyebrow">02 / 历史成果</span><span class="symbol" aria-hidden="true">◇</span><h2>传统 3D</h2><p>保留 GLB 互动浏览、材质与视角检查能力</p><span class="cta">进入三维展厅 <span aria-hidden="true">↗</span></span></a>
+</nav><footer>当前尚无正式伪 3D 美术成品。方向图专区提供明确标示的程序化测试夹具，仅用于验证基础设施。</footer></main></body></html>
