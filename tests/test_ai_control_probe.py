@@ -15,7 +15,7 @@ class ProbeEvidence(unittest.TestCase):
         self.assertEqual(manifest["camera"]["pivot_px"],[256,354])
         for n in SLOTS4:
             self.assertEqual(manifest["frames"][f"{n:03d}"]["theta_deg"],n*5.625)
-    def test_explicit_no_ai_and_no_approved(self):
+    def test_prior_fal_api_not_executed_and_no_approved(self):
         p=ASSET/"generated/issue25/request-preflight.json"
         if not p.exists():self.skipTest("dedicated preflight workflow commits inputs")
         d=json.loads(p.read_text())
@@ -23,7 +23,15 @@ class ProbeEvidence(unittest.TestCase):
         self.assertEqual(d["planned_count"],12)
         self.assertEqual(len(d["requests"]),12)
         self.assertTrue(all(x["status"]=="NOT_EXECUTED" for x in d["requests"]))
-        self.assertFalse((ASSET/"generated/issue25/candidates").exists())
+        # Earlier fal API trial remained unexecuted; later OpenAI imagegen
+        # produced real RGB art candidates through a DIFFERENT provider.
+        self.assertFalse((ASSET/"generated/issue25/candidates/fal").exists())
+        a=ASSET/"generated/issue25/candidates/openai"
+        if a.exists():
+            m=json.loads((a/"manifest.json").read_text())
+            self.assertEqual(m["status"],"REAL_GENERATED_CANDIDATES_UNAPPROVED")
+            self.assertFalse(m["controlnet_used"])
+            self.assertTrue(all(not rec["approved"] for rec in m["candidates"].values()))
         self.assertFalse((ASSET/"approved").exists())
         self.assertFalse((ASSET/"export").exists())
     def test_real_prepared_inputs(self):
