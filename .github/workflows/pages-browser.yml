@@ -1,0 +1,85 @@
+name: Public Pages WebGL browser acceptance
+on:
+  pull_request:
+    branches: [dev]
+    paths: [".github/workflows/pages-browser.yml"]
+  workflow_dispatch:
+concurrency:
+  group: public-browser-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install browser automation client
+        run: npm install --no-save --no-package-lock puppeteer-core@24.25.0
+      - name: Exercise LIVE Pages, glTF loading and UI controls
+        shell: bash
+        run: |
+          mkdir -p acceptance
+          node --input-type=module <<'JS'
+          import puppeteer from 'puppeteer-core';
+          const target = 'https://siliconyc.github.io/OpenModels/?model=test-cube';
+          const browser = await puppeteer.launch({
+            headless: true,
+            executablePath: '/usr/bin/google-chrome',
+            args: ['--no-sandbox','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-gpu-sandbox']
+          });
+          const page = await browser.newPage();
+          const errs=[];
+          page.on('pageerror', e => errs.push(String(e)));
+          page.on('console', msg => { if(msg.type()==='error') errs.push(msg.text()); });
+          page.setDefaultTimeout(40000);
+          try {
+            await page.setViewport({width:1280,height:800,deviceScaleFactor:1});
+            const response=await page.goto(target,{waitUntil:'domcontentloaded',timeout:40000});
+            console.log('Public URL:',page.url(),'HTTP:',response.status());
+            await page.waitForFunction(() => document.querySelector('#load-state')?.textContent === '已加载真实 GLB',{timeout:45000});
+            const loaded=await page.evaluate(() => ({
+              title: document.querySelector('#model-title')?.textContent,
+              metrics: document.querySelector('#model-metrics')?.textContent,
+              canvas: !!document.querySelector('canvas'),
+              gl: !!(document.querySelector('canvas')?.getContext('webgl2') || document.querySelector('canvas')?.getContext('webgl'))
+            }));
+            console.log('Desktop rendered model:',JSON.stringify(loaded));
+            if (!loaded.canvas || !loaded.metrics.includes('12 三角面') || !loaded.gl) throw new Error('WebGL/GLB not actually loaded');
+            await page.click('[data-view="left"]');
+            await page.click('[data-shading="clay"]');
+            await page.click('#wire');
+            if (await page.$eval('#wire', el=>el.getAttribute('aria-pressed'))!=='true') throw new Error('wireframe did not activate');
+            if (await page.$eval('[data-view="left"]', el=>el.getAttribute('aria-pressed'))!=='true') throw new Error('left view did not activate');
+            const canv=await page.$('canvas');
+            const box=await canv.boundingBox();
+            await page.mouse.move(box.x+box.width*.45,box.y+box.height*.3);
+            await page.mouse.down();await page.mouse.move(box.x+box.width*.59,box.y+box.height*.4,{steps:12});await page.mouse.up();
+            await page.mouse.wheel({deltaY:240});
+            await page.click('#reset');
+            await page.click('[data-shading="textured"]');
+            await page.click('#wire');
+            await page.screenshot({path:'acceptance/pages-desktop.png'});
+            await page.setViewport({width:390,height:820,deviceScaleFactor:1,isMobile:true,hasTouch:true});
+            await page.waitForFunction(() => document.querySelector('#model-metrics')?.textContent.includes('12 三角面'));
+            await page.screenshot({path:'acceptance/pages-mobile.png'});
+            console.log('Mobile viewer loaded, dimensions 390x820; UI operations succeeded.');
+            if (errs.length) console.log('BROWSER_WARNINGS',JSON.stringify(errs.slice(0,10)));
+          }catch(e){
+            console.error('BROWSER_ERROR',String(e));
+            console.error('PAGE_ERRORS',JSON.stringify(errs.slice(0,15)));
+            console.error('STATE',await page.evaluate(() => document.querySelector('#load-state')?.textContent || document.body.innerText.slice(0,600)));
+            await page.screenshot({path:'acceptance/pages-failure.png'}).catch(()=>{});
+            process.exitCode=1;
+          }finally{await browser.close()}
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-pages-webgl-screenshots
+          path: acceptance/
+          retention-days: 14
