@@ -8,6 +8,14 @@
       "stage": "pipeline-test",
       "file": "./assets/test-cube.glb",
       "notes": "24 vertices / 12 tris; real GLB with 8x8 checker texture"
+    },
+    {
+      "id": "tiger-i-grey",
+      "title": "虎式坦克 · 早期型灰模",
+      "category": "vehicles/land",
+      "stage": "lowpoly-grey",
+      "file": "./assets/tiger-i-grey.glb",
+      "notes": "Issue #5: true procedural glTF with Hull/Turret/Barrel, 8 visible wheel stations per side (not final livery)"
     }
   ]
 }
