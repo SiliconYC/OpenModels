@@ -36,22 +36,28 @@ jobs:
             fi
             if [ -n "$prefix" ]; then
               http="true"
-              for path in "index.html" "app.js" "models.json" "assets/test-cube.glb"; do
+              for path in "index.html" "app.js" "models.json" "assets/test-cube.glb" "assets/tiger-i-grey.glb" "assets/tiger-i-uv.glb"; do
                 if ! curl -fLSs --max-time 18 "${prefix}/${path}" -o "/tmp/page-${path//\//_}"; then
                   http="false"
                   break
                 fi
               done
               if [ "$http" = "true" ] && grep -q 'id="stage"' /tmp/page-index.html && grep -q GLTFLoader /tmp/page-app.js; then
-                echo "Source mode: $mode"
+                if ! grep -q '"id": "tiger-i-uv"' /tmp/page-models.json; then
+                echo "UV catalog deployment pending, retry..."
+                sleep 10
+                continue
+              fi
+              echo "Source mode: $mode"
                 export TEST_PREFIX="$prefix"
                 python - <<'PY'
           import json,struct,os
-          p=open('/tmp/page-assets_test-cube.glb','rb').read()
-          assert p[:4]==b'glTF' and struct.unpack_from('<II',p,4)==(2,len(p))
+          for file in ('test-cube', 'tiger-i-grey', 'tiger-i-uv'):
+              p=open('/tmp/page-assets_'+file+'.glb','rb').read()
+              assert p[:4]==b'glTF' and struct.unpack_from('<II',p,4)==(2,len(p)),file
           m=json.load(open('/tmp/page-models.json'))
-          assert m['models'][0]['id']=='test-cube'
-          print('PASS: publicly deployed interactive viewer static files, catalog and genuine GLB')
+          assert {'test-cube','tiger-i-grey','tiger-i-uv'}.issubset({v['id'] for v in m['models']})
+          print('PASS: live Pages viewer, model catalog and three genuine GLBs including UV')
           print('Public asset base:',os.environ['TEST_PREFIX'])
           PY
                 exit 0

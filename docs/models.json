@@ -2,6 +2,14 @@
   "schema_version": 1,
   "models": [
     {
+      "id": "tiger-i-uv",
+      "title": "虎式坦克 · UV 测试贴图",
+      "category": "vehicles/land",
+      "stage": "uv-mapped-test",
+      "file": "./assets/tiger-i-uv.glb",
+      "notes": "Issue #6: real 2048 checker atlas and geometry UVs; not final art"
+    },
+    {
       "id": "tiger-i-grey",
       "title": "虎式坦克 · 早期型灰模",
       "category": "vehicles/land",

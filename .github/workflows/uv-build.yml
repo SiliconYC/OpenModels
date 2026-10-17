@@ -1,0 +1,44 @@
+name: Tiger I UV one-shot cloud asset build
+on:
+  push:
+    branches: [feat-6-tiger-i-uv-atlas-20261017]
+    paths:
+      - "models/vehicles/land/tiger-i/source/build_uv.py"
+      - ".github/workflows/uv-build.yml"
+concurrency:
+  group: tiger-uv-builder
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pure-cloud geometry and image libraries
+        run: pip install numpy trimesh pillow
+      - name: Generate true mapped GLB and editable PNG atlas
+        run: python models/vehicles/land/tiger-i/source/build_uv.py
+      - name: Validate real binary mesh, UV and material payload
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Persist generated artifacts to the existing feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add models/vehicles/land/tiger-i/textures/ models/vehicles/land/tiger-i/export/tiger-i-uv.glb models/vehicles/land/tiger-i/export/uv-report.json docs/assets/tiger-i-uv.glb
+          if ! git diff --staged --quiet; then
+            git commit -m "build(#6): checked-in generated real UV atlas PNG and textured GLB"
+            # Other review commits may land during asset generation. Replay the
+            # asset commit onto remote HEAD without rewriting collaborator work.
+            git fetch origin feat-6-tiger-i-uv-atlas-20261017
+            git rebase origin/feat-6-tiger-i-uv-atlas-20261017
+            git push origin "HEAD:feat-6-tiger-i-uv-atlas-20261017"
+          fi

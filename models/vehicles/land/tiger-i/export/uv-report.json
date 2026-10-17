@@ -1,0 +1,543 @@
+{
+  "asset": "tiger-i-early-1943",
+  "phase": "Issue #6 actual painted UV checker",
+  "source": "source/build_uv.py",
+  "model": "export/tiger-i-uv.glb",
+  "web": "docs/assets/tiger-i-uv.glb",
+  "triangles": 1396,
+  "vertices": 4188,
+  "original_grey_triangles": 1396,
+  "original_grey_vertices": 766,
+  "mesh_count": 36,
+  "uv_corners": 4188,
+  "atlas_size": [
+    2048,
+    2048
+  ],
+  "texture": "textures/tiger-i-uv-checker.png",
+  "atlas_families": [
+    "BarrelTube",
+    "Cupola",
+    "EngineDeck",
+    "Foredeck",
+    "HullArmour",
+    "HullDeck",
+    "Idler",
+    "Mantlet",
+    "MuzzleBrake",
+    "RoadWheel",
+    "SideSkirt",
+    "Sprocket",
+    "TowLug",
+    "Track",
+    "TurretShell",
+    "TurretStowage"
+  ],
+  "parts": {
+    "HullArmour": {
+      "triangles": 24,
+      "vertices": 72,
+      "uv_corners": 72,
+      "charts_used": {
+        "-Z": 5,
+        "+Z": 5,
+        "-Y": 4,
+        "+X": 2,
+        "+Y": 6,
+        "-X": 2
+      },
+      "family": "HullArmour"
+    },
+    "HullDeck": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "HullDeck"
+    },
+    "Foredeck": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "Foredeck"
+    },
+    "EngineDeck": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "EngineDeck"
+    },
+    "SideSkirt_-1": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "SideSkirt"
+    },
+    "Track_-1": {
+      "triangles": 112,
+      "vertices": 336,
+      "uv_corners": 336,
+      "charts_used": {
+        "-Y": 16,
+        "-Z": 28,
+        "+Y": 16,
+        "+Z": 28,
+        "+X": 14,
+        "-X": 10
+      },
+      "family": "Track"
+    },
+    "RoadWheel_-1_1": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_-1_2": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_-1_3": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_-1_4": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_-1_5": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_-1_6": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_-1_7": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_-1_8": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "Idler_-1": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "Idler"
+    },
+    "Sprocket_-1": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "Sprocket"
+    },
+    "TowLug_-1": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "TowLug"
+    },
+    "SideSkirt_1": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "SideSkirt"
+    },
+    "Track_1": {
+      "triangles": 112,
+      "vertices": 336,
+      "uv_corners": 336,
+      "charts_used": {
+        "-Y": 16,
+        "-Z": 28,
+        "+Y": 16,
+        "+Z": 28,
+        "+X": 14,
+        "-X": 10
+      },
+      "family": "Track"
+    },
+    "RoadWheel_1_1": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_1_2": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_1_3": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_1_4": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_1_5": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_1_6": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_1_7": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "RoadWheel_1_8": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "RoadWheel"
+    },
+    "Idler_1": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "Idler"
+    },
+    "Sprocket_1": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "-Z": 10,
+        "+X": 4,
+        "+Z": 10,
+        "+Y": 6,
+        "-X": 4,
+        "-Y": 6
+      },
+      "family": "Sprocket"
+    },
+    "TowLug_1": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "TowLug"
+    },
+    "TurretShell": {
+      "triangles": 48,
+      "vertices": 144,
+      "uv_corners": 144,
+      "charts_used": {
+        "-Y": 11,
+        "+Y": 11,
+        "-X": 6,
+        "-Z": 6,
+        "+X": 8,
+        "+Z": 6
+      },
+      "family": "TurretShell"
+    },
+    "TurretStowage": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "TurretStowage"
+    },
+    "Cupola": {
+      "triangles": 40,
+      "vertices": 120,
+      "uv_corners": 120,
+      "charts_used": {
+        "+Y": 10,
+        "+X": 4,
+        "-Y": 10,
+        "+Z": 6,
+        "-X": 4,
+        "-Z": 6
+      },
+      "family": "Cupola"
+    },
+    "BarrelTube": {
+      "triangles": 140,
+      "vertices": 420,
+      "uv_corners": 420,
+      "charts_used": {
+        "-Z": 26,
+        "-Y": 34,
+        "+Z": 30,
+        "+Y": 30,
+        "+X": 10,
+        "-X": 10
+      },
+      "family": "BarrelTube"
+    },
+    "MuzzleBrake": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "MuzzleBrake"
+    },
+    "Mantlet": {
+      "triangles": 12,
+      "vertices": 36,
+      "uv_corners": 36,
+      "charts_used": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      },
+      "family": "Mantlet"
+    }
+  },
+  "topology_note": "Each face corner split for independent chart seam; triangles and hierarchy preserved."
+}
