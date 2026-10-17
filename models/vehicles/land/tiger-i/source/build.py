@@ -31,14 +31,14 @@ def mesh(vertices, faces, name, rgb):
                           faces=np.array(faces, dtype=np.int64), process=False)
     if not np.isfinite(obj.vertices).all() or len(obj.faces) == 0:
         raise ValueError("mesh missing or non-finite: " + name)
-    obj.visual.face_colors = np.array([*rgb, 255], dtype=np.uint8)
+    obj.visual.vertex_colors = np.tile(np.array([*rgb,255],dtype=np.uint8),(len(obj.vertices),1))
     return obj
 
 
 def box(extents, center, name, rgb):
     result = trimesh.creation.box(extents=extents)
     result.apply_translation(center)
-    result.visual.face_colors = np.array([*rgb, 255], dtype=np.uint8)
+    result.visual.vertex_colors = np.tile(np.array([*rgb,255],dtype=np.uint8),(len(result.vertices),1))
     return result
 
 
@@ -104,7 +104,7 @@ def track(side):
 def cylinder_z(radius,width,centre,sections,name,rgb):
     m=trimesh.creation.cylinder(radius=radius,height=width,sections=sections)
     m.apply_translation(centre)
-    m.visual.face_colors=np.array([*rgb,255],dtype=np.uint8)
+    m.visual.vertex_colors=np.tile(np.array([*rgb,255],dtype=np.uint8),(len(m.vertices),1))
     return m
 
 
@@ -188,7 +188,7 @@ def build_scene():
     # Default cylinder Z axis; rotate around X so cupola is truly vertical.
     cupmesh.apply_transform(trimesh.transformations.rotation_matrix(math.pi/2,[1,0,0]))
     cupmesh.apply_translation([-.46-px,.735,-.54])
-    cupmesh.visual.face_colors=np.array([*metal,255],dtype=np.uint8)
+    cupmesh.visual.vertex_colors=np.tile(np.array([*metal,255],dtype=np.uint8),(len(cupmesh.vertices),1))
     attach(cupmesh,"Cupola","Turret")
     # Barrel pivot relative to Turret; positive X outward, negative X recoil.
     bx=1.65-px
