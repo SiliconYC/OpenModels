@@ -1,0 +1,49 @@
+name: Orthographic 64 heading controls generation (#24)
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - "tools/sprites/generate_controls.py"
+      - "models/vehicles/land/tiger-i/sprites/spec.json"
+      - ".github/workflows/controls-64.yml"
+concurrency:
+  group: controls-64-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  generate:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU-only dependencies
+        run: python -m pip install --disable-pip-version-check numpy trimesh Pillow
+      - name: ACTUALLY generate and decode all 192 controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          spec=models/vehicles/land/tiger-i/sprites/spec.json
+          python tools/sprites/generate_controls.py generate --spec "$spec" --level 64
+          python tools/sprites/generate_controls.py verify --spec "$spec" --level 64
+          for kind in silhouette depth parts; do
+            python tools/sprites/generate_controls.py sheet --spec "$spec" --channel "$kind" --tile 256 --name "canonical-16-$kind"
+          done
+          python tools/sprites/generate_controls.py sheet --spec "$spec" --channel parts --tile 256 --name arbitrary-16-parts --slots 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31
+          python -m unittest discover -s tests -p 'test_tiger_controls_64.py' -v
+      - name: Commit generated REAL asset PNGs back to issue branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add models/vehicles/land/tiger-i/sprites/control/frames/ models/vehicles/land/tiger-i/sprites/control/sheets/ models/vehicles/land/tiger-i/sprites/control/manifest.json
+          if ! git diff --cached --quiet; then
+            git -c user.name=openmodels-builder -c user.email=actions@users.noreply.github.com commit -m "build(controls): commit actual 64x3 depth/segmentation/silhouette and 4x4 sheets (#24)"
+            git push origin HEAD:${{ github.head_ref }}
+          fi

@@ -1,0 +1,1652 @@
+{
+  "schema_version": 1,
+  "purpose": "geometry-controls-only-not-art",
+  "asset_id": "tiger-i",
+  "variant": "integrated",
+  "source_spec_sha256": "4d8c85eb6a64c94c00077511bb074dedc1cc852cff48a440001b9aab3b1b8578",
+  "source_model_sha256": "67ffa5e4afb12442b0c3a200576ee3c0c48e288abcbf0e3faef3e11159784b0e",
+  "heading_slots": 64,
+  "degrees_per_slot": 5.625,
+  "available_levels": [
+    16,
+    32,
+    64
+  ],
+  "camera": {
+    "type": "orthographic",
+    "azimuth_deg": 45,
+    "elevation_deg": 35,
+    "world_up": "+Y",
+    "fixed": true,
+    "canvas_px": [
+      512,
+      512
+    ],
+    "pixels_per_m": 47,
+    "pivot_px": [
+      256,
+      354
+    ],
+    "near_cam_z_m": -12,
+    "far_cam_z_m": 12
+  },
+  "canvas_px": [
+    512,
+    512
+  ],
+  "pivot_px": [
+    256,
+    354
+  ],
+  "rotation_target": "vehicle-only",
+  "rotation_axis": "+Y",
+  "part_ids": {
+    "background": 0,
+    "hull": 1,
+    "turret": 2,
+    "gun": 3,
+    "track": 4,
+    "wheel": 5,
+    "fittings": 6
+  },
+  "frames": {
+    "000": {
+      "index": 0,
+      "theta_deg": 0.0,
+      "files": {
+        "silhouette": "control/frames/silhouette/000.png",
+        "depth": "control/frames/depth/000.png",
+        "parts": "control/frames/parts/000.png"
+      },
+      "sha256": {
+        "silhouette": "3cef78ca230fb9db400b9a495cec741d9d9e37e6aaafc993470a5841a2682129",
+        "depth": "88e1aace96ccd8b015bf4e72e5b18813c5e02198105ba77187b2930c691b4a2f",
+        "parts": "853955f4bf4f8866c9ebfd74098b577d4538f79a1df01ca1dedfb3a66906cd2f"
+      },
+      "visible_pixels": 48301,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.35895,
+      "camera_depth_max_m": 4.58856
+    },
+    "001": {
+      "index": 1,
+      "theta_deg": 5.625,
+      "files": {
+        "silhouette": "control/frames/silhouette/001.png",
+        "depth": "control/frames/depth/001.png",
+        "parts": "control/frames/parts/001.png"
+      },
+      "sha256": {
+        "silhouette": "1ddd1b2c9df3ad04c52d92b7c1a234f15e59ae90d33f684ec8626acfff27914f",
+        "depth": "a45d18d16e030be4d3eb2630d973e121673e01d1c04ed94d8b10552938887d77",
+        "parts": "666c96371cbcbed9b9b0481eb461db6db22513ada17ac7443f55ae8d7dd581ca"
+      },
+      "visible_pixels": 49557,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.2374,
+      "camera_depth_max_m": 4.27844
+    },
+    "002": {
+      "index": 2,
+      "theta_deg": 11.25,
+      "files": {
+        "silhouette": "control/frames/silhouette/002.png",
+        "depth": "control/frames/depth/002.png",
+        "parts": "control/frames/parts/002.png"
+      },
+      "sha256": {
+        "silhouette": "0b8a3cc2388ea5fe5ef6c2f3857f14c30c54e2ce644096298094c0db48b4a7b0",
+        "depth": "a53de758d311e684c34451ef010b5ac3d46165bb584a9366ad85b6b621d11637",
+        "parts": "60e5485de93a2e2a3c175623d58d931d1426d2e3940f75d6752184c62ddcd21b"
+      },
+      "visible_pixels": 50596,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.08547,
+      "camera_depth_max_m": 3.94323
+    },
+    "003": {
+      "index": 3,
+      "theta_deg": 16.875,
+      "files": {
+        "silhouette": "control/frames/silhouette/003.png",
+        "depth": "control/frames/depth/003.png",
+        "parts": "control/frames/parts/003.png"
+      },
+      "sha256": {
+        "silhouette": "fd9b06b5cc2ce291833d515c52d0e7d42d7272021e2819fb62eb2081e689c687",
+        "depth": "e220ddd997cec59ddb0aab59363c9cd4711014ce55fc310c8faf119d2ade2cde",
+        "parts": "579583b747261689382862fb690b621f6b1621f5412930f4cd07451643657e9d"
+      },
+      "visible_pixels": 51384,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.93354,
+      "camera_depth_max_m": 3.58249
+    },
+    "004": {
+      "index": 4,
+      "theta_deg": 22.5,
+      "files": {
+        "silhouette": "control/frames/silhouette/004.png",
+        "depth": "control/frames/depth/004.png",
+        "parts": "control/frames/parts/004.png"
+      },
+      "sha256": {
+        "silhouette": "d61206b7a8360e3bb83c787ee0feb6b289c77e79825d3e08cdf87d2b19abda48",
+        "depth": "9c74791fa3e74165bef084650d46ea18ef22d2a747a6842b75776b0aa6062e2a",
+        "parts": "3d108804fd4fd9c9fd6db25f242993ff169770c2a4fbb522cf14eb06be3a6a34"
+      },
+      "visible_pixels": 51910,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.75123,
+      "camera_depth_max_m": 3.24412
+    },
+    "005": {
+      "index": 5,
+      "theta_deg": 28.125,
+      "files": {
+        "silhouette": "control/frames/silhouette/005.png",
+        "depth": "control/frames/depth/005.png",
+        "parts": "control/frames/parts/005.png"
+      },
+      "sha256": {
+        "silhouette": "f54d7357596ccfffb08b59b0202c840cc5aaf23a81e6956a06aca9a84d3688c9",
+        "depth": "b5df51c9cb9ab7977cd5758297f8fcd75db357ecedcd440eaa6149770e6bbebf",
+        "parts": "30f128bb1bd6b222a87bb506fb6fdc63a7c4b628233b4e1069c4aff86c911480"
+      },
+      "visible_pixels": 52168,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.66404,
+      "camera_depth_max_m": 3.04779
+    },
+    "006": {
+      "index": 6,
+      "theta_deg": 33.75,
+      "files": {
+        "silhouette": "control/frames/silhouette/006.png",
+        "depth": "control/frames/depth/006.png",
+        "parts": "control/frames/parts/006.png"
+      },
+      "sha256": {
+        "silhouette": "4dcb865608702f5214580321f7e163f34ab8d59623da12415bf6f37269d707b0",
+        "depth": "fe7fa80d274e890bd47dd2a18843704b0360e42c0c43d77fa9ba88c9930ba615",
+        "parts": "659882c8a8b4e5c2c081cd7c211d9f674b34a5e073090529af88010ed256aa93"
+      },
+      "visible_pixels": 52221,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.55459,
+      "camera_depth_max_m": 2.8357
+    },
+    "007": {
+      "index": 7,
+      "theta_deg": 39.375,
+      "files": {
+        "silhouette": "control/frames/silhouette/007.png",
+        "depth": "control/frames/depth/007.png",
+        "parts": "control/frames/parts/007.png"
+      },
+      "sha256": {
+        "silhouette": "5025d49e79913ec528e9db12794a63419cd65e302f824fcecee67feaae439454",
+        "depth": "fdc761fe657a7f1e49636fafb9ec716ada4f2260dd5be51ee0ca7a75bca959e1",
+        "parts": "e0ccbab272e2afe35723038f04c2030149f3c2e90ab9fbc58b9156684fac391a"
+      },
+      "visible_pixels": 52224,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.79895,
+      "camera_depth_max_m": 2.61829
+    },
+    "008": {
+      "index": 8,
+      "theta_deg": 45.0,
+      "files": {
+        "silhouette": "control/frames/silhouette/008.png",
+        "depth": "control/frames/depth/008.png",
+        "parts": "control/frames/parts/008.png"
+      },
+      "sha256": {
+        "silhouette": "91cef63e571828c1626f12ca45d9eefd1c1c996558ce185743cab1de224816e1",
+        "depth": "7d4b192868dc9eca863c5d3b50730e95c0b9f6efc34cbdfb4be702d5a7ad998d",
+        "parts": "f279ff8297b00ff2c0fd6ca50854c4cabaacd1e2a2779a46bc7b09774c092a6f"
+      },
+      "visible_pixels": 52247,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.05138,
+      "camera_depth_max_m": 2.41579
+    },
+    "009": {
+      "index": 9,
+      "theta_deg": 50.625,
+      "files": {
+        "silhouette": "control/frames/silhouette/009.png",
+        "depth": "control/frames/depth/009.png",
+        "parts": "control/frames/parts/009.png"
+      },
+      "sha256": {
+        "silhouette": "e7b94445c76be28579ed7b2b554fb0e0de9d9d8b5aa9b970c342b2a7866de246",
+        "depth": "ef3ddac0af90ed8c94cd41edd027426c39103c2a6672a656e928e8faae03f543",
+        "parts": "3682772a7c26ebf5e35669807c7351c2c2b65040d27e75a27e3fb11c0ea916b3"
+      },
+      "visible_pixels": 52517,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.1704,
+      "camera_depth_max_m": 2.60098
+    },
+    "010": {
+      "index": 10,
+      "theta_deg": 56.25,
+      "files": {
+        "silhouette": "control/frames/silhouette/010.png",
+        "depth": "control/frames/depth/010.png",
+        "parts": "control/frames/parts/010.png"
+      },
+      "sha256": {
+        "silhouette": "c3b8fce644dc48ac5d78f5086599a285b3e1a6c7790bf345dc5ba0bb027630dd",
+        "depth": "a382f856e2d20d91ba4c67ea09f048830ac638e011493a2dfbba51a3ef529d6b",
+        "parts": "1aba7fee54489fb857ab49b7ecaf8ee1f7e2e05624e12d3da155695003d8725f"
+      },
+      "visible_pixels": 52552,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.41349,
+      "camera_depth_max_m": 2.8251
+    },
+    "011": {
+      "index": 11,
+      "theta_deg": 61.875,
+      "files": {
+        "silhouette": "control/frames/silhouette/011.png",
+        "depth": "control/frames/depth/011.png",
+        "parts": "control/frames/parts/011.png"
+      },
+      "sha256": {
+        "silhouette": "0a3c083654a5a11f9c6d793f1f8a09da2a942b7c1ae6f5e5830f4ea4201f01ce",
+        "depth": "99bf7eb49d8e787c53e75e1edfb8df401456ae82bb1dc0d3be81fa86e5fc9432",
+        "parts": "9cf307766477bb9a7fcaeb90341a4e02c453082faec022dc2947ef4efe78d0f6"
+      },
+      "visible_pixels": 52507,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.62619,
+      "camera_depth_max_m": 3.02918
+    },
+    "012": {
+      "index": 12,
+      "theta_deg": 67.5,
+      "files": {
+        "silhouette": "control/frames/silhouette/012.png",
+        "depth": "control/frames/depth/012.png",
+        "parts": "control/frames/parts/012.png"
+      },
+      "sha256": {
+        "silhouette": "a710e94df68260fa03e1e68df2a5a9c852108d4df436288e873db024303be327",
+        "depth": "62b027cb288cf8ab2e7fe6b2b4905036bf105c364ce65ad378fc2ae1fa27af52",
+        "parts": "0c4490bd8a5ab616f1d917ba62fcc98467401f284a0e27990001905b7c08b84d"
+      },
+      "visible_pixels": 52290,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.68971,
+      "camera_depth_max_m": 3.22587
+    },
+    "013": {
+      "index": 13,
+      "theta_deg": 73.125,
+      "files": {
+        "silhouette": "control/frames/silhouette/013.png",
+        "depth": "control/frames/depth/013.png",
+        "parts": "control/frames/parts/013.png"
+      },
+      "sha256": {
+        "silhouette": "88eec710c6a5f18b10d24cee1792b4c15c63d0bcc2d364cd8bab66c13dc10c2d",
+        "depth": "b1a114338768462d998e34c5d0c41fde42bd84db23b54a70bd9fee7e7c50a00f",
+        "parts": "569478cd5a10c7338d9f11fbe12fe69added65bf34ad52d0073ccb8394e1c97b"
+      },
+      "visible_pixels": 51965,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.87203,
+      "camera_depth_max_m": 3.38387
+    },
+    "014": {
+      "index": 14,
+      "theta_deg": 78.75,
+      "files": {
+        "silhouette": "control/frames/silhouette/014.png",
+        "depth": "control/frames/depth/014.png",
+        "parts": "control/frames/parts/014.png"
+      },
+      "sha256": {
+        "silhouette": "0c88adb096a2b9489944a9525c575c4301c65534b7d2de01845e1f5ea7a208b1",
+        "depth": "d3be280d4176941bcf39bd377ee36191e3f125f2e19b0ce3f0b177f5da56d440",
+        "parts": "ec015252b6b68f8cd93e966ee52b0dc3fd4f038f901d2bd0a30868a21c788f62"
+      },
+      "visible_pixels": 51426,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.09541,
+      "camera_depth_max_m": 3.53829
+    },
+    "015": {
+      "index": 15,
+      "theta_deg": 84.375,
+      "files": {
+        "silhouette": "control/frames/silhouette/015.png",
+        "depth": "control/frames/depth/015.png",
+        "parts": "control/frames/parts/015.png"
+      },
+      "sha256": {
+        "silhouette": "86df3dfa3e00aa1416d1c326e387e317cd3f33aa0a315881eb9a5e001ee115bd",
+        "depth": "80a5f042eda4aa0108a002c0b57aad8d11bc1e10d8d3fe7a898961057cc90e9c",
+        "parts": "4e0466a7d6209e2c6cf8b45635b86165ae27d07e337d2ba026d37cc622b3e987"
+      },
+      "visible_pixels": 50635,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.43446,
+      "camera_depth_max_m": 3.67295
+    },
+    "016": {
+      "index": 16,
+      "theta_deg": 90.0,
+      "files": {
+        "silhouette": "control/frames/silhouette/016.png",
+        "depth": "control/frames/depth/016.png",
+        "parts": "control/frames/parts/016.png"
+      },
+      "sha256": {
+        "silhouette": "5eedc6a40d8dc03dcd283edba3ed3880f521487c4c3dfbcb68ebbc009dce36de",
+        "depth": "7f62c954ee4649494247c41440d2999a2c68d2dde3b70edb1cdc122ab17db4ee",
+        "parts": "6b197795b856b99ec6b6d477fbecc664fac99ca1e8ce1525b2a0167a097c53ea"
+      },
+      "visible_pixels": 49593,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.75132,
+      "camera_depth_max_m": 3.77631
+    },
+    "017": {
+      "index": 17,
+      "theta_deg": 95.625,
+      "files": {
+        "silhouette": "control/frames/silhouette/017.png",
+        "depth": "control/frames/depth/017.png",
+        "parts": "control/frames/parts/017.png"
+      },
+      "sha256": {
+        "silhouette": "051102c010e8efc9ce469e535c3ceeaa5150a70c10eda5859e138e3bde75376e",
+        "depth": "5e6f295a399a3f684dfc11a6e7d4daa45cda92d4c19b76fe8e1d26319fddc45e",
+        "parts": "4d670d9b3822fcff5229ff0bf89976b43f5337ac0acfabed3daf7abb85abadbf"
+      },
+      "visible_pixels": 48351,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.03944,
+      "camera_depth_max_m": 3.86747
+    },
+    "018": {
+      "index": 18,
+      "theta_deg": 101.25,
+      "files": {
+        "silhouette": "control/frames/silhouette/018.png",
+        "depth": "control/frames/depth/018.png",
+        "parts": "control/frames/parts/018.png"
+      },
+      "sha256": {
+        "silhouette": "36342212b2338fb06da3336f6c3cfc038bfcc310f1f71237a48f664d8a91efd3",
+        "depth": "e032bc4229d0e9b58fa606b094cb67e8a97074349b891bca5a536a9072b44ea2",
+        "parts": "4166706dbbc90e36e084bb36792c0d6ad5da4a66c9fb90a744db17d396753e6f"
+      },
+      "visible_pixels": 46909,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.29659,
+      "camera_depth_max_m": 3.9395
+    },
+    "019": {
+      "index": 19,
+      "theta_deg": 106.875,
+      "files": {
+        "silhouette": "control/frames/silhouette/019.png",
+        "depth": "control/frames/depth/019.png",
+        "parts": "control/frames/parts/019.png"
+      },
+      "sha256": {
+        "silhouette": "32bc99775e5ec8ab6183b922253ffa759620e17751d1e61bbafe1e9e6e33eb93",
+        "depth": "7dc3d4b4a081216125b348a357f22ec2931f7a724e76a8ae8d5f538db928821b",
+        "parts": "5896b03b85f3be2460d25eb0bdde30980bc953da35f7f3ace65d7db6496b9b8a"
+      },
+      "visible_pixels": 45320,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.50511,
+      "camera_depth_max_m": 3.98171
+    },
+    "020": {
+      "index": 20,
+      "theta_deg": 112.5,
+      "files": {
+        "silhouette": "control/frames/silhouette/020.png",
+        "depth": "control/frames/depth/020.png",
+        "parts": "control/frames/parts/020.png"
+      },
+      "sha256": {
+        "silhouette": "79d26a1a752efc264dcd784be1ce45389b959cbb52d9b08be19fc5f9dcae803b",
+        "depth": "50f7823702ace4c9ad7206c9cae189df1231d37cba4810d93ec9897fafbcf310",
+        "parts": "370fb0b05f4073b67dd4999af5fa2c4f74ce61611d2b983373976d732dfd7bee"
+      },
+      "visible_pixels": 44092,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.66769,
+      "camera_depth_max_m": 3.99217
+    },
+    "021": {
+      "index": 21,
+      "theta_deg": 118.125,
+      "files": {
+        "silhouette": "control/frames/silhouette/021.png",
+        "depth": "control/frames/depth/021.png",
+        "parts": "control/frames/parts/021.png"
+      },
+      "sha256": {
+        "silhouette": "de0143883f6deed789d8cc23705b87c09e5c5aba44b0089e244479814d6d5990",
+        "depth": "ec5abc90b69a0f45e8372a6bd101f301da4805face9229d434fe3e1a1a0e97ae",
+        "parts": "08749b1dbae6f397504fb562a4ce7c3a4adc4e0777a4357ccbcb55e4fdd58050"
+      },
+      "visible_pixels": 42775,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.79763,
+      "camera_depth_max_m": 3.98346
+    },
+    "022": {
+      "index": 22,
+      "theta_deg": 123.75,
+      "files": {
+        "silhouette": "control/frames/silhouette/022.png",
+        "depth": "control/frames/depth/022.png",
+        "parts": "control/frames/parts/022.png"
+      },
+      "sha256": {
+        "silhouette": "f1fc82069f4ff6e5aa3555fa654cd2e81237a13a1d3f54a480a11d37113ad972",
+        "depth": "f3d53292d60b166b5214146a20775e2aa2b8ad22f263b4e1593f2e826fadb842",
+        "parts": "eac26a0e909f1fca9841ca189ea2dda2ae4bae55730dbe25c9e0b329723b53c2"
+      },
+      "visible_pixels": 41375,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.87732,
+      "camera_depth_max_m": 3.94305
+    },
+    "023": {
+      "index": 23,
+      "theta_deg": 129.375,
+      "files": {
+        "silhouette": "control/frames/silhouette/023.png",
+        "depth": "control/frames/depth/023.png",
+        "parts": "control/frames/parts/023.png"
+      },
+      "sha256": {
+        "silhouette": "6ea09906b556fc253cf3a0f4abb9f03d1b587c0ed93424037a2c74f11c6544ae",
+        "depth": "115d61a08f42b86af977328f1ec855aec5c86d97d3f0d86f093ccbab6d38918b",
+        "parts": "778256ed1b4d7cda9747157ffacad60f88dffc3bf046ce6bffbdb26b6de94041"
+      },
+      "visible_pixels": 39872,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.95415,
+      "camera_depth_max_m": 3.87484
+    },
+    "024": {
+      "index": 24,
+      "theta_deg": 135.0,
+      "files": {
+        "silhouette": "control/frames/silhouette/024.png",
+        "depth": "control/frames/depth/024.png",
+        "parts": "control/frames/parts/024.png"
+      },
+      "sha256": {
+        "silhouette": "8871edf3ad8a8f5251563f86707dcfbc7d4726417616edc305191fe082c01c2a",
+        "depth": "fd15983d07b3032f07864efe459397dae1d1eb60101fed21203cbc6aaa9f9bbe",
+        "parts": "5f25d66f7a2b8c0cfe201ca59f2d86888fc8d26ea3473897874ade8d59dd4b62"
+      },
+      "visible_pixels": 38556,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "camera_depth_min_m": -2.97923,
+      "camera_depth_max_m": 3.7845
+    },
+    "025": {
+      "index": 25,
+      "theta_deg": 140.625,
+      "files": {
+        "silhouette": "control/frames/silhouette/025.png",
+        "depth": "control/frames/depth/025.png",
+        "parts": "control/frames/parts/025.png"
+      },
+      "sha256": {
+        "silhouette": "7b445317ae3998af5e4397a9855a424e3c1646d3e7ea13e7f1c3554af8c81a0e",
+        "depth": "5e01dd7e86185cfbd6e1868f778f8d73ddb23afb1f2addcf844fb804de5b5ec0",
+        "parts": "ea3b210c4fceda00892ba8ae09543d4b0521d5e780a3dccb0a0b71806fa074dc"
+      },
+      "visible_pixels": 39872,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.95415,
+      "camera_depth_max_m": 3.87484
+    },
+    "026": {
+      "index": 26,
+      "theta_deg": 146.25,
+      "files": {
+        "silhouette": "control/frames/silhouette/026.png",
+        "depth": "control/frames/depth/026.png",
+        "parts": "control/frames/parts/026.png"
+      },
+      "sha256": {
+        "silhouette": "7e52b67b990aec3cfccb9e8d447d203f223c088720e73b022804a1563a72ee02",
+        "depth": "109c4cb7fe9824ad1a935f90a4c9751e0517b8da0eb94010589d81db686dc062",
+        "parts": "2b19ff1e5cffe8ed2431dba11faed334f937d9fe18a06062815f5014d317b706"
+      },
+      "visible_pixels": 41375,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.87732,
+      "camera_depth_max_m": 3.94305
+    },
+    "027": {
+      "index": 27,
+      "theta_deg": 151.875,
+      "files": {
+        "silhouette": "control/frames/silhouette/027.png",
+        "depth": "control/frames/depth/027.png",
+        "parts": "control/frames/parts/027.png"
+      },
+      "sha256": {
+        "silhouette": "1a6596feafd3226493c02c1424d421c22d71d95144fe855dbb6208a38f3c410b",
+        "depth": "fb96efa083501552f8c275aa1642e5a1cd0f1739f2f08f76512ef46b87ac22a2",
+        "parts": "c705a566d69aeef1db5e50f3eb85d44dd2f5b093425dbaee59fb12be63e9d2c9"
+      },
+      "visible_pixels": 42775,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.79763,
+      "camera_depth_max_m": 3.98346
+    },
+    "028": {
+      "index": 28,
+      "theta_deg": 157.5,
+      "files": {
+        "silhouette": "control/frames/silhouette/028.png",
+        "depth": "control/frames/depth/028.png",
+        "parts": "control/frames/parts/028.png"
+      },
+      "sha256": {
+        "silhouette": "c52f3e3a57164965d66c14f980b41fb46f12fc67e65627bb6579127742b8084a",
+        "depth": "b377c16760ec45aa42777311035974ed1d979af94ecc2252c6678c613024ef25",
+        "parts": "130e44d1f38fa0f7afb8616e148ccee60f7a04d8ba68e7ce7b8efb8272563208"
+      },
+      "visible_pixels": 44092,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.66769,
+      "camera_depth_max_m": 3.99217
+    },
+    "029": {
+      "index": 29,
+      "theta_deg": 163.125,
+      "files": {
+        "silhouette": "control/frames/silhouette/029.png",
+        "depth": "control/frames/depth/029.png",
+        "parts": "control/frames/parts/029.png"
+      },
+      "sha256": {
+        "silhouette": "ec13a5f80647011fc56723b1135c54761ef905e994a86351417f9cd451315876",
+        "depth": "e99cdecc9512964991ed64174623a9629bcfa96e382710cda2a97952a11817bf",
+        "parts": "98dcbc909fa8a1584fe87f477e3554d9d21e42a6effd625ff42064d6f7a76129"
+      },
+      "visible_pixels": 45318,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.50511,
+      "camera_depth_max_m": 3.98171
+    },
+    "030": {
+      "index": 30,
+      "theta_deg": 168.75,
+      "files": {
+        "silhouette": "control/frames/silhouette/030.png",
+        "depth": "control/frames/depth/030.png",
+        "parts": "control/frames/parts/030.png"
+      },
+      "sha256": {
+        "silhouette": "821b18cc89d1a4e2d7a7047e2ca04aadcad16f73a8bf767a307f54ea7783b355",
+        "depth": "1faff0cd8732980160bfc7cd73a67e6740d94ee304da66fb18a29f935abf114c",
+        "parts": "5f2bac385e19039baa13a5fdc51d9cd9bcae5edd8ffa597bf484373c9a42b528"
+      },
+      "visible_pixels": 46897,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.29659,
+      "camera_depth_max_m": 3.9395
+    },
+    "031": {
+      "index": 31,
+      "theta_deg": 174.375,
+      "files": {
+        "silhouette": "control/frames/silhouette/031.png",
+        "depth": "control/frames/depth/031.png",
+        "parts": "control/frames/parts/031.png"
+      },
+      "sha256": {
+        "silhouette": "bffddb5ab76ff5bf77cf8bfeefea0410e6686028251a98f4bc8fbafe486ce51c",
+        "depth": "75eafa88dae181b94cb202320ceefbe24dbec34e945808216f1172de81d7067c",
+        "parts": "06975ccd98b62565933a177f86506e5c01306532153610cb8462ca5bfeff5546"
+      },
+      "visible_pixels": 48325,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.03944,
+      "camera_depth_max_m": 3.86747
+    },
+    "032": {
+      "index": 32,
+      "theta_deg": 180.0,
+      "files": {
+        "silhouette": "control/frames/silhouette/032.png",
+        "depth": "control/frames/depth/032.png",
+        "parts": "control/frames/parts/032.png"
+      },
+      "sha256": {
+        "silhouette": "4e824dcb98d051dc20acf7d42e6daf7c692ca10eb6d99f95172a33796d47d7ce",
+        "depth": "8046757ae344427240f7587ea0f8cac7514b1a0159671dd7ac310ab076122e99",
+        "parts": "1ed34e34e3205e892daaf1fb51be941d1f5149a91ba5455e8197fdf5ff39662f"
+      },
+      "visible_pixels": 49555,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.75132,
+      "camera_depth_max_m": 3.77631
+    },
+    "033": {
+      "index": 33,
+      "theta_deg": 185.625,
+      "files": {
+        "silhouette": "control/frames/silhouette/033.png",
+        "depth": "control/frames/depth/033.png",
+        "parts": "control/frames/parts/033.png"
+      },
+      "sha256": {
+        "silhouette": "c04fb66571c05bbf5cb94983f941bac10e8cfce8f972ec1b5f5c49f024876b29",
+        "depth": "650877c31b4a0e5ac0ffc6f0c21956905652a95b7a1b59bb2a229908c54c7761",
+        "parts": "31fbe98c7fae7c3068f8375345f4410ab72de7d7f40dcbb9e6d900313374d619"
+      },
+      "visible_pixels": 50583,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.43446,
+      "camera_depth_max_m": 3.67295
+    },
+    "034": {
+      "index": 34,
+      "theta_deg": 191.25,
+      "files": {
+        "silhouette": "control/frames/silhouette/034.png",
+        "depth": "control/frames/depth/034.png",
+        "parts": "control/frames/parts/034.png"
+      },
+      "sha256": {
+        "silhouette": "e3aa5b092fafa6d45860cf6b7cadf79878afbf095444d459d0e9671493ea938f",
+        "depth": "42ab786f6ed95cac562ca38873dcd7dd1e1f15a8e80d3bac0c76576b3c20bf14",
+        "parts": "82050d727bc6ab823f42a7fb3e89c62a6c1e3b656419def937f8040644a2c647"
+      },
+      "visible_pixels": 51365,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.09541,
+      "camera_depth_max_m": 3.53829
+    },
+    "035": {
+      "index": 35,
+      "theta_deg": 196.875,
+      "files": {
+        "silhouette": "control/frames/silhouette/035.png",
+        "depth": "control/frames/depth/035.png",
+        "parts": "control/frames/parts/035.png"
+      },
+      "sha256": {
+        "silhouette": "8aee7311c2968f4be17fb30f5ae0d51fee718a65b36b4931cf6b98959844ac82",
+        "depth": "240cfcbfdd1bd2b4662e3978843940b56d6bbeb928e4f3bd99a03615aa1b7104",
+        "parts": "014c61b23fcc4b5fced13e0ec1ce3893698eadd41b458cdb50aca1c52501d6d9"
+      },
+      "visible_pixels": 51883,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.87203,
+      "camera_depth_max_m": 3.38387
+    },
+    "036": {
+      "index": 36,
+      "theta_deg": 202.5,
+      "files": {
+        "silhouette": "control/frames/silhouette/036.png",
+        "depth": "control/frames/depth/036.png",
+        "parts": "control/frames/parts/036.png"
+      },
+      "sha256": {
+        "silhouette": "5d283d3cab8c270e84b75ca30140e2cc6219c3d45cab8b838ef2a5e416805b69",
+        "depth": "9a8fa94919d18d7f196cf8ee87d1cf721bbd64217e132b4ec32e611ae7d3c7e6",
+        "parts": "1050223a3f9e87f8d3d4fba3f0abb1b76ee8c1dcb30a17fc4d45aba6fa51c2a1"
+      },
+      "visible_pixels": 52203,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.68971,
+      "camera_depth_max_m": 3.22587
+    },
+    "037": {
+      "index": 37,
+      "theta_deg": 208.125,
+      "files": {
+        "silhouette": "control/frames/silhouette/037.png",
+        "depth": "control/frames/depth/037.png",
+        "parts": "control/frames/parts/037.png"
+      },
+      "sha256": {
+        "silhouette": "ea9dbd5fa3a81d385072aeb50fcbff4cea5da1bb09a9168fe4b26045ff26a837",
+        "depth": "f9784c6927f49f597b98686dfa2743e4c8a4af01f70c9cceb0ecbac51f88b2ae",
+        "parts": "c96607749938138f50e5370931906c4bf8f10066c35461cce7f4b101f15f49e9"
+      },
+      "visible_pixels": 52409,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.62619,
+      "camera_depth_max_m": 3.02918
+    },
+    "038": {
+      "index": 38,
+      "theta_deg": 213.75,
+      "files": {
+        "silhouette": "control/frames/silhouette/038.png",
+        "depth": "control/frames/depth/038.png",
+        "parts": "control/frames/parts/038.png"
+      },
+      "sha256": {
+        "silhouette": "e4f5824cbb931031c3bab081d52f517c0d4e9c00cd745615152067ae5d713f11",
+        "depth": "c3b69f38137db6247960833d94f280475688f84944a1ef87f66a1827d08580bb",
+        "parts": "37a1c71398dbb9073a482dfa356448c369321489e7b1c9170b93e497680fceff"
+      },
+      "visible_pixels": 52432,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.41349,
+      "camera_depth_max_m": 2.8251
+    },
+    "039": {
+      "index": 39,
+      "theta_deg": 219.375,
+      "files": {
+        "silhouette": "control/frames/silhouette/039.png",
+        "depth": "control/frames/depth/039.png",
+        "parts": "control/frames/parts/039.png"
+      },
+      "sha256": {
+        "silhouette": "40df5138572327e7827e17ebcc48cea566ff4f643c34642332993f81668f3291",
+        "depth": "c897e47622550ad56a7ca63beb4bd679a5248dd51427ceeb60de76a8e3823d8a",
+        "parts": "1a1fb67b403767faf56bee5358e47293a21a372801c8300d9db3861f3f753565"
+      },
+      "visible_pixels": 52385,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.1704,
+      "camera_depth_max_m": 2.60098
+    },
+    "040": {
+      "index": 40,
+      "theta_deg": 225.0,
+      "files": {
+        "silhouette": "control/frames/silhouette/040.png",
+        "depth": "control/frames/depth/040.png",
+        "parts": "control/frames/parts/040.png"
+      },
+      "sha256": {
+        "silhouette": "2198e29f9dc07fd991e538337c38a0e7f138c289e0a77671f19a933cebfc5d33",
+        "depth": "09a132b29c25ffe77205cac0418066f02987e1207e9fc97273a10b1928452f0d",
+        "parts": "12c9bd89e6a99500a982b0c1c7258fc1c69f2f0e9049974c9f0e9afc8addf838"
+      },
+      "visible_pixels": 52115,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.05138,
+      "camera_depth_max_m": 2.41719
+    },
+    "041": {
+      "index": 41,
+      "theta_deg": 230.625,
+      "files": {
+        "silhouette": "control/frames/silhouette/041.png",
+        "depth": "control/frames/depth/041.png",
+        "parts": "control/frames/parts/041.png"
+      },
+      "sha256": {
+        "silhouette": "ce3e91c822a07f4e344b255c8c1e80c437d3534bce6345400e06b4bd64174496",
+        "depth": "d270466e54f40a89975c1f305db22583d5bfecf74e5d9ce1c36b5138cdac947c",
+        "parts": "7b350e53dc3739bd342842b05bcca78bedfd7d53c85ab597df330c3de3b505cf"
+      },
+      "visible_pixels": 52089,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.79895,
+      "camera_depth_max_m": 2.61829
+    },
+    "042": {
+      "index": 42,
+      "theta_deg": 236.25,
+      "files": {
+        "silhouette": "control/frames/silhouette/042.png",
+        "depth": "control/frames/depth/042.png",
+        "parts": "control/frames/parts/042.png"
+      },
+      "sha256": {
+        "silhouette": "d12ed4ebaf6e05cd843f7ad7cf0967fe6adf63730434eaba43aad99ae71a9c0d",
+        "depth": "652c1d12bc1832f8aa97d75b27b6c014dae053b0b46532636b90a7690bda1679",
+        "parts": "6630f64830c2f82fc67b0bba24f9328830c155b2c9473ec65db4d36cbde7857c"
+      },
+      "visible_pixels": 52066,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.55459,
+      "camera_depth_max_m": 2.8357
+    },
+    "043": {
+      "index": 43,
+      "theta_deg": 241.875,
+      "files": {
+        "silhouette": "control/frames/silhouette/043.png",
+        "depth": "control/frames/depth/043.png",
+        "parts": "control/frames/parts/043.png"
+      },
+      "sha256": {
+        "silhouette": "35d6d42dada1fa6209a1e32e03bad672b13e30a6190af88589e1fa285cdd450e",
+        "depth": "7b5b6ab37227346be20a4972fd34463261daa5e6de5e6e14fb8a2040a8bebadf",
+        "parts": "ac4162085095b73ccef059d438c3462f355544a25f284aaa5e429b9067a789cd"
+      },
+      "visible_pixels": 52014,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.66404,
+      "camera_depth_max_m": 3.04779
+    },
+    "044": {
+      "index": 44,
+      "theta_deg": 247.5,
+      "files": {
+        "silhouette": "control/frames/silhouette/044.png",
+        "depth": "control/frames/depth/044.png",
+        "parts": "control/frames/parts/044.png"
+      },
+      "sha256": {
+        "silhouette": "20a62258e295eb8aa3a7e4491e0a7f8f666f3723d41dea9c5ac730c14cf570ff",
+        "depth": "be7a4773604f4c33b14ca0faa4b76bcefab85c16c7f7a6c41310e3a9b35ffffd",
+        "parts": "e24a8a4a690e688dd348cf8570bc5d6aef6d675a0fdc54caef34981bc8da10bc"
+      },
+      "visible_pixels": 51765,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.75123,
+      "camera_depth_max_m": 3.24412
+    },
+    "045": {
+      "index": 45,
+      "theta_deg": 253.125,
+      "files": {
+        "silhouette": "control/frames/silhouette/045.png",
+        "depth": "control/frames/depth/045.png",
+        "parts": "control/frames/parts/045.png"
+      },
+      "sha256": {
+        "silhouette": "90124ab4c921046c8e42b86129023fa2bec8de7c5cfb607bcd9a5e39dc6c5df3",
+        "depth": "b04afe4c1eecbfb679f26799a4f8403a14966db9f12ae2509cc03e8e3f7505d4",
+        "parts": "6c1415a552aa16b3e131649024381c996331730bec44d92d2e2f41a23b7e7198"
+      },
+      "visible_pixels": 51246,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -0.93354,
+      "camera_depth_max_m": 3.58249
+    },
+    "046": {
+      "index": 46,
+      "theta_deg": 258.75,
+      "files": {
+        "silhouette": "control/frames/silhouette/046.png",
+        "depth": "control/frames/depth/046.png",
+        "parts": "control/frames/parts/046.png"
+      },
+      "sha256": {
+        "silhouette": "54cdb38cc58ee9968c366a54f8748649063d9eb3f78c86d07182a55d8746ab3f",
+        "depth": "0153bcb22fca61e0c25dc42bb1a30f3ffef41b7b042994b1708d6731a50bf751",
+        "parts": "f7a4e3086d44a7ba4f18bee4e485b132865f3e2bb8798b214424d610b5df14a7"
+      },
+      "visible_pixels": 50468,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.08547,
+      "camera_depth_max_m": 3.94323
+    },
+    "047": {
+      "index": 47,
+      "theta_deg": 264.375,
+      "files": {
+        "silhouette": "control/frames/silhouette/047.png",
+        "depth": "control/frames/depth/047.png",
+        "parts": "control/frames/parts/047.png"
+      },
+      "sha256": {
+        "silhouette": "f26ffcf78c3bbe7a9b4fe7c25893caf5407d76b726e2a538c52e5ea6871992cd",
+        "depth": "b614e6ffdfa0e5f4a842be635af0b0fa438591161c0efc18c98f10b9f46642ca",
+        "parts": "4c6f53d5b1cb96400bde5d981925d5cf1b18fcc584eb9afaef5ef2b455cea80d"
+      },
+      "visible_pixels": 49437,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.2374,
+      "camera_depth_max_m": 4.27844
+    },
+    "048": {
+      "index": 48,
+      "theta_deg": 270.0,
+      "files": {
+        "silhouette": "control/frames/silhouette/048.png",
+        "depth": "control/frames/depth/048.png",
+        "parts": "control/frames/parts/048.png"
+      },
+      "sha256": {
+        "silhouette": "d251de7cbf568d88869567ee63e298c34915e4e688c57f83298d5aa8a13a3eb9",
+        "depth": "4b9ab4629f417411df5062817ac494948f86e57cbaf85be880db7abe7c08590f",
+        "parts": "5b452f96885957c0747bbae5e96b6def701434c4d6a24ebb8e655cfb6cd5e8e2"
+      },
+      "visible_pixels": 48189,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.35895,
+      "camera_depth_max_m": 4.58856
+    },
+    "049": {
+      "index": 49,
+      "theta_deg": 275.625,
+      "files": {
+        "silhouette": "control/frames/silhouette/049.png",
+        "depth": "control/frames/depth/049.png",
+        "parts": "control/frames/parts/049.png"
+      },
+      "sha256": {
+        "silhouette": "f0070f961ccad8010e530da98c5773006dcae45941d173ba4de7c3e82a22a4af",
+        "depth": "13b29646c5c8e9a8363b71894dd7e5829dce71f6ddd5746b51c3a8f7bfb72bda",
+        "parts": "d81ed255222ee7c61328709395670b41588f56546251ccb49d5af4f4be14844b"
+      },
+      "visible_pixels": 46626,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.45011,
+      "camera_depth_max_m": 4.8662
+    },
+    "050": {
+      "index": 50,
+      "theta_deg": 281.25,
+      "files": {
+        "silhouette": "control/frames/silhouette/050.png",
+        "depth": "control/frames/depth/050.png",
+        "parts": "control/frames/parts/050.png"
+      },
+      "sha256": {
+        "silhouette": "4954e61908a273eb9eed3c3f55a6a3a28e6338f75585f51c4f58e5f8d1f541d9",
+        "depth": "a861ec6894cfb6779c6425385d4776cff798c7e877617b6d5785afbb36e68a9c",
+        "parts": "3bd8b975b2a6397ebd29d96f47d7e9223409c1602a71ac8300f25e1f230f8e3f"
+      },
+      "visible_pixels": 44974,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.51088,
+      "camera_depth_max_m": 5.1152
+    },
+    "051": {
+      "index": 51,
+      "theta_deg": 286.875,
+      "files": {
+        "silhouette": "control/frames/silhouette/051.png",
+        "depth": "control/frames/depth/051.png",
+        "parts": "control/frames/parts/051.png"
+      },
+      "sha256": {
+        "silhouette": "9d0909bd4516bd2101d3da932feac014191e7889df0d73e0af2fc54adbacfb2c",
+        "depth": "db406b7a952ca220be30c1e010e30b509a82363bfffe82cbf657fed0081a0288",
+        "parts": "2efb3dead9a82331cf00354ca99f3ef21427f592b405c3af8b757b9dd6368162"
+      },
+      "visible_pixels": 43327,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.04823,
+      "camera_depth_max_m": 5.32495
+    },
+    "052": {
+      "index": 52,
+      "theta_deg": 292.5,
+      "files": {
+        "silhouette": "control/frames/silhouette/052.png",
+        "depth": "control/frames/depth/052.png",
+        "parts": "control/frames/parts/052.png"
+      },
+      "sha256": {
+        "silhouette": "182577b008357216d6cc0113489898927bd9478986779bd6b46b363236856102",
+        "depth": "e493c40c311f87e92aaeddc0a4398ca7e9fdedf8ddd64d9172adcd809193cea3",
+        "parts": "ad869f20e1d412b107129115e4cf649785ab81325dac78bec3cbdc77f65cede0"
+      },
+      "visible_pixels": 42120,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.01784,
+      "camera_depth_max_m": 5.49835
+    },
+    "053": {
+      "index": 53,
+      "theta_deg": 298.125,
+      "files": {
+        "silhouette": "control/frames/silhouette/053.png",
+        "depth": "control/frames/depth/053.png",
+        "parts": "control/frames/parts/053.png"
+      },
+      "sha256": {
+        "silhouette": "2996855a87c696c68c656a19b7a2c3430ba30c640f88f9ca166c63516eef0068",
+        "depth": "fc083b2129eb491d5f69abecca2e9202b91e793c5998202ae3d8ecb6e8012119",
+        "parts": "e6623a6e41a4d3d4477f3f2f6cf1da322b7e76ee956c50e889dafa02e69090f6"
+      },
+      "visible_pixels": 40990,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.95707,
+      "camera_depth_max_m": 5.63774
+    },
+    "054": {
+      "index": 54,
+      "theta_deg": 303.75,
+      "files": {
+        "silhouette": "control/frames/silhouette/054.png",
+        "depth": "control/frames/depth/054.png",
+        "parts": "control/frames/parts/054.png"
+      },
+      "sha256": {
+        "silhouette": "5200eb00bb0ad6aa42f782b2f4227cd188bef86961a9c48552a4c204a9f1418f",
+        "depth": "d84c931b3b944747e8d14d2101083b9106b42070d233d56cb56e277ef6ec7e26",
+        "parts": "0c12c570bc1022309d2eee10b3fdeed5d623545904bd7070cfe472dc7ebde1cc"
+      },
+      "visible_pixels": 39564,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.94195,
+      "camera_depth_max_m": 5.73812
+    },
+    "055": {
+      "index": 55,
+      "theta_deg": 309.375,
+      "files": {
+        "silhouette": "control/frames/silhouette/055.png",
+        "depth": "control/frames/depth/055.png",
+        "parts": "control/frames/parts/055.png"
+      },
+      "sha256": {
+        "silhouette": "145c736ee98b332890f1b0e2942e83b33feea8c221acda6da0d32719ae080ada",
+        "depth": "620093fef054a889ea8958ff973f5e2fe311a2cad62ef25a1ed870816de8447b",
+        "parts": "7e4a82f18c0a711956d2c7e2fb1423826ee48d8a6837838db61f59eb0f3705f4"
+      },
+      "visible_pixels": 37984,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.10146,
+      "camera_depth_max_m": 5.79831
+    },
+    "056": {
+      "index": 56,
+      "theta_deg": 315.0,
+      "files": {
+        "silhouette": "control/frames/silhouette/056.png",
+        "depth": "control/frames/depth/056.png",
+        "parts": "control/frames/parts/056.png"
+      },
+      "sha256": {
+        "silhouette": "c51649c61324e6a9a4b6c7c9f09579f6c94e568a47f44a88e22c1133ae54da89",
+        "depth": "c863072292613013829e68ed2ce8386a103792e9cd59b9f37d3a5c737ddb01c7",
+        "parts": "0025bf45239b560f14c986654cc17fd3d949604b14eb3ddbbf6db2143496ca64"
+      },
+      "visible_pixels": 36624,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "camera_depth_min_m": -1.62282,
+      "camera_depth_max_m": 5.81227
+    },
+    "057": {
+      "index": 57,
+      "theta_deg": 320.625,
+      "files": {
+        "silhouette": "control/frames/silhouette/057.png",
+        "depth": "control/frames/depth/057.png",
+        "parts": "control/frames/parts/057.png"
+      },
+      "sha256": {
+        "silhouette": "6b9b84f8f921bfd6c8fb1bd9755fc8e55949ce51779d6a4b350327332344d7d8",
+        "depth": "4a5ec922febfdc8410d6861017a34724a09405ec80c05e8ebab641410d81705f",
+        "parts": "7b157b06cc83a932156e2480e7c639f88b1bb5fa5db8ad3b243eb11313c7a89f"
+      },
+      "visible_pixels": 37984,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.10146,
+      "camera_depth_max_m": 5.79831
+    },
+    "058": {
+      "index": 58,
+      "theta_deg": 326.25,
+      "files": {
+        "silhouette": "control/frames/silhouette/058.png",
+        "depth": "control/frames/depth/058.png",
+        "parts": "control/frames/parts/058.png"
+      },
+      "sha256": {
+        "silhouette": "26cb96f026cfb589c3a2c98910401eaa21657d288dacf4cbb453b35e3bbb7b5a",
+        "depth": "1f29faa7419beeb11b4c95b9da90ac5802c78f25e9367964d97a1aa9dc00a745",
+        "parts": "fd3beabe734a0b1470d6aa27c6bf622c87eaca8564b5d0323226e5c5cd3ab443"
+      },
+      "visible_pixels": 39564,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.94195,
+      "camera_depth_max_m": 5.73812
+    },
+    "059": {
+      "index": 59,
+      "theta_deg": 331.875,
+      "files": {
+        "silhouette": "control/frames/silhouette/059.png",
+        "depth": "control/frames/depth/059.png",
+        "parts": "control/frames/parts/059.png"
+      },
+      "sha256": {
+        "silhouette": "e6c2cd285a944d05432adfba71e0459fb4082f72b239a9fde65abce3bb361674",
+        "depth": "dc19786370e4faf0e7024352376b12edb279a0e3f6d17eb48e276c918020680d",
+        "parts": "6d3170f4189fedfe38699d27f0b55c290fe9e98485504d6f544068c8f04ea03c"
+      },
+      "visible_pixels": 40990,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.95707,
+      "camera_depth_max_m": 5.63774
+    },
+    "060": {
+      "index": 60,
+      "theta_deg": 337.5,
+      "files": {
+        "silhouette": "control/frames/silhouette/060.png",
+        "depth": "control/frames/depth/060.png",
+        "parts": "control/frames/parts/060.png"
+      },
+      "sha256": {
+        "silhouette": "b94ab5ec54e975f0b72e77bc2ca2dc6b2bcce79d9085fea22c0506e2f67b86f6",
+        "depth": "b58f6a6cebb2d84590cd61f577cf3430bbb67b280c042c03d53ccd6388ad32c3",
+        "parts": "0969c3dd9ab0a9c13cc0b9f123fbc89b45ad80fb49f59721a508c267e62dfa3d"
+      },
+      "visible_pixels": 42120,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.01784,
+      "camera_depth_max_m": 5.49835
+    },
+    "061": {
+      "index": 61,
+      "theta_deg": 343.125,
+      "files": {
+        "silhouette": "control/frames/silhouette/061.png",
+        "depth": "control/frames/depth/061.png",
+        "parts": "control/frames/parts/061.png"
+      },
+      "sha256": {
+        "silhouette": "a8f2f7a1d5f6dc4ca16d63af82c6da81569d76ffbc69b6cf13396fb645e3b041",
+        "depth": "c8baceff0bdd31ad4f46a8606529c571c524588d50053e6ab74ad973ef561428",
+        "parts": "1d62b361347cfe6d834e4e9d6e1ff934d1c699bd6bc134aa9ae6d325ebea2a8d"
+      },
+      "visible_pixels": 43331,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -2.04823,
+      "camera_depth_max_m": 5.32495
+    },
+    "062": {
+      "index": 62,
+      "theta_deg": 348.75,
+      "files": {
+        "silhouette": "control/frames/silhouette/062.png",
+        "depth": "control/frames/depth/062.png",
+        "parts": "control/frames/parts/062.png"
+      },
+      "sha256": {
+        "silhouette": "83302f725d67b26df603e57aeeec8e1d4683490ba1cb32f27236736015b3a210",
+        "depth": "2e69742762d9903b7dca8d1b50922062e5145cc728fee905588d2aade77cb088",
+        "parts": "d102824e875da825452f61e0ef62c7b7d49f4d53880ca4d42c96844fa7754086"
+      },
+      "visible_pixels": 45027,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.51088,
+      "camera_depth_max_m": 5.1152
+    },
+    "063": {
+      "index": 63,
+      "theta_deg": 354.375,
+      "files": {
+        "silhouette": "control/frames/silhouette/063.png",
+        "depth": "control/frames/depth/063.png",
+        "parts": "control/frames/parts/063.png"
+      },
+      "sha256": {
+        "silhouette": "182a6e68e641c3b897c14fc423c46adf15a167c9ff4398c3f5de1a144868f3c9",
+        "depth": "4fba088b0009d7bd4bd43de1405d154b3cdcb381757f3b3f0f7ad946e7f75670",
+        "parts": "96442abf3950fa78848476397d80da6abb35a532bdb79b7f8608619fe7e6e116"
+      },
+      "visible_pixels": 46718,
+      "visible_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "camera_depth_min_m": -1.45011,
+      "camera_depth_max_m": 4.8662
+    }
+  }
+}

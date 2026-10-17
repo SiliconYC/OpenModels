@@ -1,0 +1,119 @@
+{
+  "row_major": true,
+  "tile_px": 256,
+  "channel": "depth",
+  "cells": [
+    {
+      "row": 0,
+      "column": 0,
+      "slot": 0,
+      "theta_deg": 0.0,
+      "source": "control/frames/depth/000.png"
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "slot": 4,
+      "theta_deg": 22.5,
+      "source": "control/frames/depth/004.png"
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "slot": 8,
+      "theta_deg": 45.0,
+      "source": "control/frames/depth/008.png"
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "slot": 12,
+      "theta_deg": 67.5,
+      "source": "control/frames/depth/012.png"
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "slot": 16,
+      "theta_deg": 90.0,
+      "source": "control/frames/depth/016.png"
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "slot": 20,
+      "theta_deg": 112.5,
+      "source": "control/frames/depth/020.png"
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "slot": 24,
+      "theta_deg": 135.0,
+      "source": "control/frames/depth/024.png"
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "slot": 28,
+      "theta_deg": 157.5,
+      "source": "control/frames/depth/028.png"
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "slot": 32,
+      "theta_deg": 180.0,
+      "source": "control/frames/depth/032.png"
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "slot": 36,
+      "theta_deg": 202.5,
+      "source": "control/frames/depth/036.png"
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "slot": 40,
+      "theta_deg": 225.0,
+      "source": "control/frames/depth/040.png"
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "slot": 44,
+      "theta_deg": 247.5,
+      "source": "control/frames/depth/044.png"
+    },
+    {
+      "row": 3,
+      "column": 0,
+      "slot": 48,
+      "theta_deg": 270.0,
+      "source": "control/frames/depth/048.png"
+    },
+    {
+      "row": 3,
+      "column": 1,
+      "slot": 52,
+      "theta_deg": 292.5,
+      "source": "control/frames/depth/052.png"
+    },
+    {
+      "row": 3,
+      "column": 2,
+      "slot": 56,
+      "theta_deg": 315.0,
+      "source": "control/frames/depth/056.png"
+    },
+    {
+      "row": 3,
+      "column": 3,
+      "slot": 60,
+      "theta_deg": 337.5,
+      "source": "control/frames/depth/060.png"
+    }
+  ]
+}
