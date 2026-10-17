@@ -77,6 +77,27 @@ unverified:
   - interleaved road wheel stagger
   - armour profile, mantlet and hatch details
   - commercial final textures and artistic finish (Issue #7)
+refined_geometry:
+  stage: detailed_uv_test
+  source: source/build_refined.py
+  uv_generator: source/build_refined_uv.py
+  grey_export: export/tiger-i-refined-grey.glb
+  textured_export: export/tiger-i-refined-uv.glb
+  grey_viewer: docs/assets/tiger-i-refined-grey.glb
+  uv_viewer: docs/assets/tiger-i-refined-uv.glb
+  mesh_report: export/refined-mesh-report.json
+  uv_report: export/refined-uv-report.json
+  source_references: references/REFINEMENT-20261017.md
+  triangles: 34872
+  vertices_grey: 18128
+  mesh_count: 168
+  real_road_wheels_per_side: 24
+  procedurally_modelled_shoes_per_side: 100
+  real_uv_template: textures/tiger-i-refined-uv-template.png
+  real_uv_checker: textures/tiger-i-refined-checker.png
+  atlas_size: [4096, 4096]
+  final_camo: pending_issue_7
+  precision: visual reconstruction, not engineering CAD
 licensing:
   reference_source_rights: retained_by_original_publishers
   third_party_assets_included: false
