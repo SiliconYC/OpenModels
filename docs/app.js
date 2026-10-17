@@ -12,15 +12,17 @@ const kind = document.getElementById('model-kind');
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.86;
 stage.append(renderer.domElement);
 const scene = new THREE.Scene();
-scene.add(new THREE.AmbientLight(0xffffff, 1.7));
-const key = new THREE.DirectionalLight(0xffffff, 2.4);
+scene.add(new THREE.AmbientLight(0xffffff, 0.82));
+const key = new THREE.DirectionalLight(0xffffff, 1.6);
 key.position.set(5, 10, 8);
 scene.add(key);
 // Secondary soft fill so left, rear and underside views remain legible.
 // Flat untextured metal should not vanish into a black silhouette.
-const fill = new THREE.DirectionalLight(0xe6f0e6, 1.15);
+const fill = new THREE.DirectionalLight(0xe6f0e6, 0.68);
 fill.position.set(-7, 7, -8);
 scene.add(fill);
 const orthographicCamera = new THREE.OrthographicCamera(-4, 4, 4, -4, .02, 4000);
