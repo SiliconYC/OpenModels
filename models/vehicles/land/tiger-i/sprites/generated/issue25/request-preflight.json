@@ -1,0 +1,110 @@
+{
+  "status": "NOT_EXECUTED",
+  "provider": "fal-ai/sdxl-controlnet-union/image-to-image",
+  "references": {
+    "source": [
+      "https://fal.ai/models/fal-ai/sdxl-controlnet-union/image-to-image/api"
+    ],
+    "style_image_supplied": false
+  },
+  "planned_modes": [
+    "reference_only",
+    "reference_edge",
+    "reference_edge_depth_parts"
+  ],
+  "planned_slots": [
+    0,
+    16,
+    32,
+    48
+  ],
+  "planned_count": 12,
+  "authentication_available": false,
+  "exact_price_confirmed": false,
+  "requests": [
+    {
+      "slot": 0,
+      "mode": "reference_only",
+      "seed": 131000,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 0,
+      "mode": "reference_edge",
+      "seed": 131000,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 0,
+      "mode": "reference_edge_depth_parts",
+      "seed": 131000,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 16,
+      "mode": "reference_only",
+      "seed": 131016,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 16,
+      "mode": "reference_edge",
+      "seed": 131016,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 16,
+      "mode": "reference_edge_depth_parts",
+      "seed": 131016,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 32,
+      "mode": "reference_only",
+      "seed": 131032,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 32,
+      "mode": "reference_edge",
+      "seed": 131032,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 32,
+      "mode": "reference_edge_depth_parts",
+      "seed": 131032,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 48,
+      "mode": "reference_only",
+      "seed": 131048,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 48,
+      "mode": "reference_edge",
+      "seed": 131048,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    },
+    {
+      "slot": 48,
+      "mode": "reference_edge_depth_parts",
+      "seed": 131048,
+      "status": "NOT_EXECUTED",
+      "blocked_by": "No verified approved reference image"
+    }
+  ]
+}

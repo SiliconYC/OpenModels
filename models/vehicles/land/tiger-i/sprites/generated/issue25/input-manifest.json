@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "asset_id": "tiger-i",
+  "phase": "control-preflight",
+  "status": "prepared_control_inputs_only_NO_AI_INFERENCE",
+  "source_model_sha256": "67ffa5e4afb12442b0c3a200576ee3c0c48e288abcbf0e3faef3e11159784b0e",
+  "source_spec_sha256": "4d8c85eb6a64c94c00077511bb074dedc1cc852cff48a440001b9aab3b1b8578",
+  "source_control_manifest_sha256": "fdebe46a507d1887283d37136b71f9ed887bbceadfb6caa3ec4128c630b6d30d",
+  "camera": {
+    "type": "orthographic",
+    "azimuth_deg": 45,
+    "elevation_deg": 35,
+    "world_up": "+Y",
+    "fixed": true,
+    "canvas_px": [
+      512,
+      512
+    ],
+    "pixels_per_m": 47,
+    "pivot_px": [
+      256,
+      354
+    ],
+    "near_cam_z_m": -12,
+    "far_cam_z_m": 12
+  },
+  "slots": {
+    "000": {
+      "slot": 0,
+      "theta_deg": 0.0,
+      "input_sha256": {
+        "silhouette": "3cef78ca230fb9db400b9a495cec741d9d9e37e6aaafc993470a5841a2682129",
+        "depth": "88e1aace96ccd8b015bf4e72e5b18813c5e02198105ba77187b2930c691b4a2f",
+        "parts": "853955f4bf4f8866c9ebfd74098b577d4538f79a1df01ca1dedfb3a66906cd2f"
+      },
+      "converted": {
+        "edge_rgb": {
+          "path": "generated/issue25/inputs/edge_rgb/000.png",
+          "sha256": "c3353620815a1cf86097ff9c9fda774ff6f133aed0ec5e7b269aa26a66740ca7",
+          "mode": "RGB"
+        },
+        "depth_rgb": {
+          "path": "generated/issue25/inputs/depth_rgb/000.png",
+          "sha256": "9ace22845e3ef7d38826558bb4f186b0942d5e81f300ccf9ffd54060ef2afb54",
+          "mode": "RGB"
+        },
+        "parts_rgb": {
+          "path": "generated/issue25/inputs/parts_rgb/000.png",
+          "sha256": "5634abea49c6e9215f310f45a75dd985ee887b9636434fd0bba1b6016257da14",
+          "mode": "RGB"
+        },
+        "subject_mask": {
+          "path": "generated/issue25/inputs/subject_mask/000.png",
+          "sha256": "57e838e75845dc671d9c27ee4c204effadf8a19249fb96dcbc843b795eb88a6e",
+          "mode": "L"
+        }
+      },
+      "label": "provider_input_NOT_GENERATED_ART"
+    },
+    "016": {
+      "slot": 16,
+      "theta_deg": 90.0,
+      "input_sha256": {
+        "silhouette": "5eedc6a40d8dc03dcd283edba3ed3880f521487c4c3dfbcb68ebbc009dce36de",
+        "depth": "7f62c954ee4649494247c41440d2999a2c68d2dde3b70edb1cdc122ab17db4ee",
+        "parts": "6b197795b856b99ec6b6d477fbecc664fac99ca1e8ce1525b2a0167a097c53ea"
+      },
+      "converted": {
+        "edge_rgb": {
+          "path": "generated/issue25/inputs/edge_rgb/016.png",
+          "sha256": "8c0f4faa565067228b6372a8093e5c72f441f6aa5751db54c9beead7d7358193",
+          "mode": "RGB"
+        },
+        "depth_rgb": {
+          "path": "generated/issue25/inputs/depth_rgb/016.png",
+          "sha256": "0e4f142b5fca3fde5c943955f7902c2760126cb94cf0db3d5529c7bc1621bb1c",
+          "mode": "RGB"
+        },
+        "parts_rgb": {
+          "path": "generated/issue25/inputs/parts_rgb/016.png",
+          "sha256": "126f5bf658cb17eefe16aea59c0275289d8a122f17de12165c5601aebb0c5254",
+          "mode": "RGB"
+        },
+        "subject_mask": {
+          "path": "generated/issue25/inputs/subject_mask/016.png",
+          "sha256": "80ca4057b521e33b13fba18774eed2ce9c14c6d3261c41de362980f49e85fbe9",
+          "mode": "L"
+        }
+      },
+      "label": "provider_input_NOT_GENERATED_ART"
+    },
+    "032": {
+      "slot": 32,
+      "theta_deg": 180.0,
+      "input_sha256": {
+        "silhouette": "4e824dcb98d051dc20acf7d42e6daf7c692ca10eb6d99f95172a33796d47d7ce",
+        "depth": "8046757ae344427240f7587ea0f8cac7514b1a0159671dd7ac310ab076122e99",
+        "parts": "1ed34e34e3205e892daaf1fb51be941d1f5149a91ba5455e8197fdf5ff39662f"
+      },
+      "converted": {
+        "edge_rgb": {
+          "path": "generated/issue25/inputs/edge_rgb/032.png",
+          "sha256": "81a4ec04ad2302a24b23f6b8a398bfc9789da66a8840029ea4716d3d76d18cc0",
+          "mode": "RGB"
+        },
+        "depth_rgb": {
+          "path": "generated/issue25/inputs/depth_rgb/032.png",
+          "sha256": "d9af91b909e5883c824149a47f8cf9cefcee6644d1006d2264e12d2e30735e5d",
+          "mode": "RGB"
+        },
+        "parts_rgb": {
+          "path": "generated/issue25/inputs/parts_rgb/032.png",
+          "sha256": "868b7c37523148e2318be52987f01bd1494fe1db31a19403b25f52d62862f216",
+          "mode": "RGB"
+        },
+        "subject_mask": {
+          "path": "generated/issue25/inputs/subject_mask/032.png",
+          "sha256": "8b1fee93ab3c67f7768a8fb86bd17754dc31c0d94732978be140186b7705df01",
+          "mode": "L"
+        }
+      },
+      "label": "provider_input_NOT_GENERATED_ART"
+    },
+    "048": {
+      "slot": 48,
+      "theta_deg": 270.0,
+      "input_sha256": {
+        "silhouette": "d251de7cbf568d88869567ee63e298c34915e4e688c57f83298d5aa8a13a3eb9",
+        "depth": "4b9ab4629f417411df5062817ac494948f86e57cbaf85be880db7abe7c08590f",
+        "parts": "5b452f96885957c0747bbae5e96b6def701434c4d6a24ebb8e655cfb6cd5e8e2"
+      },
+      "converted": {
+        "edge_rgb": {
+          "path": "generated/issue25/inputs/edge_rgb/048.png",
+          "sha256": "ba4f41eadfb4d2f7938b6d972935d0e911cdd97997b6cedfa7f110282a5078e5",
+          "mode": "RGB"
+        },
+        "depth_rgb": {
+          "path": "generated/issue25/inputs/depth_rgb/048.png",
+          "sha256": "393a74fd64787fa22f156a7a5b8c1328fb5f0997c1108a57895671804d837df2",
+          "mode": "RGB"
+        },
+        "parts_rgb": {
+          "path": "generated/issue25/inputs/parts_rgb/048.png",
+          "sha256": "d34077173e80cafcf1fc2f6980ce3d88351e2b6c5abbf4ac8b3119b892740298",
+          "mode": "RGB"
+        },
+        "subject_mask": {
+          "path": "generated/issue25/inputs/subject_mask/048.png",
+          "sha256": "d060c0d9a78234a74e9ac16e3ce6bbea30ea2a858439f3794a6b2ed14394a286",
+          "mode": "L"
+        }
+      },
+      "label": "provider_input_NOT_GENERATED_ART"
+    }
+  },
+  "channels": {
+    "edge_rgb": "black/white actual geometry boundaries",
+    "depth_rgb": "fixed 16-bit source to 8-bit provider RGB",
+    "parts_rgb": "semantic RGB colors for SDXL ControlNet segmentation",
+    "subject_mask": "actual geometry alpha 0/255"
+  },
+  "depth_conversion": "uint16 camera-space depth \u2192 RGB8 by fixed v >> 8; background 0; no per-frame histogram normalization",
+  "boundary_conversion": "bright actual #24 silhouette/part-edge pixels \u2192 8-bit black/white edge map; not separately inferred Canny",
+  "segmentation_conversion": "original semantic category RGB with transparent pixels composited to RGB black; no semantic relabel",
+  "mask_conversion": "source silhouette alpha > 0 \u2192 binary L mask; not AI background removal"
+}
