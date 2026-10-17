@@ -31,8 +31,8 @@
   "provider_internal_parameters": null,
   "output_background": "nontransparent opaque RGB dark background; NO real alpha or background removal",
   "approval": {
-    "geometry": "not independently verified",
-    "direction_consistency": "partially plausible, not validated against per-slot geometry",
+    "geometry": "FAIL: slot 016 gun direction opposite to geometry control (AI upper-left, geometry upper-right)",
+    "direction_consistency": "FAIL: 016 and 032 main gun vectors too similar despite 90deg distinct global headings",
     "commercial_art": "not approved",
     "alpha": "failed - opaque",
     "ready_for_16_heading_production": false
@@ -40,7 +40,7 @@
   "candidates": {
     "000": {
       "slot": 0,
-      "requested_theta_deg": 0.0,
+      "requested_theta_deg": 0,
       "image": "000.png",
       "imagegen_generation_id": "713dcda8-f26b-4b9d-abc4-3736567a0116",
       "sha256": "d2b20e67d87f37a9f4c6ae5e61d42a190dc7e14924364446fecb56a53734baa3",
@@ -61,7 +61,7 @@
     },
     "016": {
       "slot": 16,
-      "requested_theta_deg": 90.0,
+      "requested_theta_deg": 90,
       "image": "016.png",
       "imagegen_generation_id": "7e956fef-db22-4e10-96e8-b42ae8ca9cde",
       "sha256": "89dd1a606fff4c65660bff47fd9ec6f240e273fb15dcac7b336eff3f74f8003c",
@@ -82,7 +82,7 @@
     },
     "032": {
       "slot": 32,
-      "requested_theta_deg": 180.0,
+      "requested_theta_deg": 180,
       "image": "032.png",
       "imagegen_generation_id": "165485d5-db62-47e2-8a32-0bf63254a3ee",
       "sha256": "410342ef3a382721a88f1d9356d69fbbaa9357dd8b94650b01780c5c02ae4c69",
@@ -103,7 +103,7 @@
     },
     "048": {
       "slot": 48,
-      "requested_theta_deg": 270.0,
+      "requested_theta_deg": 270,
       "image": "048.png",
       "imagegen_generation_id": "380e5829-f026-456a-ac25-05b37dba25a0",
       "sha256": "11d602ef01a1b1360d90cc75f8cb791bf1c53e9c861ed691e18bc386bf201fb5",
