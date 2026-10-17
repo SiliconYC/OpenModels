@@ -1,3 +1,5 @@
+> **2026-10-18 纠正／现况更新：**此文件保留 2026-10-17「外部 API 不可用、0 张 AI 图」的历史检查结果。现在已通过 **OpenAI 内置生图**实际生成并提交四张 1254×1254 PNG 到 `generated/issue25/candidates/openai/`；请以 [OPENAI-FOUR-VIEW-QA.md](OPENAI-FOUR-VIEW-QA.md) 为后续实验依据。最新 No-Go 原因是 **016 方向炮管与几何控制相反、跨角度一致性不足及 PNG 无透明底**，不再是「没法生成任何图片」。
+
 # #25 | Tiger I Controlled AI Probe — 技術查證、權利與阻礙
 
 更新：2026-10-17。**這是未執行 AI 推理的真實工程狀態。** 來源 #23、#24 已合併。嚴禁以灰模、控制 PNG、請求草案或自由文字生圖冒充 ControlNet 的已生成圖片。

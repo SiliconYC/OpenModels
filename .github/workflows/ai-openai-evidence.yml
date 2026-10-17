@@ -1,0 +1,42 @@
+name: OpenAI Tiger I four-direction candidate evidence (#25)
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - 'models/vehicles/land/tiger-i/sprites/generated/issue25/candidates/openai/**'
+      - 'tools/sprites/build_openai_trial_qa.py'
+      - 'tests/test_tiger_openai_candidates.py'
+      - '.github/workflows/ai-openai-evidence.yml'
+concurrency:
+  group: om-openai25-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  evidence:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check Pillow
+      - name: Verify 4 actual ImageGen PNGs and compute real QA contact sheets
+        run: |
+          python -m unittest discover -s tests -p 'test_tiger_openai_candidates.py' -v
+          python tools/sprites/build_openai_trial_qa.py
+      - name: Commit QA screenshots only, preserve original ImageGen source bytes
+        run: |
+          set -euo pipefail
+          git add models/vehicles/land/tiger-i/sprites/qa/issue25-openai-four-candidates.jpg \
+                  models/vehicles/land/tiger-i/sprites/qa/issue25-openai-control-comparison.jpg \
+                  models/vehicles/land/tiger-i/sprites/qa/issue25-openai-rts-sizes.png
+          if ! git diff --cached --quiet; then
+            git -c user.name=openmodels-builder -c user.email=actions@users.noreply.github.com commit -m 'test(#25): real 4-view OpenAI PNG visual and RTS-sized QA evidence'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
