@@ -66,8 +66,7 @@ unverified:
   - turret contour and yaw centre
   - interleaved road wheel stagger
   - armour profile, mantlet and hatch details
-  - finalized GLB measured bounds and tris (CI will update after generation)
-  - UVs and production textures (#6)
+  - UV mapping and texture atlas (Issue #6; intentionally absent in this grey model)
 licensing:
   reference_source_rights: retained_by_original_publishers
   third_party_assets_included: false
