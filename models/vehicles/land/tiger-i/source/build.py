@@ -77,7 +77,7 @@ def xy_prism(contour, zlow, zhigh, name, rgb):
 def track(side):
     """Annular low-poly single-piece continuous track silhouette (not animated links)."""
     x0=2.395
-    cy=.865
+    cy=.685
     def loop(r):
         # Top of front roller, down its nose, across bottom, around rear.
         front=[(x0+r*math.cos(a),cy+r*math.sin(a))
@@ -85,7 +85,7 @@ def track(side):
         rear=[(-x0+r*math.cos(a),cy+r*math.sin(a))
               for a in np.linspace(-math.pi/2,-3*math.pi/2,7)]
         return front+rear
-    outer,inner=loop(.535),loop(.350)
+    outer,inner=loop(.685),loop(.480)
     n=len(outer)
     z0,z1=sorted(((side*1.411)-.3625,(side*1.411)+.3625))
     vertices=[]
@@ -160,10 +160,10 @@ def build_scene():
         # Main wheel stations only. The three deep overlapping rows from the
         # real Tiger are excluded at this budget; do not claim 24 physical wheels.
         for i,x in enumerate(SPEC["suspension"]["road_wheel_x"]):
-            attach(cylinder_z(.36,.13,[x,.865,side*1.43],10,"RoadWheel",metal),
+            attach(cylinder_z(.36,.13,[x,SPEC['suspension']['wheel_axis_y'],side*1.43],10,"RoadWheel",metal),
                    f"RoadWheel_{side}_{i+1}","Hull")
         for name,x in (("Idler",-2.395),("Sprocket",2.395)):
-            attach(cylinder_z(.43,.15,[x,.865,side*1.43],10,name,plate),
+            attach(cylinder_z(.43,.15,[x,.685,side*1.43],10,name,plate),
                    f"{name}_{side}","Hull")
         # Front tow lug simplified, leave sprocket teeth to future detail stage.
         attach(box([.34,.18,.13],[2.97,.91,side*1.01],"TowLug",metal),
