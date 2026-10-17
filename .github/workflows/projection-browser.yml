@@ -1,0 +1,96 @@
+name: Projection browser acceptance
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - "docs/app.js"
+      - "docs/index.html"
+      - ".github/workflows/projection-browser.yml"
+concurrency:
+  group: projection-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  projection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --no-save --no-package-lock puppeteer-core@24.25.0
+      - name: Run actual desktop/mobile WebGL tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p acceptance
+          python -m http.server 8765 --bind 127.0.0.1 --directory docs >/tmp/openmodels-http.log 2>&1 &
+          node --input-type=module <<'JS'
+          import puppeteer from 'puppeteer-core';
+          const browser = await puppeteer.launch({ headless: true,
+            executablePath: '/usr/bin/google-chrome',
+            args: ['--no-sandbox','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-gpu-sandbox'] });
+          const page = await browser.newPage();
+          const errors=[];
+          page.on('pageerror', e => errors.push(String(e)));
+          const state=()=>page.evaluate(()=>window.__openmodelsCameraStatus?.());
+          const close=(a,b,eps=0.008)=>Math.abs(a-b)<=eps;
+          const sameVec=(a,b)=>a.every((v,i)=>close(v,b[i]));
+          try {
+            await page.setViewport({width:1280,height:800,deviceScaleFactor:1});
+            await page.goto('http://127.0.0.1:8765/?model=tiger-i-grey',{waitUntil:'networkidle2',timeout:50000});
+            await page.waitForFunction(()=>document.querySelector('#load-state')?.textContent==='已加载真实 GLB',{timeout:45000});
+            const a=await state();
+            if(a?.type!=='OrthographicCamera') throw Error('orthographic camera missing');
+            const canvas=await page.$('canvas');const rect=await canvas.boundingBox();
+            await page.mouse.move(rect.x+rect.width*.42,rect.y+rect.height*.40);
+            await page.mouse.down();await page.mouse.move(rect.x+rect.width*.58,rect.y+rect.height*.49,{steps:12});await page.mouse.up();
+            await page.mouse.move(rect.x+rect.width*.48,rect.y+rect.height*.42);
+            await page.mouse.down({button:'right'});await page.mouse.move(rect.x+rect.width*.50,rect.y+rect.height*.44,{steps:8});await page.mouse.up({button:'right'});
+            await page.mouse.wheel({deltaY:180});
+            await new Promise(r=>setTimeout(r,1700));
+            const before=await state();
+            await page.screenshot({path:'acceptance/projection-ortho-desktop.png'});
+            await page.click('[data-projection="perspective"]');
+            await new Promise(r=>setTimeout(r,250));
+            const after=await state();
+            if(after.type!=='PerspectiveCamera' || after.fov!==42) throw Error('real PerspectiveCamera missing');
+            if(!close(after.verticalSpan,before.verticalSpan,.02)) throw Error('switch altered visual scale');
+            console.log('Projection transfer:',JSON.stringify({before,after}));
+            if(!sameVec(after.target,before.target)||!sameVec(after.direction,before.direction)) throw Error('switch jumped target/direction');
+            await page.screenshot({path:'acceptance/projection-perspective-desktop.png'});
+            for(const view of ['front','back','left','right','top','iso']) {
+              await page.click('[data-view="'+view+'"]');
+              if(await page.$eval('[data-view="'+view+'"]',e=>e.getAttribute('aria-pressed'))!=='true') throw Error('invalid view: '+view);
+            }
+            await page.click('[data-shading="clay"]');await page.click('#wire');
+            if(await page.$eval('#wire',e=>e.getAttribute('aria-pressed'))!=='true') throw Error('wire mode lost');
+            await page.click('#wire');await page.click('[data-shading="textured"]');
+            await page.click('#turret-left');await page.click('#gun-recoil');
+            await page.click('#reset');
+            const restored=await state();
+            await page.click('[data-projection="orthographic"]');
+            const orthoBack=await state();
+            if(orthoBack.type!=='OrthographicCamera'||!close(orthoBack.verticalSpan,restored.verticalSpan,.02)) throw Error('return switch lost scale');
+            await page.setViewport({width:390,height:820,deviceScaleFactor:1,isMobile:true,hasTouch:true});
+            await new Promise(r=>setTimeout(r,300));
+            await page.click('[data-projection="perspective"]');
+            if((await state()).type!=='PerspectiveCamera') throw Error('mobile perspective missing');
+            await page.screenshot({path:'acceptance/projection-perspective-mobile.png'});
+            await page.click('[data-projection="orthographic"]');
+            await page.click('[data-view="top"]');
+            await page.click('#reset');
+            await page.screenshot({path:'acceptance/projection-ortho-mobile.png'});
+            if(errors.length) throw Error('browser exceptions: '+errors.join(' | '));
+            console.log('PASS: true ortho/perspective, preserving target/scale/direction, 6 views, mouse orbit/pan/zoom, mobile mode UI, rig, shading and reset');
+          } catch(e) {console.error('PROJECTION ACCEPTANCE FAIL',String(e));console.error(errors);await page.screenshot({path:'acceptance/projection-failure.png'}).catch(()=>{});process.exitCode=1;}
+          finally {await browser.close();}
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: projection-browser-screenshots
+          path: acceptance/
+          retention-days: 14
