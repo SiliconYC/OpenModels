@@ -25,7 +25,7 @@
 <circle data-part="drive_sprocket_x" cx="590.400" cy="308.600" r="43.200" class="steel"/>
 <rect data-part="turret" x="268.200" y="131.300" width="240.300" height="57.600" rx="25" class="part"/>
 <rect data-part="gun" x="508.500" y="157.850" width="327.780" height="18.900" class="steel"/>
-<circle data-part="cupola" cx="318.600" cy="125.900" r="19.800" class="steel"/>
+<rect data-part="cupola" x="294.300" y="116.000" width="48.600" height="15.300" rx="5" class="steel"/>
 <path class="axis" d="M360.00,386.00 L360.00,98.00"/>
 <text class="note" x="42" y="470">X forward · Y up · Z right / centre (0,0,0) = hull midpoint on ground</text>
 <text class="note" x="42" y="491">Illustrative envelopes are not manufacturing-grade contours; see geometry.json &amp; NOTES.md</text>
