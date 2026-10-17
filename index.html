@@ -1,17 +1,1 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="robots" content="noindex"/>
-<title>OpenModels — 三维展厅入口</title>
-<meta http-equiv="refresh" content="0; url=./docs/"/>
-<style>html{background:#152123;color:#dde7e0;font:16px system-ui,sans-serif}body{min-height:90vh;display:grid;place-items:center}a{color:#cfdfcd}</style>
-<script>
-  // GitHub Pages / (repo root) compatibility entry; canonical source is dev/docs.
-  // If Pages is correctly set to dev/docs this file is not deployed.
-  location.replace('./docs/' + location.search + location.hash);
-</script>
-</head>
-<body><p>进入 OpenModels <a href="./docs/">三维模型展厅</a>…</p></body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="robots" content="noindex"/><title>OpenModels</title><script>location.replace('./docs/'+(new URLSearchParams(location.search).has('model')?'3d.html':'')+location.search+location.hash)</script></head><body><p>OpenModels <a href="./docs/">进入网站</a></p></body></html>
