@@ -1,0 +1,2266 @@
+{
+  "asset": "tiger-i-refined-early-1943",
+  "phase": "detailed geometric UV test (not final camo)",
+  "model": "export/tiger-i-refined-uv.glb",
+  "source": "source/build_refined_uv.py",
+  "triangles": 34872,
+  "vertices": 104616,
+  "mesh_count": 168,
+  "uv_corners": 104616,
+  "atlas_size": [
+    4096,
+    4096
+  ],
+  "atlas_families": [
+    "BarrelTube",
+    "BowMachinegunBall",
+    "BowMachinegunBarrel",
+    "CommanderCupola",
+    "CoolingGrilleFrame",
+    "CoolingGrilleSlats",
+    "CrewHatch",
+    "CupolaTop",
+    "CupolaVision",
+    "DriverViewPlate",
+    "DriverVisionSlot",
+    "EngineAccessHatch",
+    "EngineCover",
+    "EngineHinge",
+    "ExhaustGuard",
+    "ExhaustSilencer",
+    "ExhaustTip",
+    "FrontFender",
+    "GunCollar",
+    "HatchHinge",
+    "HatchPeriscopeCover",
+    "HullArmour",
+    "Idler",
+    "IdlerTeeth",
+    "LoaderHatch",
+    "LoaderHatchHinge",
+    "LowerTub",
+    "MantletShield",
+    "MantletSight",
+    "MuzzleBridge",
+    "MuzzleExitRing",
+    "MuzzleFirstRing",
+    "MuzzleSecondRing",
+    "NoseRoofTransition",
+    "NoseVerticalPlate",
+    "RearVerticalPlate",
+    "RoadWheel",
+    "RoofPlate",
+    "SideSkirt",
+    "SideSkirtJoint",
+    "Sponsons",
+    "Sprocket",
+    "SprocketTeeth",
+    "TowEye",
+    "TrackBelt",
+    "TrackShoes",
+    "TurretBinBracket",
+    "TurretLift",
+    "TurretRace",
+    "TurretRoof",
+    "TurretShell",
+    "TurretStowage",
+    "WheelHub"
+  ],
+  "parts": {
+    "HullArmour": {
+      "triangles": 24,
+      "family": "HullArmour",
+      "uv_corners": 72,
+      "orientation_charts": {
+        "-Z": 5,
+        "+Z": 5,
+        "-Y": 4,
+        "+X": 4,
+        "+Y": 4,
+        "-X": 2
+      }
+    },
+    "LowerTub": {
+      "triangles": 16,
+      "family": "LowerTub",
+      "uv_corners": 48,
+      "orientation_charts": {
+        "-Z": 3,
+        "+Z": 3,
+        "-Y": 2,
+        "+X": 4,
+        "+Y": 2,
+        "-X": 2
+      }
+    },
+    "RoofPlate": {
+      "triangles": 12,
+      "family": "RoofPlate",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "Sponsons": {
+      "triangles": 12,
+      "family": "Sponsons",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "NoseVerticalPlate": {
+      "triangles": 12,
+      "family": "NoseVerticalPlate",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "NoseRoofTransition": {
+      "triangles": 12,
+      "family": "NoseRoofTransition",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "RearVerticalPlate": {
+      "triangles": 12,
+      "family": "RearVerticalPlate",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "DriverViewPlate": {
+      "triangles": 12,
+      "family": "DriverViewPlate",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "DriverVisionSlot": {
+      "triangles": 12,
+      "family": "DriverVisionSlot",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "BowMachinegunBall": {
+      "triangles": 200,
+      "family": "BowMachinegunBall",
+      "uv_corners": 600,
+      "orientation_charts": {
+        "+X": 40,
+        "-Z": 19,
+        "-Y": 20,
+        "+Z": 20,
+        "+Y": 21,
+        "-X": 80
+      }
+    },
+    "BowMachinegunBarrel": {
+      "triangles": 160,
+      "family": "BowMachinegunBarrel",
+      "uv_corners": 480,
+      "orientation_charts": {
+        "-Z": 29,
+        "-Y": 31,
+        "+Z": 29,
+        "+Y": 31,
+        "+X": 40
+      }
+    },
+    "CrewHatch_-1": {
+      "triangles": 144,
+      "family": "CrewHatch",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 16,
+        "-Z": 20,
+        "+X": 16,
+        "+Z": 20,
+        "-Y": 36
+      }
+    },
+    "HatchPeriscopeCover_-1": {
+      "triangles": 12,
+      "family": "HatchPeriscopeCover",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "HatchHinge_-1": {
+      "triangles": 12,
+      "family": "HatchHinge",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_-1_1": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_-1_1": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_-1_2": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_-1_2": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_-1_3": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_-1_3": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_-1_4": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_-1_4": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_-1_5": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_-1_5": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_-1_6": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_-1_6": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TrackBelt_-1": {
+      "triangles": 400,
+      "family": "TrackBelt",
+      "uv_corners": 1200,
+      "orientation_charts": {
+        "-Y": 52,
+        "+Z": 100,
+        "+Y": 52,
+        "-Z": 100,
+        "+X": 48,
+        "-X": 48
+      }
+    },
+    "TrackShoes_-1": {
+      "triangles": 1200,
+      "family": "TrackShoes",
+      "uv_corners": 3600,
+      "orientation_charts": {
+        "-X": 200,
+        "-Y": 200,
+        "-Z": 200,
+        "+Z": 200,
+        "+Y": 200,
+        "+X": 200
+      }
+    },
+    "RoadWheel_-1_01_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_01_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_01_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_-1_01": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_-1_02_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_02_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_02_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_-1_02": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_-1_03_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_03_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_03_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_-1_03": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_-1_04_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_04_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_04_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_-1_04": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_-1_05_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_05_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_05_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_-1_05": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_-1_06_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_06_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_06_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_-1_06": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_-1_07_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_07_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_07_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_-1_07": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_-1_08_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_08_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_-1_08_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_-1_08": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "Sprocket_-1": {
+      "triangles": 440,
+      "family": "Sprocket",
+      "uv_corners": 1320,
+      "orientation_charts": {
+        "-Z": 176,
+        "+X": 24,
+        "+Y": 20,
+        "-X": 24,
+        "-Y": 20,
+        "+Z": 176
+      }
+    },
+    "SprocketTeeth_-1": {
+      "triangles": 144,
+      "family": "SprocketTeeth",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "-X": 24,
+        "-Y": 24,
+        "-Z": 24,
+        "+Z": 24,
+        "+Y": 24,
+        "+X": 24
+      }
+    },
+    "Idler_-1": {
+      "triangles": 440,
+      "family": "Idler",
+      "uv_corners": 1320,
+      "orientation_charts": {
+        "-Z": 176,
+        "+X": 24,
+        "+Y": 20,
+        "-X": 24,
+        "-Y": 20,
+        "+Z": 176
+      }
+    },
+    "IdlerTeeth_-1": {
+      "triangles": 144,
+      "family": "IdlerTeeth",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "-X": 24,
+        "-Y": 24,
+        "-Z": 24,
+        "+Z": 24,
+        "+Y": 24,
+        "+X": 24
+      }
+    },
+    "TowEye_-1": {
+      "triangles": 12,
+      "family": "TowEye",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "FrontFender_-1": {
+      "triangles": 12,
+      "family": "FrontFender",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "ExhaustSilencer_-1": {
+      "triangles": 180,
+      "family": "ExhaustSilencer",
+      "uv_corners": 540,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 24,
+        "-Z": 30,
+        "+X": 24,
+        "+Z": 30,
+        "-Y": 36
+      }
+    },
+    "ExhaustTip_-1": {
+      "triangles": 144,
+      "family": "ExhaustTip",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 16,
+        "-Z": 20,
+        "+X": 16,
+        "+Z": 20,
+        "-Y": 36
+      }
+    },
+    "ExhaustGuard_-1": {
+      "triangles": 12,
+      "family": "ExhaustGuard",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CrewHatch_1": {
+      "triangles": 144,
+      "family": "CrewHatch",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 16,
+        "-Z": 20,
+        "+X": 16,
+        "+Z": 20,
+        "-Y": 36
+      }
+    },
+    "HatchPeriscopeCover_1": {
+      "triangles": 12,
+      "family": "HatchPeriscopeCover",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "HatchHinge_1": {
+      "triangles": 12,
+      "family": "HatchHinge",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_1_1": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_1_1": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_1_2": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_1_2": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_1_3": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_1_3": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_1_4": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_1_4": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_1_5": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_1_5": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirt_1_6": {
+      "triangles": 12,
+      "family": "SideSkirt",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "SideSkirtJoint_1_6": {
+      "triangles": 12,
+      "family": "SideSkirtJoint",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TrackBelt_1": {
+      "triangles": 400,
+      "family": "TrackBelt",
+      "uv_corners": 1200,
+      "orientation_charts": {
+        "-Y": 52,
+        "+Z": 100,
+        "+Y": 52,
+        "-Z": 100,
+        "+X": 48,
+        "-X": 48
+      }
+    },
+    "TrackShoes_1": {
+      "triangles": 1200,
+      "family": "TrackShoes",
+      "uv_corners": 3600,
+      "orientation_charts": {
+        "-X": 200,
+        "-Y": 200,
+        "-Z": 200,
+        "+Z": 200,
+        "+Y": 200,
+        "+X": 200
+      }
+    },
+    "RoadWheel_+1_01_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_01_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_01_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_+1_01": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_+1_02_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_02_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_02_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_+1_02": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_+1_03_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_03_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_03_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_+1_03": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_+1_04_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_04_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_04_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_+1_04": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_+1_05_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_05_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_05_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_+1_05": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_+1_06_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_06_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_06_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_+1_06": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_+1_07_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_07_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_07_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_+1_07": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "RoadWheel_+1_08_1": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_08_2": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "RoadWheel_+1_08_3": {
+      "triangles": 468,
+      "family": "RoadWheel",
+      "uv_corners": 1404,
+      "orientation_charts": {
+        "-Z": 144,
+        "+X": 32,
+        "+Y": 40,
+        "-X": 32,
+        "-Y": 40,
+        "+Z": 180
+      }
+    },
+    "WheelHub_+1_08": {
+      "triangles": 140,
+      "family": "WheelHub",
+      "uv_corners": 420,
+      "orientation_charts": {
+        "-Z": 44,
+        "+X": 20,
+        "+Y": 14,
+        "-X": 20,
+        "-Y": 14,
+        "+Z": 28
+      }
+    },
+    "Sprocket_1": {
+      "triangles": 440,
+      "family": "Sprocket",
+      "uv_corners": 1320,
+      "orientation_charts": {
+        "-Z": 176,
+        "+X": 24,
+        "+Y": 20,
+        "-X": 24,
+        "-Y": 20,
+        "+Z": 176
+      }
+    },
+    "SprocketTeeth_1": {
+      "triangles": 144,
+      "family": "SprocketTeeth",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "-X": 24,
+        "-Y": 24,
+        "-Z": 24,
+        "+Z": 24,
+        "+Y": 24,
+        "+X": 24
+      }
+    },
+    "Idler_1": {
+      "triangles": 440,
+      "family": "Idler",
+      "uv_corners": 1320,
+      "orientation_charts": {
+        "-Z": 176,
+        "+X": 24,
+        "+Y": 20,
+        "-X": 24,
+        "-Y": 20,
+        "+Z": 176
+      }
+    },
+    "IdlerTeeth_1": {
+      "triangles": 144,
+      "family": "IdlerTeeth",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "-X": 24,
+        "-Y": 24,
+        "-Z": 24,
+        "+Z": 24,
+        "+Y": 24,
+        "+X": 24
+      }
+    },
+    "TowEye_1": {
+      "triangles": 12,
+      "family": "TowEye",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "FrontFender_1": {
+      "triangles": 12,
+      "family": "FrontFender",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "ExhaustSilencer_1": {
+      "triangles": 180,
+      "family": "ExhaustSilencer",
+      "uv_corners": 540,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 24,
+        "-Z": 30,
+        "+X": 24,
+        "+Z": 30,
+        "-Y": 36
+      }
+    },
+    "ExhaustTip_1": {
+      "triangles": 144,
+      "family": "ExhaustTip",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 16,
+        "-Z": 20,
+        "+X": 16,
+        "+Z": 20,
+        "-Y": 36
+      }
+    },
+    "ExhaustGuard_1": {
+      "triangles": 12,
+      "family": "ExhaustGuard",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "EngineCover": {
+      "triangles": 12,
+      "family": "EngineCover",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "EngineAccessHatch": {
+      "triangles": 144,
+      "family": "EngineAccessHatch",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 16,
+        "-Z": 20,
+        "+X": 16,
+        "+Z": 20,
+        "-Y": 36
+      }
+    },
+    "CoolingGrilleFrame_0_-1": {
+      "triangles": 12,
+      "family": "CoolingGrilleFrame",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CoolingGrilleSlats_0_-1": {
+      "triangles": 84,
+      "family": "CoolingGrilleSlats",
+      "uv_corners": 252,
+      "orientation_charts": {
+        "-X": 14,
+        "-Y": 14,
+        "-Z": 14,
+        "+Z": 14,
+        "+Y": 14,
+        "+X": 14
+      }
+    },
+    "CoolingGrilleFrame_0_1": {
+      "triangles": 12,
+      "family": "CoolingGrilleFrame",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CoolingGrilleSlats_0_1": {
+      "triangles": 84,
+      "family": "CoolingGrilleSlats",
+      "uv_corners": 252,
+      "orientation_charts": {
+        "-X": 14,
+        "-Y": 14,
+        "-Z": 14,
+        "+Z": 14,
+        "+Y": 14,
+        "+X": 14
+      }
+    },
+    "CoolingGrilleFrame_1_-1": {
+      "triangles": 12,
+      "family": "CoolingGrilleFrame",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CoolingGrilleSlats_1_-1": {
+      "triangles": 84,
+      "family": "CoolingGrilleSlats",
+      "uv_corners": 252,
+      "orientation_charts": {
+        "-X": 14,
+        "-Y": 14,
+        "-Z": 14,
+        "+Z": 14,
+        "+Y": 14,
+        "+X": 14
+      }
+    },
+    "CoolingGrilleFrame_1_1": {
+      "triangles": 12,
+      "family": "CoolingGrilleFrame",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CoolingGrilleSlats_1_1": {
+      "triangles": 84,
+      "family": "CoolingGrilleSlats",
+      "uv_corners": 252,
+      "orientation_charts": {
+        "-X": 14,
+        "-Y": 14,
+        "-Z": 14,
+        "+Z": 14,
+        "+Y": 14,
+        "+X": 14
+      }
+    },
+    "EngineHinge_-0.32": {
+      "triangles": 12,
+      "family": "EngineHinge",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "EngineHinge_0.32": {
+      "triangles": 12,
+      "family": "EngineHinge",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TurretRace": {
+      "triangles": 144,
+      "family": "TurretRace",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 16,
+        "-Z": 20,
+        "+X": 16,
+        "+Z": 20,
+        "-Y": 36
+      }
+    },
+    "TurretShell": {
+      "triangles": 88,
+      "family": "TurretShell",
+      "uv_corners": 264,
+      "orientation_charts": {
+        "-Y": 21,
+        "+Y": 21,
+        "-X": 12,
+        "-Z": 16,
+        "+X": 2,
+        "+Z": 16
+      }
+    },
+    "TurretRoof": {
+      "triangles": 88,
+      "family": "TurretRoof",
+      "uv_corners": 264,
+      "orientation_charts": {
+        "-Y": 21,
+        "+Y": 21,
+        "-X": 12,
+        "-Z": 16,
+        "+X": 2,
+        "+Z": 16
+      }
+    },
+    "MantletShield": {
+      "triangles": 12,
+      "family": "MantletShield",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "GunCollar": {
+      "triangles": 240,
+      "family": "GunCollar",
+      "uv_corners": 720,
+      "orientation_charts": {
+        "+X": 40,
+        "-Z": 28,
+        "-Y": 32,
+        "+Z": 24,
+        "+Y": 36,
+        "-X": 80
+      }
+    },
+    "MantletSight": {
+      "triangles": 12,
+      "family": "MantletSight",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CommanderCupola": {
+      "triangles": 216,
+      "family": "CommanderCupola",
+      "uv_corners": 648,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 32,
+        "-Z": 40,
+        "+X": 32,
+        "+Z": 40,
+        "-Y": 36
+      }
+    },
+    "CupolaTop": {
+      "triangles": 144,
+      "family": "CupolaTop",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 16,
+        "-Z": 20,
+        "+X": 16,
+        "+Z": 20,
+        "-Y": 36
+      }
+    },
+    "CupolaVision_0": {
+      "triangles": 12,
+      "family": "CupolaVision",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CupolaVision_1": {
+      "triangles": 12,
+      "family": "CupolaVision",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CupolaVision_2": {
+      "triangles": 12,
+      "family": "CupolaVision",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CupolaVision_3": {
+      "triangles": 12,
+      "family": "CupolaVision",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CupolaVision_4": {
+      "triangles": 12,
+      "family": "CupolaVision",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "CupolaVision_5": {
+      "triangles": 12,
+      "family": "CupolaVision",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "LoaderHatch": {
+      "triangles": 144,
+      "family": "LoaderHatch",
+      "uv_corners": 432,
+      "orientation_charts": {
+        "+Y": 36,
+        "-X": 16,
+        "-Z": 20,
+        "+X": 16,
+        "+Z": 20,
+        "-Y": 36
+      }
+    },
+    "LoaderHatchHinge": {
+      "triangles": 12,
+      "family": "LoaderHatchHinge",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TurretStowage": {
+      "triangles": 12,
+      "family": "TurretStowage",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TurretBinBracket_-1": {
+      "triangles": 12,
+      "family": "TurretBinBracket",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TurretLift_-1_-53": {
+      "triangles": 12,
+      "family": "TurretLift",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TurretLift_-1_72": {
+      "triangles": 12,
+      "family": "TurretLift",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TurretBinBracket_1": {
+      "triangles": 12,
+      "family": "TurretBinBracket",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TurretLift_1_-53": {
+      "triangles": 12,
+      "family": "TurretLift",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "TurretLift_1_72": {
+      "triangles": 12,
+      "family": "TurretLift",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "BarrelTube": {
+      "triangles": 480,
+      "family": "BarrelTube",
+      "uv_corners": 1440,
+      "orientation_charts": {
+        "+X": 80,
+        "-Z": 72,
+        "-Y": 108,
+        "+Z": 80,
+        "+Y": 100,
+        "-X": 40
+      }
+    },
+    "MuzzleFirstRing": {
+      "triangles": 160,
+      "family": "MuzzleFirstRing",
+      "uv_corners": 480,
+      "orientation_charts": {
+        "+X": 40,
+        "-Z": 16,
+        "-Y": 24,
+        "+Z": 16,
+        "+Y": 24,
+        "-X": 40
+      }
+    },
+    "MuzzleSecondRing": {
+      "triangles": 160,
+      "family": "MuzzleSecondRing",
+      "uv_corners": 480,
+      "orientation_charts": {
+        "+X": 40,
+        "-Z": 16,
+        "-Y": 24,
+        "+Z": 17,
+        "+Y": 23,
+        "-X": 40
+      }
+    },
+    "MuzzleExitRing": {
+      "triangles": 160,
+      "family": "MuzzleExitRing",
+      "uv_corners": 480,
+      "orientation_charts": {
+        "+X": 40,
+        "-Z": 17,
+        "-Y": 22,
+        "+Z": 17,
+        "+Y": 24,
+        "-X": 40
+      }
+    },
+    "MuzzleBridge_-1": {
+      "triangles": 12,
+      "family": "MuzzleBridge",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    },
+    "MuzzleBridge_1": {
+      "triangles": 12,
+      "family": "MuzzleBridge",
+      "uv_corners": 36,
+      "orientation_charts": {
+        "-X": 2,
+        "-Y": 2,
+        "-Z": 2,
+        "+Z": 2,
+        "+Y": 2,
+        "+X": 2
+      }
+    }
+  },
+  "bounds_xyz_m": [
+    [
+      -3.4000000953674316,
+      0.016499999910593033,
+      -1.840000033378601
+    ],
+    [
+      5.291999959945679,
+      3.0099999833106996,
+      1.840000033378601
+    ]
+  ]
+}

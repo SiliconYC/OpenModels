@@ -1,0 +1,111 @@
+name: Tiger I refined geometry browser acceptance
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - "docs/**"
+      - "models/vehicles/land/tiger-i/**"
+      - "tests/test_tiger_refined.py"
+      - ".github/workflows/tiger-refined-browser.yml"
+  push:
+    branches: [dev]
+    paths:
+      - "docs/models.json"
+      - "docs/assets/tiger-i-refined-grey.glb"
+      - "docs/assets/tiger-i-refined-uv.glb"
+concurrency:
+  group: tiger-refined-browser-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --no-save --no-package-lock puppeteer-core@24.25.0
+      - name: Test actual GLBs, projection, part motion, six directions, mobile
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p acceptance
+          python -m http.server 8765 --bind 127.0.0.1 --directory docs >/tmp/tiger-detail-http.log 2>&1 &
+          node --input-type=module <<'JS'
+          import puppeteer from 'puppeteer-core';
+          import {createHash} from 'node:crypto';
+          import {readFileSync} from 'node:fs';
+          const live=process.env.GITHUB_EVENT_NAME==='push';
+          const base=live?'https://siliconyc.github.io/OpenModels/docs/':'http://127.0.0.1:8765/';
+          const br=await puppeteer.launch({headless:true,executablePath:'/usr/bin/google-chrome',
+            args:['--no-sandbox','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-gpu-sandbox']});
+          const page=await br.newPage(),err=[],responses=[];
+          page.on('pageerror',e=>err.push(String(e)));
+          page.on('response',r=>{if(r.url().includes('tiger-i-refined'))responses.push([r.status(),r.url()])});
+          const hash=(p)=>createHash('sha256').update(readFileSync(p)).digest('hex');
+          async function open(id) {
+            let ok=false;
+            for(let i=0;i<(live?10:1);i++){
+              await page.goto(base+'?model='+id,{waitUntil:'domcontentloaded',timeout:45000});
+              try{await page.waitForFunction(()=>document.getElementById('load-state')?.textContent==='已加载真实 GLB',{timeout:live?18000:45000});ok=true;break}
+              catch(e){if(!live)throw e;await new Promise(r=>setTimeout(r,8000))}
+            }
+            if(!ok)throw Error('deployed GLB not loaded '+id+' '+await page.$eval('body',e=>e.innerText.slice(0,400)));
+          }
+          try {
+            await page.setViewport({width:1280,height:800,deviceScaleFactor:1});
+            await open('tiger-i-refined-grey');
+            const grey=await page.$eval('#model-metrics',e=>e.textContent);
+            console.log('DETAILED_GREY',grey);
+            if(!grey.includes('34,872 三角面')||!grey.includes('168 网格')||!grey.includes('0 贴图'))throw Error('Not actual detailed grey geometry');
+            if(await page.$eval('#rig-controls',e=>e.hidden))throw Error('Independent rig lost');
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/refined-grey-iso.png'}));
+            await page.click('#turret-left');await new Promise(r=>setTimeout(r,250));
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/refined-turret-turned.png'}));
+            if(hash('acceptance/refined-grey-iso.png')===hash('acceptance/refined-turret-turned.png'))throw Error('Turret not moving actual pixels');
+            await page.click('#gun-recoil');await new Promise(r=>setTimeout(r,250));
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/refined-recoil.png'}));
+            if(hash('acceptance/refined-turret-turned.png')===hash('acceptance/refined-recoil.png'))throw Error('Barrel not recoiling');
+            await page.click('#reset');
+            for(const view of ['front','back','left','right','top','iso']){
+              await page.click('[data-view="'+view+'"]');await new Promise(r=>setTimeout(r,160));
+              await page.$('canvas').then(c=>c.screenshot({path:'acceptance/refined-grey-'+view+'.png'}));
+            }
+            if(hash('acceptance/refined-grey-front.png')===hash('acceptance/refined-grey-back.png'))throw Error('Front/back WebGL identical');
+            await page.click('[data-projection="perspective"]');
+            if((await page.evaluate(()=>window.__openmodelsCameraStatus?.().type))!=='PerspectiveCamera')throw Error('perspective camera lost');
+            await page.screenshot({path:'acceptance/refined-perspective.png'});
+            await page.click('[data-projection="orthographic"]');
+            await page.click('[data-shading="clay"]');await page.click('#wire');await page.click('#wire');await page.click('[data-shading="textured"]');
+            await open('tiger-i-refined');
+            const uv=await page.$eval('#model-metrics',e=>e.textContent);
+            console.log('DETAILED_UV',uv);
+            if(!uv.includes('34,872 三角面')||!uv.includes('1 贴图'))throw Error('Refined UV GLB missing real texture');
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/refined-uv-iso.png'}));
+            await page.click('[data-shading="clay"]');await new Promise(r=>setTimeout(r,170));
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/refined-uv-clay.png'}));
+            if(hash('acceptance/refined-uv-iso.png')===hash('acceptance/refined-uv-clay.png'))throw Error('UV checker is not a visible real map');
+            await page.click('[data-shading="textured"]');
+            await page.setViewport({width:390,height:820,deviceScaleFactor:1,isMobile:true,hasTouch:true});
+            await page.click('[data-projection="perspective"]');
+            await page.click('[data-view="left"]');
+            await page.screenshot({path:'acceptance/refined-uv-mobile.png'});
+            await open('tiger-i-refined-grey');
+            await page.screenshot({path:'acceptance/refined-grey-mobile.png'});
+            if(err.length)throw Error('Browser exceptions: '+err.join(' | '));
+            if(!responses.some(x=>x[0]===200&&x[1].includes('tiger-i-refined-uv.glb')))throw Error('UV GLB HTTP not 200');
+            if(!responses.some(x=>x[0]===200&&x[1].includes('tiger-i-refined-grey.glb')))throw Error('Grey GLB HTTP not 200');
+            console.log('PASS refined Chrome 6 angles, detailed 3D, real UV, dynamic rig, perspective, mobile, live='+live);
+          }catch(e){console.error('REFINED_BROWSER_FAILURE',String(e),'pageerrors',err,'glbs',responses);
+            await page.screenshot({path:'acceptance/refined-failure.png'}).catch(()=>{});process.exitCode=1}
+          finally{await br.close()}
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tiger-refined-real-browser
+          path: acceptance/
+          retention-days: 14

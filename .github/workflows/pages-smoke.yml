@@ -36,14 +36,14 @@ jobs:
             fi
             if [ -n "$prefix" ]; then
               http="true"
-              for path in "index.html" "app.js" "models.json" "assets/test-cube.glb" "assets/tiger-i-grey.glb" "assets/tiger-i-uv.glb"; do
+              for path in "index.html" "app.js" "models.json" "assets/test-cube.glb" "assets/tiger-i-grey.glb" "assets/tiger-i-uv.glb" "assets/tiger-i-refined-grey.glb" "assets/tiger-i-refined-uv.glb"; do
                 if ! curl -fLSs --max-time 18 "${prefix}/${path}" -o "/tmp/page-${path//\//_}"; then
                   http="false"
                   break
                 fi
               done
               if [ "$http" = "true" ] && grep -q 'id="stage"' /tmp/page-index.html && grep -q GLTFLoader /tmp/page-app.js; then
-                if ! grep -q '"id": "tiger-i-uv"' /tmp/page-models.json; then
+                if ! grep -q '"id": "tiger-i-refined-grey"' /tmp/page-models.json; then
                 echo "UV catalog deployment pending, retry..."
                 sleep 10
                 continue
@@ -52,12 +52,12 @@ jobs:
                 export TEST_PREFIX="$prefix"
                 python - <<'PY'
           import json,struct,os
-          for file in ('test-cube', 'tiger-i-grey', 'tiger-i-uv'):
+          for file in ('test-cube', 'tiger-i-grey', 'tiger-i-uv', 'tiger-i-refined-grey', 'tiger-i-refined-uv'):
               p=open('/tmp/page-assets_'+file+'.glb','rb').read()
               assert p[:4]==b'glTF' and struct.unpack_from('<II',p,4)==(2,len(p)),file
           m=json.load(open('/tmp/page-models.json'))
-          assert {'test-cube','tiger-i-grey','tiger-i-uv'}.issubset({v['id'] for v in m['models']})
-          print('PASS: live Pages viewer, model catalog and three genuine GLBs including UV')
+          assert {'test-cube','tiger-i-grey','tiger-i-uv','tiger-i-refined-grey','tiger-i-refined'}.issubset({v['id'] for v in m['models']})
+          print('PASS: live Pages viewer, model catalog and all real GLBs including refined geometry and UV')
           print('Public asset base:',os.environ['TEST_PREFIX'])
           PY
                 exit 0
