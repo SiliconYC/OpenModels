@@ -221,6 +221,7 @@ def main():
     verts=sum(len(m.vertices) for m in reloaded.geometry.values())
     bounds=np.asarray(reloaded.bounds).round(5)
     assert 800<=tris<=1500, f"tris budget exceeded: {tris}"
+    assert abs(float(bounds[0][1]))<.03, "track must physically touch ground y=0"
     assert abs(float(bounds[0][0])+3.158)<.25
     assert abs(float(bounds[1][0])-5.292)<.3
     assert abs(float(bounds[1][1])-3)<.25
