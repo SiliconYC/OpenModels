@@ -3,7 +3,7 @@ id: tiger-i-early-1943
 name: Tiger I Ausf. E - 1943 early production
 category: vehicles/land
 variant: "Tiger I early production, approx. February-April 1943; Tiger 131 reference"
-stage: lowpoly_grey
+stage: uv_mapped_test
 unit: metre
 axes:
   forward: "+X"
@@ -40,16 +40,26 @@ source_image_copied: false
 geometry_generated: true
 gltf_generated: true
 triangle_count: 1396
-vertex_count: 766
+vertex_count: 4188
 mesh_count: 36
 model_bounds_m:
   min: [-3.158, 0.0, -1.7735]
   max: [5.292, 3.0, 1.7735]
-model_build_script: source/build.py
-model_export: export/tiger-i-grey.glb
-viewer_asset: docs/assets/tiger-i-grey.glb
-model_report: export/mesh-report.json
-textures: []
+model_build_script: source/build_uv.py
+model_export: export/tiger-i-uv.glb
+viewer_asset: docs/assets/tiger-i-uv.glb
+model_report: export/uv-report.json
+grey_source_script: source/build.py
+grey_export: export/tiger-i-grey.glb
+grey_report: export/mesh-report.json
+grey_vertex_count_before_uv_seam_split: 766
+uv_generated: true
+uv_layout: textures/uv-layout.json
+uv_texture_size: [2048, 2048]
+uv_method: six directional charts per reusable part family; genuine per-triangle UV coordinates
+textures:
+  - textures/tiger-i-uv-checker.png
+  - textures/tiger-i-uv-template.png
 parts_planned:
   - hull
   - left_track
@@ -66,7 +76,7 @@ unverified:
   - turret contour and yaw centre
   - interleaved road wheel stagger
   - armour profile, mantlet and hatch details
-  - UV mapping and texture atlas (Issue #6; intentionally absent in this grey model)
+  - commercial final textures and artistic finish (Issue #7)
 licensing:
   reference_source_rights: retained_by_original_publishers
   third_party_assets_included: false
