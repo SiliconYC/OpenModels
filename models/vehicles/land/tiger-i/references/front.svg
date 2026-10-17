@@ -2,8 +2,8 @@
 <style>svg{background:#f5f3ec}text{font-family:monospace;fill:#353d3b}.title{font-size:22px;font-weight:bold}.note{font-size:13px}.part{fill:#d5d7ce;stroke:#273b3b;stroke-width:2;stroke-linejoin:round}.steel{fill:#adb9b2;stroke:#273b3b;stroke-width:2}.track{fill:#59665f;stroke:#273b3b;stroke-width:3}.wheel{fill:#d6d5bd;stroke:#293e3b;stroke-width:2}.axis{fill:none;stroke:#b05c38;stroke-dasharray:7 6;stroke-width:1.5}.dim{fill:none;stroke:#687977;stroke-width:1;stroke-dasharray:2 4}</style>
 <text class="title" x="42" y="48">TIGER I · EARLY 1943 / FRONT</text>
 <text class="note" x="42" y="73">SCHEMATIC · 90 px/m · 1:1 COMMON SCALE · METRES</text>
-<rect data-part="left_track" x="574.365" y="262.700" width="65.250" height="93.600" class="track"/>
-<rect data-part="right_track" x="320.385" y="262.700" width="65.250" height="93.600" class="track"/>
+<rect data-part="left_track" x="574.365" y="262.700" width="65.250" height="123.300" class="track"/>
+<rect data-part="right_track" x="320.385" y="262.700" width="65.250" height="123.300" class="track"/>
 <rect data-part="hull" x="361.200" y="189.800" width="237.600" height="133.200" class="part"/>
 <rect data-part="left_skirt" x="598.800" y="252.800" width="47.925" height="13.500" class="steel"/>
 <rect data-part="right_skirt" x="313.275" y="252.800" width="47.925" height="13.500" class="steel"/>
