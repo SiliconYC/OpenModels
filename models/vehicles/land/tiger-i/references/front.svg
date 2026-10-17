@@ -11,7 +11,7 @@
 <circle data-part="gun-muzzle" cx="480.000" cy="167.300" r="9.450" class="steel"/>
 <circle data-part="gun-bore" cx="480.000" cy="167.300" r="4.140" class="track"/>
 <rect data-part="turret" x="384.600" y="131.300" width="190.800" height="57.600" fill="none" stroke="#273b3b" stroke-dasharray="5 6"/>
-<circle data-part="cupola" cx="528.600" cy="125.900" r="19.800" class="steel"/>
+<rect data-part="cupola" x="504.300" y="116.000" width="48.600" height="15.300" rx="5" class="steel"/>
 <path class="axis" d="M480.00,386.00 L480.00,98.00"/>
 <text class="note" x="42" y="470">X forward · Y up · Z right / centre (0,0,0) = hull midpoint on ground</text>
 <text class="note" x="42" y="491">Illustrative envelopes are not manufacturing-grade contours; see geometry.json &amp; NOTES.md</text>
