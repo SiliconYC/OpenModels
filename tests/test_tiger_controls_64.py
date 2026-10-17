@@ -23,6 +23,19 @@ class Controls(unittest.TestCase):
         self.assertTrue(m["camera"]["fixed"])
         self.assertEqual(m["pivot_px"],[256,354])
         self.assertEqual(m["canvas_px"],[512,512])
+        import numpy as np
+        from PIL import Image
+        # Consecutive headings are near each other in silhouette space,
+        # including the wrap from slot 063 to 000.
+        masks=[]
+        for i in range(64):
+            im=Image.open(S/"control/frames/silhouette"/f"{i:03d}.png")
+            masks.append(np.asarray(im)[:,:,3]>0)
+        values=[]
+        for i in range(64):
+            a,b=masks[i],masks[(i+1)%64]
+            values.append(float(np.count_nonzero(a&b)/np.count_nonzero(a|b)))
+        self.assertGreater(min(values),.65,"Adjacency / loop closure discontinuity")
     def test_actual_4by4_sheet_mapping(self):
         try:
             from PIL import Image
@@ -50,7 +63,7 @@ class Controls(unittest.TestCase):
         self.assertEqual(m["heading_slots"],64)
         self.assertEqual(m["degrees_per_slot"],5.625)
         self.assertEqual(len(m["frames"]),64)
-        self.assertEqual(m["available_levels"],[64])
+        self.assertEqual(m["available_levels"],[16,32,64])
         self.assertEqual(m["camera"]["type"],"orthographic")
         self.assertEqual(m["camera"]["fixed"],True)
         for i in range(64):

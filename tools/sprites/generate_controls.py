@@ -34,7 +34,7 @@ def generate(path,n):
     m={'schema_version':1,'purpose':'geometry-controls-only-not-art',
       'asset_id':s['asset_id'],'variant':s['variant'],'source_spec_sha256':sha(path),
       'source_model_sha256':sha(model),'heading_slots':64,'degrees_per_slot':5.625,
-      'available_levels':[n],'camera':c,'canvas_px':c['canvas_px'],
+      'available_levels':[level for level in LEVELS if level<=n],'camera':c,'canvas_px':c['canvas_px'],
       'pivot_px':c['pivot_px'],'rotation_target':'vehicle-only',
       'rotation_axis':'+Y','part_ids':s['part_ids'],'frames':{}}
     for k,i in enumerate(slots(n)):
@@ -61,7 +61,7 @@ def generate(path,n):
 def verify(path,n):
     path,s,model=load(path);m=json.loads((path.parent/'control/manifest.json').read_text())
     assert m['source_spec_sha256']==sha(path) and m['source_model_sha256']==sha(model)
-    assert m['available_levels']==[n] and m['camera']==s['camera']
+    assert m['available_levels']==[level for level in LEVELS if level<=n] and m['camera']==s['camera']
     assert m['pivot_px']==s['camera']['pivot_px']
     assert list(m['frames'])==[f'{i:03d}' for i in slots(n)]
     distinct=set()
