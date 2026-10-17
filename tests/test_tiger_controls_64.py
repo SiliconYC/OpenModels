@@ -8,7 +8,11 @@ S=ROOT/"models/vehicles/land/tiger-i/sprites"
 sys.path.insert(0,str(ROOT/"tools/sprites"))
 class Controls(unittest.TestCase):
     def test_true_64_orientation_control_images(self):
-        from generate_controls import verify,slots
+        try:
+            from generate_controls import verify,slots
+        except ModuleNotFoundError as error:
+            if error.name in ("numpy","PIL"): self.skipTest("Optional image libs validated by dedicated controls generation CI")
+            raise
         m=verify(S/"spec.json",64)
         self.assertEqual(len(m["frames"]),64)
         for level,step in ((16,4),(32,2),(64,1)):
@@ -20,8 +24,12 @@ class Controls(unittest.TestCase):
         self.assertEqual(m["pivot_px"],[256,354])
         self.assertEqual(m["canvas_px"],[512,512])
     def test_actual_4by4_sheet_mapping(self):
-        from PIL import Image
-        from generate_controls import slots
+        try:
+            from PIL import Image
+            from generate_controls import slots
+        except ModuleNotFoundError as error:
+            if error.name in ("numpy","PIL"): self.skipTest("Optional image libs validated by dedicated controls generation CI")
+            raise
         selected=slots(16)
         for channel in ("parts","silhouette","depth"):
             sheet=S/"control/sheets"/f"canonical-16-{channel}.png"
@@ -36,6 +44,22 @@ class Controls(unittest.TestCase):
         a=json.loads(arbitrary.read_text())
         self.assertEqual([x["slot"] for x in a["cells"]],[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31])
         self.assertTrue((S/"control/sheets/arbitrary-16-parts.png").is_file())
+
+    def test_manifest_index_and_binary_png_signatures_stdlib(self):
+        m=json.loads((S/"control/manifest.json").read_text())
+        self.assertEqual(m["heading_slots"],64)
+        self.assertEqual(m["degrees_per_slot"],5.625)
+        self.assertEqual(len(m["frames"]),64)
+        self.assertEqual(m["available_levels"],[64])
+        self.assertEqual(m["camera"]["type"],"orthographic")
+        self.assertEqual(m["camera"]["fixed"],True)
+        for i in range(64):
+            rec=m["frames"][f"{i:03d}"]
+            self.assertEqual(rec["theta_deg"],i*5.625)
+            for channel in ("silhouette","depth","parts"):
+                f=S/rec["files"][channel]
+                with f.open("rb") as handle:
+                    self.assertEqual(handle.read(8),bytes.fromhex("89504e470d0a1a0a"))
     def test_geometry_inputs_and_status(self):
         m=json.loads((S/"control/model-report.json").read_text())
         self.assertEqual(m["wheel_count_each_side"],24)
