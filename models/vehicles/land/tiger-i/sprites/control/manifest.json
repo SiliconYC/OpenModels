@@ -8,6 +8,8 @@
   "heading_slots": 64,
   "degrees_per_slot": 5.625,
   "available_levels": [
+    16,
+    32,
     64
   ],
   "camera": {
