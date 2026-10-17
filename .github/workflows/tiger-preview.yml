@@ -1,0 +1,82 @@
+name: Tiger I real WebGL preview acceptance
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - ".github/workflows/tiger-preview.yml"
+  workflow_dispatch:
+concurrency:
+  group: tiger-preview-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Set up headless Chrome driver
+        run: npm install --no-save --no-package-lock puppeteer-core@24.25.0
+      - name: WebGL render GLB and check independent part movements
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/pages-preview/OpenModels acceptance
+          cp -r docs/. /tmp/pages-preview/OpenModels/
+          python -m http.server 8765 --bind 127.0.0.1 --directory /tmp/pages-preview >/tmp/http.log 2>&1 &
+          node --input-type=module <<'JS'
+          import puppeteer from 'puppeteer-core';
+          import {readFileSync} from 'node:fs';
+          import {createHash} from 'node:crypto';
+          const browser=await puppeteer.launch({headless:true,executablePath:'/usr/bin/google-chrome',
+             args:['--no-sandbox','--enable-webgl','--use-gl=angle','--use-angle=swiftshader','--disable-gpu-sandbox']});
+          const page=await browser.newPage();
+          const hash=(f)=>createHash('sha256').update(readFileSync(f)).digest('hex');
+          try{
+            await page.setViewport({width:1280,height:800,deviceScaleFactor:1});
+            await page.goto('http://127.0.0.1:8765/OpenModels/?model=tiger-i-grey',{waitUntil:'networkidle2',timeout:50000});
+            await page.waitForFunction(()=>document.querySelector('#load-state')?.textContent==='已加载真实 GLB',{timeout:40000});
+            const model=await page.evaluate(()=>({
+              name:document.querySelector('#model-title').textContent,
+              tris:document.querySelector('#model-metrics').textContent,
+              articulationVisible:!document.querySelector('#rig-controls').hidden
+            }));
+            console.log('Real WebGL model:',JSON.stringify(model));
+            if(!model.tris.includes('1,396 三角面')||!model.articulationVisible)throw Error('GLB or rig missing');
+            await page.screenshot({path:'acceptance/tiger-desktop.png'});
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/tiger-before.png'}));
+            await page.click('#turret-left');
+            await new Promise(resolve=>setTimeout(resolve,300));
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/tiger-turret.png'}));
+            if(hash('acceptance/tiger-before.png')===hash('acceptance/tiger-turret.png'))throw Error('turret motion did not change pixels');
+            await page.click('#gun-recoil');
+            await new Promise(resolve=>setTimeout(resolve,300));
+            await page.$('canvas').then(c=>c.screenshot({path:'acceptance/tiger-recoil.png'}));
+            if(hash('acceptance/tiger-turret.png')===hash('acceptance/tiger-recoil.png'))throw Error('recoil did not change pixels');
+            for(const view of ['front','back','left','right','top','iso']){
+              await page.click('[data-view="'+view+'"]');
+              if(await page.$eval('[data-view="'+view+'"]',el=>el.getAttribute('aria-pressed'))!=='true')throw Error(view+' preset not active');
+            }
+            await page.click('[data-shading="clay"]');
+            await page.click('#wire');
+            await page.screenshot({path:'acceptance/tiger-wireframe.png'});
+            await page.click('#wire');
+            await page.click('[data-shading="textured"]');
+            await page.setViewport({width:390,height:820,deviceScaleFactor:1,isMobile:true,hasTouch:true});
+            await page.screenshot({path:'acceptance/tiger-mobile.png'});
+            console.log('PASS desktop/mobile, 6 orthographic views, real turret rotation & recoil (pixel delta), wireframe, gray / default material.');
+          }catch(error){
+            console.error(String(error));await page.screenshot({path:'acceptance/tiger-failure.png'}).catch(()=>{});
+            process.exitCode=1;
+          }finally{await browser.close()}
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tiger-i-webgl-grey-previews
+          path: acceptance/
+          retention-days: 14
