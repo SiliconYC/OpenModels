@@ -29,6 +29,9 @@ class TigerModelTests(unittest.TestCase):
         self.assertTrue(all(p["triangles"]>0 for p in a["parts"]))
         self.assertEqual(json.loads(REPORT.read_text())["triangles"],a["triangles"])
         self.assertFalse(a["uv_present"])
+        scene_bounds=json.loads(REPORT.read_text())["bounds_xyz_m"]
+        self.assertAlmostEqual(scene_bounds[0][1],0,places=2)
+        self.assertAlmostEqual(scene_bounds[1][1],3,places=2)
 
 
 if __name__=="__main__":
