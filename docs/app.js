@@ -18,7 +18,10 @@ scene.add(new THREE.AmbientLight(0xffffff, 1.7));
 const key = new THREE.DirectionalLight(0xffffff, 2.4);
 key.position.set(5, 10, 8);
 scene.add(key);
-const camera = new THREE.OrthographicCamera(-4, 4, 4, -4, .02, 4000);
+const orthographicCamera = new THREE.OrthographicCamera(-4, 4, 4, -4, .02, 4000);
+const perspectiveCamera = new THREE.PerspectiveCamera(42, 1, .02, 4000);
+let camera = orthographicCamera;
+let projectionMode = 'orthographic';
 camera.position.set(4, 3, -5);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -69,11 +72,45 @@ function resize() {
   const visibleHeight = Math.max(1.6, framing.size.y * 2.55,
     footprint / (aspect * .76),
     activeView === 'top' ? framing.size.x / .78 : 0);
-  camera.left = -visibleHeight * w / h / 2;
-  camera.right = visibleHeight * w / h / 2;
-  camera.top = visibleHeight / 2;
-  camera.bottom = -visibleHeight / 2;
-  camera.updateProjectionMatrix();
+  orthographicCamera.left = -visibleHeight * aspect / 2;
+  orthographicCamera.right = visibleHeight * aspect / 2;
+  orthographicCamera.top = visibleHeight / 2;
+  orthographicCamera.bottom = -visibleHeight / 2;
+  orthographicCamera.updateProjectionMatrix();
+  perspectiveCamera.aspect = aspect;
+  perspectiveCamera.updateProjectionMatrix();
+}
+function perspectiveDistanceForHeight(height) {
+  return height / (2 * Math.tan(THREE.MathUtils.degToRad(perspectiveCamera.fov / 2)));
+}
+function setProjection(mode) {
+  if (mode === projectionMode) return;
+  // Match the *visible vertical span at the target*, not a nominal camera distance.
+  // This preserves zoom/pan/direction even when the user has already manipulated the view.
+  controls.update();
+  const target = controls.target.clone();
+  const direction = camera.position.clone().sub(target).normalize();
+  const span = camera.isOrthographicCamera
+    ? (camera.top - camera.bottom) / camera.zoom
+    : 2 * camera.position.distanceTo(target) * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) / camera.zoom;
+  const next = mode === 'perspective' ? perspectiveCamera : orthographicCamera;
+  next.up.copy(camera.up);
+  if (next.isPerspectiveCamera) {
+    next.zoom = 1;
+    next.position.copy(target).addScaledVector(direction, perspectiveDistanceForHeight(span));
+  } else {
+    next.zoom = THREE.MathUtils.clamp((next.top - next.bottom) / span, controls.minZoom, controls.maxZoom);
+    next.position.copy(target).addScaledVector(direction, framing.radius * 4);
+  }
+  next.lookAt(target);
+  next.updateProjectionMatrix();
+  camera = next;
+  controls.object = next;
+  controls.target.copy(target);
+  controls.update();
+  projectionMode = mode;
+  toggleGroup('[data-projection]', 'projection', mode);
+  renderer.domElement.dataset.cameraProjection = camera.type;
 }
 function setView(view) {
   activeView = view;
@@ -91,7 +128,10 @@ function setView(view) {
   const centre = framing.center;
   controls.target.copy(centre);
   camera.up.set(...(view === 'top' ? [1, 0, 0] : [0, 1, 0]));
-  camera.position.copy(centre).addScaledVector(dir, framing.radius * 4);
+  camera.position.copy(centre).addScaledVector(dir,
+    camera.isPerspectiveCamera
+      ? perspectiveDistanceForHeight(orthographicCamera.top - orthographicCamera.bottom)
+      : framing.radius * 4);
   camera.zoom = 1;
   camera.lookAt(centre);
   camera.updateProjectionMatrix();
@@ -198,6 +238,9 @@ async function loadModel(id) {
     if (serial === requestSerial) reportError('无法加载真实三维模型。\n' + (error?.message || String(error)) + '\n请检查 GLB 资源、浏览器 WebGL 和网络。');
   }
 }
+document.querySelectorAll('[data-projection]').forEach(button => button.addEventListener('click', () => {
+  setProjection(button.dataset.projection);
+}));
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
   if (root) setView(button.dataset.view);
 }));
@@ -216,6 +259,16 @@ element('gun-recoil').addEventListener('click', () => {
   element('gun-recoil').textContent = rig.recoiled ? '复位炮管' : '后坐';
 });
 select.addEventListener('change', () => loadModel(select.value));
+// Read-only inspection hook for real-browser acceptance; the active camera is a true Three.js camera.
+window.__openmodelsCameraStatus = () => ({
+  type: camera.type,
+  target: controls.target.toArray(),
+  distance: camera.position.distanceTo(controls.target),
+  verticalSpan: camera.isOrthographicCamera
+    ? (camera.top - camera.bottom) / camera.zoom
+    : 2 * camera.position.distanceTo(controls.target) * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) / camera.zoom
+});
+renderer.domElement.dataset.cameraProjection = camera.type;
 new ResizeObserver(resize).observe(stage);
 resize();
 renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
