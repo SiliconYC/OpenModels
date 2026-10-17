@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 980" data-scale-px-per-m="90" data-projection="top" role="img" aria-label="Tiger I top engineering reference">
+<style>svg{background:#f5f3ec}text{font-family:monospace;fill:#353d3b}.title{font-size:22px;font-weight:bold}.note{font-size:13px}.part{fill:#d5d7ce;stroke:#273b3b;stroke-width:2;stroke-linejoin:round}.steel{fill:#adb9b2;stroke:#273b3b;stroke-width:2}.track{fill:#59665f;stroke:#273b3b;stroke-width:3}.wheel{fill:#d6d5bd;stroke:#293e3b;stroke-width:2}.axis{fill:none;stroke:#b05c38;stroke-dasharray:7 6;stroke-width:1.5}.dim{fill:none;stroke:#687977;stroke-width:1;stroke-dasharray:2 4}</style>
+<text class="title" x="42" y="48">TIGER I · EARLY 1943 / TOP / PLAN</text>
+<text class="note" x="42" y="73">SCHEMATIC · 90 px/m · 1:1 COMMON SCALE · METRES</text>
+<rect data-part="left_track" x="320.385" y="325.400" width="65.250" height="529.200" class="track"/>
+<rect data-part="right_track" x="574.365" y="325.400" width="65.250" height="529.200" class="track"/>
+<rect data-part="hull" x="361.200" y="305.780" width="237.600" height="568.440" class="part"/>
+<rect data-part="left_skirt" x="313.275" y="332.600" width="47.925" height="513.900" class="steel"/>
+<rect data-part="right_skirt" x="598.800" y="332.600" width="47.925" height="513.900" class="steel"/>
+<rect data-part="turret" x="384.600" y="441.500" width="190.800" height="240.300" rx="22" class="part"/>
+<rect data-part="gun" x="470.550" y="113.720" width="18.900" height="327.780" class="steel"/>
+<circle data-part="cupola" cx="431.400" cy="631.400" r="24.300" class="steel"/>
+<path class="dim" d="M326.01,787.10 L380.01,787.10"/>
+<path class="dim" d="M579.99,787.10 L633.99,787.10"/>
+<path class="dim" d="M326.01,736.70 L380.01,736.70"/>
+<path class="dim" d="M579.99,736.70 L633.99,736.70"/>
+<path class="dim" d="M326.01,686.30 L380.01,686.30"/>
+<path class="dim" d="M579.99,686.30 L633.99,686.30"/>
+<path class="dim" d="M326.01,635.90 L380.01,635.90"/>
+<path class="dim" d="M579.99,635.90 L633.99,635.90"/>
+<path class="dim" d="M326.01,585.50 L380.01,585.50"/>
+<path class="dim" d="M579.99,585.50 L633.99,585.50"/>
+<path class="dim" d="M326.01,535.10 L380.01,535.10"/>
+<path class="dim" d="M579.99,535.10 L633.99,535.10"/>
+<path class="dim" d="M326.01,484.70 L380.01,484.70"/>
+<path class="dim" d="M579.99,484.70 L633.99,484.70"/>
+<path class="dim" d="M326.01,434.30 L380.01,434.30"/>
+<path class="dim" d="M579.99,434.30 L633.99,434.30"/>
+<path class="axis" d="M480.00,874.22 L480.00,113.72"/>
+<text class="note" x="42" y="940">X forward · Y up · Z right / centre (0,0,0) = hull midpoint on ground</text>
+<text class="note" x="42" y="961">Illustrative envelopes are not manufacturing-grade contours; see geometry.json &amp; NOTES.md</text>
+</svg>

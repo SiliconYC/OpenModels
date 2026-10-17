@@ -1,0 +1,25 @@
+name: OpenModels verification
+on:
+  pull_request:
+    branches: [dev]
+  workflow_dispatch:
+concurrency:
+  group: openmodels-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reference geometry test
+        run: |
+          if [ -f tests/test_tiger_references.py ]; then python tests/test_tiger_references.py; fi
+      - name: Model pipeline and GLB tests
+        run: |
+          if [ -f tests/test_pipeline.py ]; then python -m unittest discover -s tests -p 'test_*.py' -v; fi
