@@ -35,7 +35,8 @@ jobs:
           python -m http.server 8765 --bind 127.0.0.1 --directory docs >/tmp/openmodels-http.log 2>&1 &
           node --input-type=module <<'JS'
           import puppeteer from 'puppeteer-core';
-          import {createHash, readFileSync} from 'node:fs';
+          import {readFileSync} from 'node:fs';
+          import {createHash} from 'node:crypto';
           const live=process.env.GITHUB_EVENT_NAME==='push';
           const target=live?'https://siliconyc.github.io/OpenModels/?model=tiger-i-uv':'http://127.0.0.1:8765/?model=tiger-i-uv';
           const browser=await puppeteer.launch({headless:true,executablePath:'/usr/bin/google-chrome',
