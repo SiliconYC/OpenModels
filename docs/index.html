@@ -35,13 +35,20 @@
           <div class="controlgroup" aria-label="观察角度">
             <button data-view="iso" class="active" aria-pressed="true" type="button">斜视</button>
             <button data-view="front" aria-pressed="false" type="button">正面</button>
+            <button data-view="back" aria-pressed="false" type="button">背面</button>
             <button data-view="left" aria-pressed="false" type="button">左侧</button>
+            <button data-view="right" aria-pressed="false" type="button">右侧</button>
             <button data-view="top" aria-pressed="false" type="button">俯视</button>
           </div>
           <div class="controlgroup" aria-label="渲染模式">
             <button data-shading="textured" class="active" aria-pressed="true" type="button">材质</button>
             <button data-shading="clay" aria-pressed="false" type="button">灰模</button>
             <button id="wire" aria-pressed="false" type="button">线框</button>
+          </div>
+          <div class="controlgroup" id="rig-controls" hidden aria-label="刚性部件动作">
+            <button id="turret-left" type="button" aria-label="炮塔向左转动">炮塔 ◀</button>
+            <button id="turret-right" type="button" aria-label="炮塔向右转动">▶</button>
+            <button id="gun-recoil" type="button" aria-label="炮管后坐">后坐</button>
           </div>
           <button class="reset" id="reset" type="button" aria-label="恢复默认视角">复位 ↺</button>
         </div>

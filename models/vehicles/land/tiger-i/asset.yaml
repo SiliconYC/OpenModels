@@ -3,7 +3,7 @@ id: tiger-i-early-1943
 name: Tiger I Ausf. E - 1943 early production
 category: vehicles/land
 variant: "Tiger I early production, approx. February-April 1943; Tiger 131 reference"
-stage: orthographic_references
+stage: lowpoly_grey
 unit: metre
 axes:
   forward: "+X"
@@ -37,9 +37,18 @@ references:
       kind: engineering_reference_only
 authorship: original_code_generated_geometry
 source_image_copied: false
-geometry_generated: false
-gltf_generated: false
-triangle_count: null
+geometry_generated: true
+gltf_generated: true
+triangle_count: 1396
+vertex_count: 766
+mesh_count: 36
+model_bounds_m:
+  min: [-3.158, 0.0, -1.7735]
+  max: [5.292, 3.0, 1.7735]
+model_build_script: source/build.py
+model_export: export/tiger-i-grey.glb
+viewer_asset: docs/assets/tiger-i-grey.glb
+model_report: export/mesh-report.json
 textures: []
 parts_planned:
   - hull
@@ -48,6 +57,7 @@ parts_planned:
   - turret
   - gun
   - cupola
+  - grey_test_mesh
 mechanical_pivots:
   turret_yaw_approx_m: [0.315, 2.18, 0.0]
   bore_origin_approx_m: [1.65, 2.43, 0.0]
@@ -56,7 +66,7 @@ unverified:
   - turret contour and yaw centre
   - interleaved road wheel stagger
   - armour profile, mantlet and hatch details
-  - final GLB bbox, tris, UVs and textures
+  - UV mapping and texture atlas (Issue #6; intentionally absent in this grey model)
 licensing:
   reference_source_rights: retained_by_original_publishers
   third_party_assets_included: false

@@ -31,9 +31,10 @@ controls.mouseButtons.LEFT = THREE.MOUSE.ROTATE;
 controls.mouseButtons.MIDDLE = THREE.MOUSE.DOLLY;
 controls.mouseButtons.RIGHT = THREE.MOUSE.PAN;
 const loader = new GLTFLoader();
-let models = [], current = null, root = null, framing = { center: new THREE.Vector3(), radius: 1.8 };
+let models = [], current = null, root = null, framing = { center: new THREE.Vector3(), radius: 1.8, size: new THREE.Vector3(1, 1, 1) };
 let shading = 'textured', wireframe = false, activeView = 'iso', requestSerial = 0;
 let temporary = [], loadCount = 0;
+let rig = { turret:null, barrel:null, barrelZero:0, recoiled:false };
 const element = (id) => document.getElementById(id);
 function setStatus(message) { loadState.textContent = message; }
 function reportError(message) {
@@ -55,12 +56,19 @@ function bounds() {
   const box = new THREE.Box3().setFromObject(root);
   const dimensions = box.getSize(new THREE.Vector3());
   framing.center = box.getCenter(new THREE.Vector3());
+  framing.size = dimensions;
   framing.radius = Math.max(dimensions.length() * .75, .75);
 }
 function resize() {
   const w = Math.max(stage.clientWidth, 1), h = Math.max(stage.clientHeight, 1);
   renderer.setSize(w, h, false);
-  const visibleHeight = Math.max(framing.radius * 3.0, 1.5);
+  const aspect = w / h;
+  // Fit both vehicle length and height; avoid huge empty canvas on desktop
+  // without cropping long hull/barrel on portrait phones or top view.
+  const footprint = Math.hypot(framing.size.x, framing.size.z);
+  const visibleHeight = Math.max(1.6, framing.size.y * 2.55,
+    footprint / (aspect * .76),
+    activeView === 'top' ? framing.size.x / .78 : 0);
   camera.left = -visibleHeight * w / h / 2;
   camera.right = visibleHeight * w / h / 2;
   camera.top = visibleHeight / 2;
@@ -69,11 +77,14 @@ function resize() {
 }
 function setView(view) {
   activeView = view;
+  resize();
   toggleGroup('[data-view]', 'view', view);
   const dirs = {
     iso: [1.0, .85, -1.25],
     front: [1, 0, 0],
+    back: [-1, 0, 0],
     left: [0, 0, -1],
+    right: [0, 0, 1],
     top: [0, 1, 0]
   };
   const dir = new THREE.Vector3(...dirs[view]).normalize();
@@ -145,6 +156,8 @@ function disposeCurrent() {
     }
   });
   root = null;
+  rig = { turret:null, barrel:null, barrelZero:0, recoiled:false };
+  element('rig-controls').hidden = true;
 }
 async function loadModel(id) {
   const entry = models.find(item => item.id === id);
@@ -164,6 +177,11 @@ async function loadModel(id) {
       if (obj.isMesh) obj.userData.sourceMaterial = obj.material;
     });
     scene.add(root);
+    const turret = root.getObjectByName('Turret');
+    const barrel = root.getObjectByName('Barrel');
+    rig = {turret,barrel,barrelZero:barrel?.position.x ?? 0,recoiled:false};
+    element('rig-controls').hidden = !(turret && barrel);
+    element('gun-recoil').textContent='后坐';
     bounds();
     resize();
     const actual = statistics(root);
@@ -189,6 +207,14 @@ document.querySelectorAll('[data-shading]').forEach(button => button.addEventLis
 }));
 element('wire').addEventListener('click', () => { wireframe = !wireframe; appearance(); });
 element('reset').addEventListener('click', () => { if (root) setView('iso'); });
+element('turret-left').addEventListener('click', () => { if (rig.turret) rig.turret.rotation.y += Math.PI / 8; });
+element('turret-right').addEventListener('click', () => { if (rig.turret) rig.turret.rotation.y -= Math.PI / 8; });
+element('gun-recoil').addEventListener('click', () => {
+  if (!rig.barrel) return;
+  rig.recoiled = !rig.recoiled;
+  rig.barrel.position.x = rig.barrelZero - (rig.recoiled ? .22 : 0);
+  element('gun-recoil').textContent = rig.recoiled ? '复位炮管' : '后坐';
+});
 select.addEventListener('change', () => loadModel(select.value));
 new ResizeObserver(resize).observe(stage);
 resize();

@@ -46,14 +46,14 @@
         2.94
       ],
       "y": [
-        0.33,
+        0,
         1.37
       ],
       "z": [
         -1.7735,
         -1.0485
       ],
-      "confidence": "belt envelope; track link profile not resolved"
+      "confidence": "belt envelope, grounded at y=0; tread profile not resolved"
     },
     "right_track": {
       "x": [
@@ -61,14 +61,14 @@
         2.94
       ],
       "y": [
-        0.33,
+        0,
         1.37
       ],
       "z": [
         1.0485,
         1.7735
       ],
-      "confidence": "belt envelope; track link profile not resolved"
+      "confidence": "belt envelope, grounded at y=0; tread profile not resolved"
     },
     "left_skirt": {
       "x": [
@@ -145,7 +145,7 @@
       1.17,
       1.73
     ],
-    "wheel_axis_y": 0.86,
+    "wheel_axis_y": 0.6,
     "wheel_radius": 0.39,
     "layers_per_station": 3,
     "visible_outer_row_only": true,
