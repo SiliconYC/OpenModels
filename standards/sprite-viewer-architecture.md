@@ -41,7 +41,7 @@
   "schema_version": 1,
   "asset_id": "tiger-i",
   "variant": "integrated",
-  "release_status": "approved",
+  "release_status": "fixture",
   "title": "Tiger I — 一体化",
   "heading_slots": 64,
   "zero_heading": "forward +X; locked in spec.json",
@@ -49,7 +49,7 @@
   "degrees_per_slot": 5.625,
   "canvas": { "width": 1024, "height": 1024, "color_space": "sRGB", "alpha": "straight" },
   "pivot_px": [512, 840],
-  "available_levels": [16],
+  "available_levels": [],
   "frames": {
     "000": "frames/000.png",
     "004": "frames/004.png"
@@ -57,7 +57,7 @@
 }
 ```
 
-上例仅示意字段格式，**不是通过验证的完整 16 帧发布清单**：若声称 `available_levels: [16]`，实际清单必须完整具备 16 个索引，不能只发布两帧。实现中应使用满足该约束的完整测试数据；缺失时应拒绝声明该档可用。
+上例是**明确不可播放的两个文件测试片段**，其 `release_status: fixture`、`available_levels: []` 均表示尚无任何完整档位。正式文件必须把 `release_status` 设为经实际验收的 `approved`，且只有同时发布对应全套帧时才能标明 `available_levels: [16]` 等；不能只发布两帧却宣称整套可播。
 
 - `asset_id` + `variant` 是身份，未来可扩展 `turret`、`hull`、`state`，但**首轮只允许整车一体版 `integrated`**；未来分层/后坐/开火另立协议，禁止提前扩大组合维数。
 - `heading_slots = 64` 是全局唯一离散环；可播放档位 `16`、`32`、`64` 对应槽 `step=64/level`，期望索引 `0,step,…,63`。**任一档位仅在全部对应帧齐全、真实可解码且已批准时方可宣布 available**。其他索引可以不存在，不能自动用临近角度补图/镜像/插值冒充。
