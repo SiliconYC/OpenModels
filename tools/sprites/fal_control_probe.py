@@ -141,7 +141,7 @@ def main():
             imgurl=files[0]["url"]
             if urlparse(imgurl).scheme!="https":raise ValueError("Non-HTTPS image output")
             with urllib.request.urlopen(imgurl,timeout=60) as r:body=r.read(14*1024*1024)
-            if not body.startswith(b"\\x89PNG\\r\\n\\x1a\\n"):
+            if not body.startswith(bytes.fromhex("89504e470d0a1a0a")):
                 # The API may return JPEG despite PNG request: never rename bytes.
                 raise ValueError("Expected genuine PNG, original output not saved")
             from PIL import Image
