@@ -4,6 +4,8 @@ on:
     branches: [dev]
     paths:
       - "index.html"
+      - "sprites.html"
+      - "3d.html"
       - "docs/**"
       - ".github/workflows/pages-smoke.yml"
   workflow_dispatch:
@@ -21,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Confirm LIVE dual entry, legacy GLBs and exact published PNG
+      - name: Verify live root and published assets (either Pages source setting)
         shell: bash
         run: |
           set -euo pipefail
@@ -29,21 +31,38 @@ jobs:
           mkdir -p /tmp/openmodels-public
           ready=false
           for attempt in $(seq 1 18); do
+            prefix=""
+            if curl -fLsS --max-time 15 "$base/sprites-catalog.json" -o /tmp/openmodels-public/sprites-catalog.json 2>/dev/null; then
+              prefix="$base"; home_file="docs/index.html"
+            elif curl -fLsS --max-time 15 "$base/docs/sprites-catalog.json" -o /tmp/openmodels-public/sprites-catalog.json 2>/dev/null; then
+              prefix="$base/docs";home_file="index.html"
+            fi
             ok=true
-            for file in index.html sprites.html 3d.html sprites-catalog.json assets/sprites/fixture-compass/integrated/manifest.json assets/sprites/fixture-compass/integrated/frames/000.png assets/test-cube.glb assets/tiger-i-uv.glb; do
-              curl -fLsS --max-time 20 "$base/$file" -o "/tmp/openmodels-public/${file//\//_}" || { ok=false; break; }
-            done
-            if [ "$ok" = true ] && cmp -s docs/index.html /tmp/openmodels-public/index.html &&
-                 cmp -s docs/assets/sprites/fixture-compass/integrated/frames/000.png /tmp/openmodels-public/assets_sprites_fixture-compass_integrated_frames_000.png &&
-                 grep -q 'id="stage"' /tmp/openmodels-public/3d.html &&
-                 grep -q 'id="sprite-canvas"' /tmp/openmodels-public/sprites.html; then
+            if [ -z "$prefix" ]; then ok=false; fi
+            if [ "$ok" = true ]; then
+              for file in index.html sprites.html 3d.html; do
+                curl -fLsS --max-time 15 "$base/$file" -o "/tmp/openmodels-public/root-$file" || { ok=false; break; }
+              done
+            fi
+            if [ "$ok" = true ]; then
+              for file in sprites.html 3d.html assets/sprites/fixture-compass/integrated/manifest.json assets/sprites/fixture-compass/integrated/frames/000.png assets/test-cube.glb assets/tiger-i-uv.glb; do
+                curl -fLsS --max-time 15 "$prefix/$file" -o "/tmp/openmodels-public/${file//\//_}" || { ok=false;break; }
+              done
+            fi
+            if [ "$ok" = true ] &&
+               cmp -s "$home_file" /tmp/openmodels-public/root-index.html &&
+               cmp -s docs/assets/sprites/fixture-compass/integrated/frames/000.png /tmp/openmodels-public/assets_sprites_fixture-compass_integrated_frames_000.png &&
+               grep -q 'class="choices"' /tmp/openmodels-public/root-index.html &&
+               grep -q 'id="stage"' /tmp/openmodels-public/3d.html &&
+               grep -q 'id="sprite-canvas"' /tmp/openmodels-public/sprites.html; then
               ready=true
+              echo "PASS: current Pages source $prefix and 200 HTTP assets"
               break
             fi
-            echo "Attempt $attempt: waiting for dev:/docs deployment of CURRENT revision"
+            echo "Attempt $attempt: awaiting current root/pages deployment"
             sleep 10
           done
-          if [ "$ready" != true ]; then echo 'Public Pages did not deploy current sprite revision';exit 1;fi
+          if [ "$ready" != true ];then echo 'FAIL: public website not serving latest dual entry';exit 1;fi
           python - <<'PY'
           import json,struct
           from pathlib import Path
@@ -56,10 +75,10 @@ jobs:
           assert png[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack_from('>II',png,16)==(96,96) and png[25]==6
           glb=(p/'assets_test-cube.glb').read_bytes()
           assert glb[:4]==b'glTF' and struct.unpack_from('<II',glb,4)==(2,len(glb))
-          print('PASS: actual public dual portal, sprite, manifest, PNG and GLB, all HTTP 200')
+          print('PASS: canonical root portal, true PNG fixture/manifest and unchanged GLB')
           PY
       - run: npm install --no-save --no-package-lock puppeteer-core@24.25.0
-      - name: Run real Chrome against deployed public Pages
+      - name: Run real Chrome against canonical public links
         run: node tests/acceptance-sprites.mjs
         env:
           OPENMODELS_BASE: https://siliconyc.github.io/OpenModels/

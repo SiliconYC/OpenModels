@@ -1,6 +1,6 @@
 # GitHub Pages — 双入口与 PNG 播放器（Issue #32）
 
-发布源：**`dev:/docs`**；公开网站：<https://siliconyc.github.io/OpenModels/>。
+首选发布源：**`dev:/docs`**；历史 Pages 仍可能实际以 `dev:/root` 发布：根目录提供双入口首页及 `sprites.html`、`3d.html` 兼容跳转，两个配置都能使用。公开网站：<https://siliconyc.github.io/OpenModels/>。
 
 - **`/`**：双入口首页。主入口为多方向图／伪 3D，次入口为保留的传统 3D。
 - **`/sprites.html`**：统一 Canvas 2D RGBA 方向播放器，纯 2D，无 Three.js。支持 16／32／64 已完整档位、固定锚点、透明棋盘、64／128／256 像素与鼠标／触控。
