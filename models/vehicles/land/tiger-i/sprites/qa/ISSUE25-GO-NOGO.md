@@ -54,3 +54,14 @@ Fal 請求接受 Base64 Data URI／URL；本輪適配器在真正執行時發送
 **解除阻礙的最低次序**：先獲得可在雲端安全訪問的受控推理帳戶/額度與原創商業風格參考 PNG；確認服務端價格、IP 政策，完成服務側一張輪廓與一張深度/分區真測並留 request_id；再依 000/016/032/048 完整生成 A/B/C 各一張，對照輪廓 IOU、砲管、輪組、號碼與人工美術品質；如果仍一致性不足才探索先繪單張錨圖後用 reference/adapters/局部重繪。**在實際成功前不得宣稱可進 16 向正式製作**。
 
 此處的 No-Go 是對「現在進入正式美術批量生產」的決策，不是斷言 ControlNet 絕不可能做出合格的坦克圖。
+
+## 6. 實際運行的 preflight 驗收補充
+
+- GitHub Actions [#39041211137](https://github.com/SiliconYC/OpenModels/actions/runs/39041211137)：`PREPARED ONLY: 4 headings × 4 images`、`PREFLIGHT ONLY: no remote request`；四個專用單元測試 **4/4 通過**，全部 PNG 為真實 `512×512`、原始來源 SHA 校對。
+- 該作業在安全布林檢查中報告 **`Fal API credential configured for this workflow: false`**，表示此倉庫 CI 並無已接通的受控推理憑證（沒有輸出任何 secret 值）。結合 Agent 沙盒無 FAL_KEY、無 CUDA、外連 DNS 失敗，已確認此次會話無法執行真正付費受控模型。
+- 遠端分支實際追加 `generated/issue25/inputs/{edge_rgb,depth_rgb,parts_rgb,subject_mask}/` 的 000／016／032／048 PNG，共 **16 份控制輸入**，並有 `generated/issue25/input-manifest.json` 與 `qa/issue25-input-contact-sheet.png`。這些只有**幾何輸入**，不是四張 AI 生成候選。`request-preflight.json` 中 **12 個 planned record 全部 NOT_EXECUTED**，無 request_id 或生成 PNG。
+- 聯圖深度 RGB 圖的亮度範圍偏窄，原因是按整組**固定相機 near/far** 映射後分布集中（而非假深度）。進行真正模型試驗時可追加 **對全 64 幀統一求一組 global min/max 的深度增強版本**做 A/B 比較；不得逐幀重新分布而破壞跨向尺度，也不得覆蓋原 16-bit 來源。
+- 特別注意：本倉庫的分區色彩為自定義六類 ID，外部 SDXL 供應商的 segmentation 訓練色盤**未核實是否相容**。端點參數存在僅證明能提交分區圖片，**不代表模型知道這六種顏色代表砲塔／砲身等語義**。實際第一輪須先查證模型支援的標籤／色盤映射，再比對「輪廓+深度」與加上分區是否真正增益。
+- 另外，指定單一 `image_url` 做圖生圖與同時獨立引入**三視圖和商業風格基準**不是一回事；端點能接受一張參考圖並不能證明身份保持。日後若要採用多參考，須真實確認 IP-Adapter、圖集編碼或其他可重現方法，不得假定三視圖自動被理解。
+
+**停止結論仍為 NO-GO**：四方向真人工美術審核、服務端控制追隨、跨角度身份一致性均不能在不存在生成結果的情況下做成功判定；不能開始 #26。
