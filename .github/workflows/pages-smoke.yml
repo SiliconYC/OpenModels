@@ -1,0 +1,44 @@
+name: Public Pages verification
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - ".github/workflows/pages-smoke.yml"
+      - "docs/**"
+  workflow_dispatch:
+concurrency:
+  group: pages-public-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  check-public-website:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Confirm the public site is the viewer, not README
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://siliconyc.github.io/OpenModels"
+          for path in "/" "/index.html" "/app.js" "/models.json" "/assets/test-cube.glb"; do
+            echo "Checking ${base}${path}"
+            curl --fail --location --silent --show-error --retry 3 --retry-delay 3 --output "/tmp/check-${path//\//_}" "${base}${path}"
+          done
+          if ! grep -q 'id="stage"' /tmp/check-_ ; then
+            echo "ERROR: root is not the interactive model viewer."
+            head -c 650 /tmp/check-_
+            exit 1
+          fi
+          grep -q 'id="stage"' /tmp/check-_index.html
+          grep -q 'GLTFLoader' /tmp/check-_app.js
+          grep -q 'test-cube.glb' /tmp/check-_models.json
+          python - <<'PY'
+          import json, struct
+          with open('/tmp/check-_assets_test-cube.glb','rb') as f:
+              raw=f.read()
+          assert raw[:4]==b'glTF'
+          assert struct.unpack_from('<II',raw,4)==(2,len(raw))
+          assert json.load(open('/tmp/check-_models.json'))['models'][0]['id']=='test-cube'
+          print('PASS: publicly deployed viewer, JavaScript, JSON catalog and real GLB.')
+          PY
