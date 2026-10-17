@@ -262,7 +262,9 @@ select.addEventListener('change', () => loadModel(select.value));
 // Read-only inspection hook for real-browser acceptance; the active camera is a true Three.js camera.
 window.__openmodelsCameraStatus = () => ({
   type: camera.type,
+  fov: camera.isPerspectiveCamera ? camera.fov : null,
   target: controls.target.toArray(),
+  direction: camera.position.clone().sub(controls.target).normalize().toArray(),
   distance: camera.position.distanceTo(controls.target),
   verticalSpan: camera.isOrthographicCamera
     ? (camera.top - camera.bottom) / camera.zoom
