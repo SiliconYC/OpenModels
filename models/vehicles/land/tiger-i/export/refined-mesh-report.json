@@ -1,0 +1,728 @@
+{
+  "asset": "tiger-i-early-1943",
+  "phase": "refined geometry early production",
+  "historical_reference": [
+    "tankmuseum.org/article/two-widths-track/",
+    "tiger1.info/EN/RoadWheelSpacing.html",
+    "tiger1.info/EN/Hull-dimensions.html",
+    "tiger1.info/EN/Turret-dimensions.html"
+  ],
+  "source": "source/build_refined.py",
+  "triangles": 34872,
+  "vertices": 18128,
+  "mesh_count": 168,
+  "bounds_xyz_m": [
+    [
+      -3.4,
+      0.0165,
+      -1.84
+    ],
+    [
+      5.292,
+      3.01,
+      1.84
+    ]
+  ],
+  "road_wheels_per_side": 24,
+  "road_wheels_total": 48,
+  "road_wheel_stations_per_side": 8,
+  "track_shoes_per_side": 100,
+  "track_width_m": 0.725,
+  "wheels_diameter_m": 0.804,
+  "parts": {
+    "HullArmour": {
+      "triangles": 24,
+      "vertices": 14
+    },
+    "LowerTub": {
+      "triangles": 16,
+      "vertices": 10
+    },
+    "RoofPlate": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "Sponsons": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "NoseVerticalPlate": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "NoseRoofTransition": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "RearVerticalPlate": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "DriverViewPlate": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "DriverVisionSlot": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "BowMachinegunBall": {
+      "triangles": 200,
+      "vertices": 100
+    },
+    "BowMachinegunBarrel": {
+      "triangles": 160,
+      "vertices": 80
+    },
+    "CrewHatch_-1": {
+      "triangles": 144,
+      "vertices": 72
+    },
+    "HatchPeriscopeCover_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "HatchHinge_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_-1_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_-1_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_-1_2": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_-1_2": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_-1_3": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_-1_3": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_-1_4": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_-1_4": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_-1_5": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_-1_5": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_-1_6": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_-1_6": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TrackBelt_-1": {
+      "triangles": 400,
+      "vertices": 200
+    },
+    "TrackShoes_-1": {
+      "triangles": 1200,
+      "vertices": 800
+    },
+    "RoadWheel_-1_01_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_01_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_01_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_-1_01": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_-1_02_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_02_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_02_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_-1_02": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_-1_03_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_03_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_03_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_-1_03": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_-1_04_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_04_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_04_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_-1_04": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_-1_05_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_05_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_05_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_-1_05": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_-1_06_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_06_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_06_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_-1_06": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_-1_07_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_07_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_07_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_-1_07": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_-1_08_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_08_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_-1_08_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_-1_08": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "Sprocket_-1": {
+      "triangles": 440,
+      "vertices": 220
+    },
+    "SprocketTeeth_-1": {
+      "triangles": 144,
+      "vertices": 96
+    },
+    "Idler_-1": {
+      "triangles": 440,
+      "vertices": 220
+    },
+    "IdlerTeeth_-1": {
+      "triangles": 144,
+      "vertices": 96
+    },
+    "TowEye_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "FrontFender_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "ExhaustSilencer_-1": {
+      "triangles": 180,
+      "vertices": 90
+    },
+    "ExhaustTip_-1": {
+      "triangles": 144,
+      "vertices": 72
+    },
+    "ExhaustGuard_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CrewHatch_1": {
+      "triangles": 144,
+      "vertices": 72
+    },
+    "HatchPeriscopeCover_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "HatchHinge_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_1_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_1_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_1_2": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_1_2": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_1_3": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_1_3": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_1_4": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_1_4": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_1_5": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_1_5": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirt_1_6": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "SideSkirtJoint_1_6": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TrackBelt_1": {
+      "triangles": 400,
+      "vertices": 200
+    },
+    "TrackShoes_1": {
+      "triangles": 1200,
+      "vertices": 800
+    },
+    "RoadWheel_+1_01_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_01_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_01_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_+1_01": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_+1_02_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_02_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_02_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_+1_02": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_+1_03_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_03_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_03_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_+1_03": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_+1_04_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_04_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_04_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_+1_04": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_+1_05_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_05_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_05_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_+1_05": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_+1_06_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_06_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_06_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_+1_06": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_+1_07_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_07_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_07_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_+1_07": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "RoadWheel_+1_08_1": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_08_2": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "RoadWheel_+1_08_3": {
+      "triangles": 468,
+      "vertices": 234
+    },
+    "WheelHub_+1_08": {
+      "triangles": 140,
+      "vertices": 70
+    },
+    "Sprocket_1": {
+      "triangles": 440,
+      "vertices": 220
+    },
+    "SprocketTeeth_1": {
+      "triangles": 144,
+      "vertices": 96
+    },
+    "Idler_1": {
+      "triangles": 440,
+      "vertices": 220
+    },
+    "IdlerTeeth_1": {
+      "triangles": 144,
+      "vertices": 96
+    },
+    "TowEye_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "FrontFender_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "ExhaustSilencer_1": {
+      "triangles": 180,
+      "vertices": 90
+    },
+    "ExhaustTip_1": {
+      "triangles": 144,
+      "vertices": 72
+    },
+    "ExhaustGuard_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "EngineCover": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "EngineAccessHatch": {
+      "triangles": 144,
+      "vertices": 72
+    },
+    "CoolingGrilleFrame_0_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CoolingGrilleSlats_0_-1": {
+      "triangles": 84,
+      "vertices": 56
+    },
+    "CoolingGrilleFrame_0_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CoolingGrilleSlats_0_1": {
+      "triangles": 84,
+      "vertices": 56
+    },
+    "CoolingGrilleFrame_1_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CoolingGrilleSlats_1_-1": {
+      "triangles": 84,
+      "vertices": 56
+    },
+    "CoolingGrilleFrame_1_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CoolingGrilleSlats_1_1": {
+      "triangles": 84,
+      "vertices": 56
+    },
+    "EngineHinge_-0.32": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "EngineHinge_0.32": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretRace": {
+      "triangles": 144,
+      "vertices": 72
+    },
+    "TurretShell": {
+      "triangles": 88,
+      "vertices": 46
+    },
+    "TurretRoof": {
+      "triangles": 88,
+      "vertices": 46
+    },
+    "MantletShield": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "GunCollar": {
+      "triangles": 240,
+      "vertices": 120
+    },
+    "MantletSight": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CommanderCupola": {
+      "triangles": 216,
+      "vertices": 108
+    },
+    "CupolaTop": {
+      "triangles": 144,
+      "vertices": 72
+    },
+    "CupolaVision_0": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CupolaVision_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CupolaVision_2": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CupolaVision_3": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CupolaVision_4": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "CupolaVision_5": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "LoaderHatch": {
+      "triangles": 144,
+      "vertices": 72
+    },
+    "LoaderHatchHinge": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretStowage": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretBinBracket_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretLift_-1_-53": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretLift_-1_72": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretBinBracket_1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretLift_1_-53": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "TurretLift_1_72": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "BarrelTube": {
+      "triangles": 480,
+      "vertices": 240
+    },
+    "MuzzleFirstRing": {
+      "triangles": 160,
+      "vertices": 80
+    },
+    "MuzzleSecondRing": {
+      "triangles": 160,
+      "vertices": 80
+    },
+    "MuzzleExitRing": {
+      "triangles": 160,
+      "vertices": 80
+    },
+    "MuzzleBridge_-1": {
+      "triangles": 12,
+      "vertices": 8
+    },
+    "MuzzleBridge_1": {
+      "triangles": 12,
+      "vertices": 8
+    }
+  },
+  "articulations": {
+    "Turret": {
+      "parent": "Hull",
+      "pivot": [
+        0.315,
+        2.18,
+        0
+      ],
+      "axis": "+Y"
+    },
+    "Barrel": {
+      "parent": "Turret",
+      "pivot_turret": [
+        1.335,
+        0.25,
+        0
+      ],
+      "recoil": "-X"
+    }
+  },
+  "not_modelled": "interior, suspension arms, measured weld lines, final textures",
+  "rebuild_command": "python models/vehicles/land/tiger-i/source/build_refined.py"
+}
