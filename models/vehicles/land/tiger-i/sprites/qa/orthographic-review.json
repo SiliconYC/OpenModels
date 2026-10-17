@@ -1,0 +1,113 @@
+{
+  "views": {
+    "front": {
+      "opaque_pixels": 15104,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    "back": {
+      "opaque_pixels": 15104,
+      "visible_categories": [
+        1,
+        2,
+        4,
+        6
+      ]
+    },
+    "left": {
+      "opaque_pixels": 34367,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "right": {
+      "opaque_pixels": 34367,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "top": {
+      "opaque_pixels": 51356,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    "bottom-oblique": {
+      "opaque_pixels": 22374,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    "front-left": {
+      "opaque_pixels": 48189,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "front-right": {
+      "opaque_pixels": 48301,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "back-left": {
+      "opaque_pixels": 49555,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "back-right": {
+      "opaque_pixels": 49593,
+      "visible_categories": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "orthographic": true,
+  "source": "control/tiger-i-control.npz",
+  "no_commercial_3d_art": true,
+  "note": "camera fixed within each QA view; control QA only"
+}

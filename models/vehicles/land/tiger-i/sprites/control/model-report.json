@@ -1,0 +1,538 @@
+{
+  "schema_version": 1,
+  "asset_id": "tiger-i",
+  "variant": "integrated",
+  "phase": "control geometry - NOT commercial 3D artwork",
+  "reference": "../references/geometry.json",
+  "derived_from": "../source/build_refined.py",
+  "axes": {
+    "forward": "+X",
+    "up": "+Y",
+    "right": "+Z"
+  },
+  "ground_pivot_m": [
+    0,
+    0,
+    0
+  ],
+  "parts": [
+    {
+      "name": "HullArmour",
+      "category": "hull",
+      "triangles": 24
+    },
+    {
+      "name": "LowerTub",
+      "category": "hull",
+      "triangles": 16
+    },
+    {
+      "name": "RoofPlate",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "Sponsons",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "NoseVerticalPlate",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "NoseRoofTransition",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "RearVerticalPlate",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "DriverViewPlate",
+      "category": "fittings",
+      "triangles": 12
+    },
+    {
+      "name": "BowMachinegunBall",
+      "category": "fittings",
+      "triangles": 200
+    },
+    {
+      "name": "SideSkirt_-1_1",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_-1_2",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_-1_3",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_-1_4",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_-1_5",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_-1_6",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "TrackBelt_-1",
+      "category": "track",
+      "triangles": 400
+    },
+    {
+      "name": "RoadWheel_-1_01_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_01_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_01_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_02_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_02_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_02_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_03_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_03_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_03_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_04_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_04_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_04_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_05_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_05_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_05_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_06_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_06_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_06_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_07_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_07_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_07_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_08_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_08_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_-1_08_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "Sprocket_-1",
+      "category": "wheel",
+      "triangles": 64
+    },
+    {
+      "name": "Idler_-1",
+      "category": "wheel",
+      "triangles": 64
+    },
+    {
+      "name": "FrontFender_-1",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "ExhaustSilencer_-1",
+      "category": "fittings",
+      "triangles": 180
+    },
+    {
+      "name": "ExhaustGuard_-1",
+      "category": "fittings",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_1_1",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_1_2",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_1_3",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_1_4",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_1_5",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "SideSkirt_1_6",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "TrackBelt_1",
+      "category": "track",
+      "triangles": 400
+    },
+    {
+      "name": "RoadWheel_+1_01_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_01_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_01_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_02_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_02_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_02_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_03_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_03_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_03_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_04_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_04_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_04_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_05_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_05_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_05_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_06_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_06_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_06_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_07_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_07_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_07_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_08_1",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_08_2",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "RoadWheel_+1_08_3",
+      "category": "wheel",
+      "triangles": 48
+    },
+    {
+      "name": "Sprocket_1",
+      "category": "wheel",
+      "triangles": 64
+    },
+    {
+      "name": "Idler_1",
+      "category": "wheel",
+      "triangles": 64
+    },
+    {
+      "name": "FrontFender_1",
+      "category": "hull",
+      "triangles": 12
+    },
+    {
+      "name": "ExhaustSilencer_1",
+      "category": "fittings",
+      "triangles": 180
+    },
+    {
+      "name": "ExhaustGuard_1",
+      "category": "fittings",
+      "triangles": 12
+    },
+    {
+      "name": "TurretRace",
+      "category": "turret",
+      "triangles": 144
+    },
+    {
+      "name": "TurretShell",
+      "category": "turret",
+      "triangles": 88
+    },
+    {
+      "name": "TurretRoof",
+      "category": "turret",
+      "triangles": 88
+    },
+    {
+      "name": "MantletShield",
+      "category": "turret",
+      "triangles": 12
+    },
+    {
+      "name": "GunCollar",
+      "category": "turret",
+      "triangles": 240
+    },
+    {
+      "name": "CommanderCupola",
+      "category": "turret",
+      "triangles": 216
+    },
+    {
+      "name": "CupolaTop",
+      "category": "turret",
+      "triangles": 144
+    },
+    {
+      "name": "LoaderHatch",
+      "category": "turret",
+      "triangles": 144
+    },
+    {
+      "name": "LoaderHatchHinge",
+      "category": "turret",
+      "triangles": 12
+    },
+    {
+      "name": "TurretStowage",
+      "category": "turret",
+      "triangles": 12
+    },
+    {
+      "name": "BarrelTube",
+      "category": "gun",
+      "triangles": 480
+    },
+    {
+      "name": "MuzzleFirstRing",
+      "category": "gun",
+      "triangles": 160
+    },
+    {
+      "name": "MuzzleSecondRing",
+      "category": "gun",
+      "triangles": 160
+    },
+    {
+      "name": "MuzzleExitRing",
+      "category": "gun",
+      "triangles": 160
+    },
+    {
+      "name": "MuzzleBridge_-1",
+      "category": "gun",
+      "triangles": 12
+    },
+    {
+      "name": "MuzzleBridge_1",
+      "category": "gun",
+      "triangles": 12
+    }
+  ],
+  "category_ids": {
+    "hull": 1,
+    "turret": 2,
+    "gun": 3,
+    "track": 4,
+    "wheel": 5,
+    "fittings": 6
+  },
+  "triangle_count": 6308,
+  "vertex_count": 3320,
+  "mesh_count": 97,
+  "bounds_m": [
+    [
+      -3.4,
+      0.06,
+      -1.84
+    ],
+    [
+      5.292,
+      3.01,
+      1.84
+    ]
+  ],
+  "wheel_count_each_side": 24,
+  "wheel_stations_each_side": 8,
+  "limitations": [
+    "Hull and turret proportions not fabrication CAD",
+    "interleaved wheels reduced to cylinder faces",
+    "track tread teeth omitted",
+    "cupola/sights simplified",
+    "turret hand-weld detail and precise brake internals omitted"
+  ],
+  "rebuild_command": "python models/vehicles/land/tiger-i/sprites/build_control.py"
+}
