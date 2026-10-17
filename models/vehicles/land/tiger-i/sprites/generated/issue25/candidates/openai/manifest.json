@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "asset_id": "tiger-i",
+  "variant": "integrated",
+  "phase": "Issue #25 direct OpenAI image-generation feasibility trial",
+  "method": "OpenAI hosted image generation (image/reference guided, NOT ControlNet)",
+  "status": "REAL_GENERATED_CANDIDATES_UNAPPROVED",
+  "camera_lock_verified": false,
+  "controlnet_used": false,
+  "slot_matched_3channel_controls_supplied": false,
+  "reference_types": [
+    "#23 real orthographic front.png and left.png (view/proportion reference; not slot-specific ControlNet inputs)",
+    "generated 000.png identity anchor supplied for next 3 views"
+  ],
+  "slots": [
+    0,
+    16,
+    32,
+    48
+  ],
+  "original_input_canvas_px": [
+    512,
+    512
+  ],
+  "provider_output_canvas_px": [
+    1254,
+    1254
+  ],
+  "provider_model_version": null,
+  "provider_seed": null,
+  "provider_internal_parameters": null,
+  "output_background": "nontransparent opaque RGB dark background; NO real alpha or background removal",
+  "approval": {
+    "geometry": "not independently verified",
+    "direction_consistency": "partially plausible, not validated against per-slot geometry",
+    "commercial_art": "not approved",
+    "alpha": "failed - opaque",
+    "ready_for_16_heading_production": false
+  },
+  "candidates": {
+    "000": {
+      "slot": 0,
+      "requested_theta_deg": 0.0,
+      "image": "000.png",
+      "imagegen_generation_id": "713dcda8-f26b-4b9d-abc4-3736567a0116",
+      "sha256": "d2b20e67d87f37a9f4c6ae5e61d42a190dc7e14924364446fecb56a53734baa3",
+      "git_blob_sha1": "448037c7a85ccaaf76de59275d4eab3e743ad286",
+      "bytes": 1967021,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "image_mode": "RGB",
+      "has_real_transparency": false,
+      "seed": null,
+      "model_revision": null,
+      "prompt": "Create a polished commercial-quality game-sprite candidate of a single early-1943 Tiger I heavy tank, designed as an original top-down orthographic RTS-style unit illustration. Use Image A and Image B as geometry/proportion references only: Image A is a front-view control reference, and Image B is a left-view control reference. Preserve the defining early Tiger I features: boxy near-vertical hull, rounded asymmetrical turret, prominent mantlet, long 88 mm gun, double-baffle muzzle brake, broad tracks, and interleaved rubber-rimmed road wheels. This is not a photo and not a raw 3D render; it should look like refined hand-painted game art suitable for a premium strategy game. Use a fixed orthographic / pseudo-isometric camera feel, with the tank centered at a consistent scale on a square canvas. Render the vehicle at vehicle yaw 0 degrees under a fixed camera at roughly 45 degrees azimuth and 35 degrees elevation, so the visible result is a front-right three-quarter orthographic view. Keep the tank isolated, with no scenery and no extra vehicles. Use a restrained sand-olive / dunkelgelb military palette, subtle weathering, an off-white turret number '131', and a small distinctive rust nick below the right turret hatch so this identity can stay consistent across later directions. Crisp silhouette, readable at small size, mature commercial finish, no logos, no watermark, no text other than the turret number.",
+      "reference_intent": "front and left geometry reference",
+      "actual_controlnet_used": false,
+      "approved": false
+    },
+    "016": {
+      "slot": 16,
+      "requested_theta_deg": 90.0,
+      "image": "016.png",
+      "imagegen_generation_id": "7e956fef-db22-4e10-96e8-b42ae8ca9cde",
+      "sha256": "89dd1a606fff4c65660bff47fd9ec6f240e273fb15dcac7b336eff3f74f8003c",
+      "git_blob_sha1": "f3f2910c9a3b3aa2dd12dd1d122cc2c69856c49c",
+      "bytes": 2120224,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "image_mode": "RGB",
+      "has_real_transparency": false,
+      "seed": null,
+      "model_revision": null,
+      "prompt": "Create a second polished commercial-quality game-sprite candidate of the same early-1943 Tiger I tank. Image A is the anchor image that establishes the exact visual identity, paint treatment, turret number, rust nick, and overall style. Image B is a front-view control reference and Image C is a left-view control reference for geometry only. Keep the same vehicle identity as Image A: same sand-olive palette, same weathering, same off-white turret number '131', same small rust nick below the right turret hatch, same mature premium RTS-style painted look, same centered scale, same isolated dark background, and same orthographic / pseudo-isometric rendering style. Render the tank under the same fixed camera, but rotate the vehicle to yaw 90 degrees so the result reads as a rear-right three-quarter orthographic view. Preserve the Tiger I silhouette, rounded asymmetrical turret, mantlet, long 88 mm gun, double-baffle muzzle brake, broad tracks, and interleaved rubber-rimmed road wheels. No extra vehicles, no scenery, no watermark, no added text beyond the turret number.",
+      "reference_intent": "front and left geometry reference and slot 000 art style anchor",
+      "actual_controlnet_used": false,
+      "approved": false
+    },
+    "032": {
+      "slot": 32,
+      "requested_theta_deg": 180.0,
+      "image": "032.png",
+      "imagegen_generation_id": "165485d5-db62-47e2-8a32-0bf63254a3ee",
+      "sha256": "410342ef3a382721a88f1d9356d69fbbaa9357dd8b94650b01780c5c02ae4c69",
+      "git_blob_sha1": "f984de9d7225c4ef6c12395bfa1985c23f4a803b",
+      "bytes": 2171127,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "image_mode": "RGB",
+      "has_real_transparency": false,
+      "seed": null,
+      "model_revision": null,
+      "prompt": "Create a third polished commercial-quality game-sprite candidate of the same early-1943 Tiger I tank. Image A is the anchor image that establishes the exact visual identity, paint treatment, turret number, rust nick, and overall style. Image B is a front-view control reference and Image C is a left-view control reference for geometry only. Keep the same vehicle identity as Image A: same sand-olive palette, same weathering, same off-white turret number '131', same small rust nick below the right turret hatch, same mature premium RTS-style painted look, same centered scale, same isolated dark background, and same orthographic / pseudo-isometric rendering style. Render the tank under the same fixed camera, but rotate the vehicle to yaw 180 degrees so the result reads as a rear-left three-quarter orthographic view. Preserve the Tiger I silhouette, rounded asymmetrical turret, mantlet, long 88 mm gun, double-baffle muzzle brake, broad tracks, and interleaved rubber-rimmed road wheels. No extra vehicles, no scenery, no watermark, no added text beyond the turret number.",
+      "reference_intent": "front and left geometry reference and slot 000 art style anchor",
+      "actual_controlnet_used": false,
+      "approved": false
+    },
+    "048": {
+      "slot": 48,
+      "requested_theta_deg": 270.0,
+      "image": "048.png",
+      "imagegen_generation_id": "380e5829-f026-456a-ac25-05b37dba25a0",
+      "sha256": "11d602ef01a1b1360d90cc75f8cb791bf1c53e9c861ed691e18bc386bf201fb5",
+      "git_blob_sha1": "ed94faaf9b737cc56991b7c39233d197caea98de",
+      "bytes": 2147202,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "image_mode": "RGB",
+      "has_real_transparency": false,
+      "seed": null,
+      "model_revision": null,
+      "prompt": "Create a fourth polished commercial-quality game-sprite candidate of the same early-1943 Tiger I tank. Image A is the anchor image that establishes the exact visual identity, paint treatment, turret number, rust nick, and overall style. Image B is a front-view control reference and Image C is a left-view control reference for geometry only. Keep the same vehicle identity as Image A: same sand-olive palette, same weathering, same off-white turret number '131', same small rust nick below the right turret hatch, same mature premium RTS-style painted look, same centered scale, same isolated dark background, and same orthographic / pseudo-isometric rendering style. Render the tank under the same fixed camera, but rotate the vehicle to yaw 270 degrees so the result reads as a front-left three-quarter orthographic view. Preserve the Tiger I silhouette, rounded asymmetrical turret, mantlet, long 88 mm gun, double-baffle muzzle brake, broad tracks, and interleaved rubber-rimmed road wheels. No extra vehicles, no scenery, no watermark, no added text beyond the turret number.",
+      "reference_intent": "front and left geometry reference and slot 000 art style anchor",
+      "actual_controlnet_used": false,
+      "approved": false
+    }
+  }
+}
