@@ -52,13 +52,17 @@ def xz_prism(contour, bottom, top, name, rgb, inset_top=0.0):
     vertices=low+high
     faces=[]
     # Bottom reversed, top forwards, sides quads. Individual triangles, no fake detail.
+    # XZ polygon has +Y pointing opposite the 2D winding;
+    # top must face UP, bottom DOWN, side panels must face OUT.
     for i in range(1,n-1):
-        faces.append((0,i+1,i))
-        faces.append((n,n+i,n+i+1))
+        faces.append((0,i,i+1))
+        faces.append((n,n+i+1,n+i))
     for i in range(n):
         j=(i+1)%n
-        faces.extend(((i,j,n+j),(i,n+j,n+i)))
-    return mesh(vertices,faces,name,rgb)
+        faces.extend(((i,n+j,j),(i,n+i,n+j)))
+    result=mesh(vertices,faces,name,rgb)
+    assert result.face_normals[1][1]>.95, "turret roof normals must point +Y"
+    return result
 
 
 def xy_prism(contour, zlow, zhigh, name, rgb):
@@ -67,7 +71,8 @@ def xy_prism(contour, zlow, zhigh, name, rgb):
     vertices=[[x,y,zlow] for x,y in contour]+[[x,y,zhigh] for x,y in contour]
     faces=[]
     for i in range(1,n-1):
-        faces.extend(((0,i,i+1),(n,n+i+1,n+i)))
+        # CCW in XY: low-Z cap faces -Z, high-Z cap faces +Z.
+        faces.extend(((0,i+1,i),(n,n+i,n+i+1)))
     for i in range(n):
         j=(i+1)%n
         faces.extend(((i,j,n+j),(i,n+j,n+i)))
