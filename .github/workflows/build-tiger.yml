@@ -1,7 +1,7 @@
 name: One-time Tiger I GLB build
 on:
-  push:
-    branches: [feat-5-tiger-i-lowpoly-20261017]
+  pull_request:
+    branches: [dev]
     paths:
       - ".github/workflows/build-tiger.yml"
       - "models/vehicles/land/tiger-i/source/build.py"
