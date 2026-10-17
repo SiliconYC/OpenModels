@@ -88,8 +88,9 @@ def draw(view):
                     rect(view, [P["gun"]["breech_x"],P["gun"]["axis_y"]-P["gun"]["outer_radius"],0],
                          [P["gun"]["muzzle_x"],P["gun"]["axis_y"]+P["gun"]["outer_radius"],0],
                          'class="steel"', "gun"),
-                    circle(*point(view,P["cupola"]["centre"][0],P["cupola"]["centre"][1],P["cupola"]["centre"][2]),
-                           K * .22,'class="steel"',"cupola"),
+                    rect(view, [P["cupola"]["centre"][0]-.27, P["turret"]["y"][1], P["cupola"]["centre"][2]-.27],
+                         [P["cupola"]["centre"][0]+.27, P["cupola"]["top_y"], P["cupola"]["centre"][2]+.27],
+                         'rx="5" class="steel"', "cupola"),
                     line(*point(view,0,0,0),*point(view,0,3.2,0))))
     elif view == "front":
         out.extend((box(view, "left_track", 'class="track"'),
@@ -102,8 +103,9 @@ def draw(view):
         out.append(circle(gx,gy,K * P["gun"]["outer_radius"],'class="steel"',"gun-muzzle"))
         out.append(circle(gx,gy,K * 0.046,'class="track"',"gun-bore"))
         out.append(box(view,"turret",'fill="none" stroke="#273b3b" stroke-dasharray="5 6"'))
-        out.append(circle(*point(view,0,P["cupola"]["centre"][1],P["cupola"]["centre"][2]),
-                          K*.22,'class="steel"',"cupola"))
+        out.append(rect(view, [0, P["turret"]["y"][1], P["cupola"]["centre"][2]-.27],
+                         [0, P["cupola"]["top_y"], P["cupola"]["centre"][2]+.27],
+                         'rx="5" class="steel"', "cupola"))
         out.append(line(*point(view,0,0,0),*point(view,0,3.2,0)))
     else:
         out.extend((box(view, "left_track", 'class="track"'),
@@ -123,7 +125,7 @@ def draw(view):
                 out.append(line(sx-27,sy,sx+27,sy,"dim"))
         out.append(line(*point(view,-3.158,0,0),*point(view,5.292,0,0)))
     out += [f'<text class="note" x="42" y="{height-40}">X forward · Y up · Z right / centre (0,0,0) = hull midpoint on ground</text>',
-            f'<text class="note" x="42" y="{height-19}">Illustrative envelopes are not manufacturing-grade contours; see geometry.json & NOTES.md</text>',
+            f'<text class="note" x="42" y="{height-19}">Illustrative envelopes are not manufacturing-grade contours; see geometry.json &amp; NOTES.md</text>',
             '</svg>']
     return "\n".join(out)+"\n"
 
