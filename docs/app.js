@@ -34,6 +34,7 @@ const loader = new GLTFLoader();
 let models = [], current = null, root = null, framing = { center: new THREE.Vector3(), radius: 1.8 };
 let shading = 'textured', wireframe = false, activeView = 'iso', requestSerial = 0;
 let temporary = [], loadCount = 0;
+let rig = { turret:null, barrel:null, barrelZero:0, recoiled:false };
 const element = (id) => document.getElementById(id);
 function setStatus(message) { loadState.textContent = message; }
 function reportError(message) {
@@ -145,6 +146,8 @@ function disposeCurrent() {
     }
   });
   root = null;
+  rig = { turret:null, barrel:null, barrelZero:0, recoiled:false };
+  element('rig-controls').hidden = true;
 }
 async function loadModel(id) {
   const entry = models.find(item => item.id === id);
@@ -164,6 +167,11 @@ async function loadModel(id) {
       if (obj.isMesh) obj.userData.sourceMaterial = obj.material;
     });
     scene.add(root);
+    const turret = root.getObjectByName('Turret');
+    const barrel = root.getObjectByName('Barrel');
+    rig = {turret,barrel,barrelZero:barrel?.position.x ?? 0,recoiled:false};
+    element('rig-controls').hidden = !(turret && barrel);
+    element('gun-recoil').textContent='后坐';
     bounds();
     resize();
     const actual = statistics(root);
@@ -189,6 +197,14 @@ document.querySelectorAll('[data-shading]').forEach(button => button.addEventLis
 }));
 element('wire').addEventListener('click', () => { wireframe = !wireframe; appearance(); });
 element('reset').addEventListener('click', () => { if (root) setView('iso'); });
+element('turret-left').addEventListener('click', () => { if (rig.turret) rig.turret.rotation.y += Math.PI / 8; });
+element('turret-right').addEventListener('click', () => { if (rig.turret) rig.turret.rotation.y -= Math.PI / 8; });
+element('gun-recoil').addEventListener('click', () => {
+  if (!rig.barrel) return;
+  rig.recoiled = !rig.recoiled;
+  rig.barrel.position.x = rig.barrelZero - (rig.recoiled ? .22 : 0);
+  element('gun-recoil').textContent = rig.recoiled ? '复位炮管' : '后坐';
+});
 select.addEventListener('change', () => loadModel(select.value));
 new ResizeObserver(resize).observe(stage);
 resize();
