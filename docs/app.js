@@ -31,7 +31,7 @@ controls.mouseButtons.LEFT = THREE.MOUSE.ROTATE;
 controls.mouseButtons.MIDDLE = THREE.MOUSE.DOLLY;
 controls.mouseButtons.RIGHT = THREE.MOUSE.PAN;
 const loader = new GLTFLoader();
-let models = [], current = null, root = null, framing = { center: new THREE.Vector3(), radius: 1.8 };
+let models = [], current = null, root = null, framing = { center: new THREE.Vector3(), radius: 1.8, size: new THREE.Vector3(1, 1, 1) };
 let shading = 'textured', wireframe = false, activeView = 'iso', requestSerial = 0;
 let temporary = [], loadCount = 0;
 let rig = { turret:null, barrel:null, barrelZero:0, recoiled:false };
@@ -56,12 +56,19 @@ function bounds() {
   const box = new THREE.Box3().setFromObject(root);
   const dimensions = box.getSize(new THREE.Vector3());
   framing.center = box.getCenter(new THREE.Vector3());
+  framing.size = dimensions;
   framing.radius = Math.max(dimensions.length() * .75, .75);
 }
 function resize() {
   const w = Math.max(stage.clientWidth, 1), h = Math.max(stage.clientHeight, 1);
   renderer.setSize(w, h, false);
-  const visibleHeight = Math.max(framing.radius * 3.0, 1.5);
+  const aspect = w / h;
+  // Fit both vehicle length and height; avoid huge empty canvas on desktop
+  // without cropping long hull/barrel on portrait phones or top view.
+  const footprint = Math.hypot(framing.size.x, framing.size.z);
+  const visibleHeight = Math.max(1.6, framing.size.y * 2.55,
+    footprint / (aspect * .76),
+    activeView === 'top' ? framing.size.x / .78 : 0);
   camera.left = -visibleHeight * w / h / 2;
   camera.right = visibleHeight * w / h / 2;
   camera.top = visibleHeight / 2;
@@ -70,6 +77,7 @@ function resize() {
 }
 function setView(view) {
   activeView = view;
+  resize();
   toggleGroup('[data-view]', 'view', view);
   const dirs = {
     iso: [1.0, .85, -1.25],
