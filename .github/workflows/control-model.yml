@@ -1,0 +1,43 @@
+name: Tiger control model generation (#23)
+on:
+  pull_request:
+    branches: [dev]
+    paths:
+      - "models/vehicles/land/tiger-i/sprites/build_control.py"
+      - "tools/sprites/cpu_renderer.py"
+      - "tools/sprites/preview_control.py"
+      - ".github/workflows/control-model.yml"
+concurrency:
+  group: tiger-control-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  generate:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU math and rendering dependencies
+        run: python -m pip install --disable-pip-version-check numpy trimesh Pillow
+      - name: Rebuild control mesh and REAL orthographic evidence
+        run: |
+          python models/vehicles/land/tiger-i/sprites/build_control.py
+          python tools/sprites/preview_control.py
+          python -m unittest discover -s tests -p 'test_tiger_control.py' -v
+      - name: Commit generated non-art source derivatives to SAME issue branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add models/vehicles/land/tiger-i/sprites/control/ models/vehicles/land/tiger-i/sprites/qa/
+          if ! git diff --cached --quiet; then
+            git -c user.name=openmodels-builder -c user.email=actions@users.noreply.github.com commit -m "build(control): real reduced mesh and 10 orthographic QA views (#23)"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
