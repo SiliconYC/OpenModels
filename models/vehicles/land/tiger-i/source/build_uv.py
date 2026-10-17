@@ -135,12 +135,14 @@ def unwrap(name, geom, slots):
         chart = slots[side]
         projected = project(raw_tri, side)
         low, span = spans[side]
-        ratio = np.clip((projected - low) / span, 0, 1)
-        # Picture pixels start in top-left, whereas +Y or the chosen "up"
-        # projected coordinate should occupy the upper image half.
+        # Preserve physical U/V aspect. Independent 0..1 normalization would
+        # badly stretch the 6-m hull side into a tall narrow chart.
         x0, y0, x1, y1 = chart
-        uvs[t * 3:t * 3 + 3, 0] = (x0 + ratio[:, 0] * (x1 - x0)) / SIZE
-        uvs[t * 3:t * 3 + 3, 1] = (y1 - ratio[:, 1] * (y1 - y0)) / SIZE
+        pixel_per_metre = min((x1 - x0) / span[0], (y1 - y0) / span[1])
+        offsets = (projected - (low + span * .5)) * pixel_per_metre
+        uvs[t * 3:t * 3 + 3, 0] = ((x0 + x1) * .5 + offsets[:, 0]) / SIZE
+        # glTF image starts top-left; increasing model-up means decreasing V.
+        uvs[t * 3:t * 3 + 3, 1] = ((y0 + y1) * .5 - offsets[:, 1]) / SIZE
         by_axis[AXES[side]] += 1
     if not np.isfinite(uvs).all() or np.any(uvs < 0) or np.any(uvs > 1):
         raise ValueError("UV outside atlas for " + name)
